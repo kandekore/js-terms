@@ -1,0 +1,382 @@
+{
+  "Variables": [
+    {
+      "term": "var",
+      "description": "Declares a variable, optionally initializing it to a value.",
+      "code": "var name = 'John';"
+    },
+    {
+      "term": "let",
+      "description": "Declares a block-scoped, local variable, optionally initializing it to a value.",
+      "code": "let age = 30;"
+    },
+    {
+      "term": "const",
+      "description": "Declares a block-scoped, read-only named constant.",
+      "code": "const birthday = '01/01/1990';"
+    }
+  ],
+  "Data Types": [
+    {
+      "term": "String",
+      "description": "Represents textual data.",
+      "code": "let greeting = \"Hello, World!\";"
+    },
+    {
+      "term": "Number",
+      "description": "Represents both integer and floating-point numbers.",
+      "code": "let score = 25;"
+    },
+    {
+      "term": "Boolean",
+      "description": "Represents a logical entity having two values: true and false.",
+      "code": "let isAdult = true;"
+    },
+    {
+      "term": "Object",
+      "description": "Used to store collections of data and more complex entities.",
+      "code": "let person = {firstName: \"John\", lastName: \"Doe\"};"
+    },
+    {
+      "term": "Array",
+      "description": "Used to store multiple values in a single variable.",
+      "code": "let colors = ['Red', 'Green', 'Blue'];"
+    },
+    {
+      "term": "Null",
+      "description": "Represents the intentional absence of any object value.",
+      "code": "let empty = null;"
+    },
+    {
+      "term": "Undefined",
+      "description": "Indicates that a variable has not been assigned a value.",
+      "code": "let und;"
+    }
+  ],
+  "Operators": [
+    {
+      "term": "Arithmetic",
+      "description": "Perform mathematical calculations.",
+      "code": "let sum = 10 + 5; // 15"
+    },
+    {
+      "term": "Assignment",
+      "description": "Assign values to JavaScript variables.",
+      "code": "let x = 10;"
+    },
+    {
+      "term": "Comparison",
+      "description": "Compare two values and return true or false.",
+      "code": "let isEqual = (x == 10); // true"
+    },
+    {
+      "term": "Logical",
+      "description": "Used to determine the logic between variables or values.",
+      "code": "let isGreater = (x > 5) && (x < 15); // true"
+    },
+    {
+      "term": "Unary",
+      "description": "Operate on a single operand.",
+      "code": "x++;"
+    },
+    {
+      "term": "Ternary (Conditional)",
+      "description": "Assign a value to a variable based on some condition.",
+      "code": "let result = (x > 10) ? \"Greater than 10\" : \"Less than or equal to 10\";"
+    }
+  ],
+  "Control Flow": [
+    {
+      "term": "if statement",
+      "description": "Executes a block of code if a specified condition is true.",
+      "code": "if (x > 10) {\n  console.log(\"x is greater than 10\");\n}"
+    },
+    {
+      "term": "else statement",
+      "description": "Executes a block of code if the same condition is false.",
+      "code": "else {\n  console.log(\"x is not greater than 10\");\n}"
+    },
+    {
+      "term": "else if statement",
+      "description": "Specifies a new condition to test if the first condition is false.",
+      "code": "else if (x == 10) {\n  console.log(\"x is equal to 10\");\n}"
+    },
+    {
+      "term": "switch statement",
+      "description": "Specifies many alternative blocks of code to be executed.",
+      "code": "switch (x) {\n  case 10:\n    console.log(\"x is 10\");\n    break;\n  default:\n    console.log(\"x is not 10\");\n}"
+    },
+    {
+      "term": "for loop",
+      "description": "Loops through a block of code a number of times.",
+      "code": "for (let i = 0; i < 5; i++) {\n  console.log(i);\n}"
+    },
+    {
+      "term": "while loop",
+      "description": "Loops through a block of code as long as a specified condition is true.",
+      "code": "let i = 0;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}"
+    },
+    {
+      "term": "do-while loop",
+      "description": "Also loops through a block of code as long as a specified condition is true.",
+      "code": "do {\n  console.log(i);\n  i++;\n} while (i < 5);"
+    }
+  ],
+  "Functions": [
+    {
+      "term": "Function declaration",
+      "description": "Defines a function with the specified parameters.",
+      "code": "function greet(name) {\n  return \"Hello, \" + name;\n}"
+    },
+    {
+      "term": "Function expression",
+      "description": "A function can also be defined using an expression.",
+      "code": "let greet = function(name) {\n  return \"Hello, \" + name;\n};"
+    },
+    {
+      "term": "Arrow function",
+      "description": "Allows a short syntax for writing function expressions.",
+      "code": "let greet = (name) => \"Hello, \" + name;"
+    },
+    {
+      "term": "IIFE (Immediately Invoked Function Expression)",
+      "description": "A function that runs as soon as it is defined.",
+      "code": "(function () {\n  console.log(\"Immediately invoked\");\n})();"
+    }
+  ],
+  "Scope": [
+    {
+      "term": "Global scope",
+      "description": "Variables defined outside any function have global scope.",
+      "code": "var globalVar = \"I'm global\";"
+    },
+    {
+      "term": "Local scope",
+      "description": "Variables declared within a function are local to that function.",
+      "code": "function localScope() {\n  var localVar = \"I'm local\";\n}"
+    },
+    {
+      "term": "Block scope",
+      "description": "`let` and `const` are scoped to the block in which they are defined.",
+      "code": "if (true) {\n  let blockVar = \"I'm block-scoped\";\n}"
+    },
+    {
+      "term": "Lexical scope",
+      "description": "Defines how variable names are resolved in nested functions: inner functions contain the scope of parent functions even if the parent function has returned.",
+      "code": "function outer() {\n  var outerVar = \"I'm outside!\";\n  function inner() {\n    console.log(outerVar);\n  }\n  return inner;\n}\nvar getInner = outer();\ngetInner(); // Logs \"I'm outside!\""
+    }
+  ],
+  "Arrays": [
+    {
+      "term": "Array methods",
+      "description": "Includes `push()`, `pop()`, `shift()`, `unshift()`, `splice()`, `slice()`, `concat()`.",
+      "code": "let colors = ['Red', 'Green', 'Blue'];\n// Examples for each method here"
+    },
+    {
+      "term": "Array iteration",
+      "description": "Includes `forEach()`, `map()`, `filter()`, `reduce()`.",
+      "code": "let colors = ['Red', 'Green', 'Blue'];\n// Examples for each iteration method here"
+    }
+  ],
+  "Objects": [
+    {
+      "term": "Object properties",
+      "description": "Includes dot notation and bracket notation for accessing properties.",
+      "code": "let person = {firstName: \"John\", lastName: \"Doe\"};\n// Examples for dot and bracket notation"
+    },
+    {
+      "term": "Object methods",
+      "description": "Includes `Object.keys()`, `Object.values()`, `Object.entries()`.",
+      "code": "let person = {firstName: \"John\", lastName: \"Doe\"};\n// Examples for each object method"
+    },
+    {
+      "term": "Object destructuring",
+      "description": "A JavaScript expression that allows unpacking values from arrays, or properties from objects, into distinct variables.",
+      "code": "let {firstName, lastName} = person;"
+    }
+  ],
+  "Promises": [
+    {
+      "term": "Promise states",
+      "description": "Includes Pending, Fulfilled, Rejected.",
+      "code": "// Examples for each state here"
+    },
+    {
+      "term": "Promise methods",
+      "description": "Includes `then()`, `catch()`, `finally()`, `Promise.all()`.",
+      "code": "// Examples for using promise methods"
+    }
+  ],
+  "Asynchronous JavaScript": [
+    {
+      "term": "Callbacks",
+      "description": "A function passed into another function as an argument to be executed later.",
+      "code": "// Example of a callback function"
+    },
+    {
+      "term": "Promises",
+      "description": "An object representing the eventual completion or failure of an asynchronous operation.",
+      "code": "// Example of creating a promise"
+    },
+    {
+      "term": "Async/Await",
+      "description": "A syntactic sugar built on top of promises, making asynchronous code look and behave a little more like synchronous code.",
+      "code": "// Example of using async/await"
+    }
+  ],
+  "Error Handling": [
+    {
+      "term": "try...catch statement",
+      "description": "Marks a block of statements to try, and specifies a response, should an exception be thrown.",
+      "code": "// Example of using try...catch"
+    },
+    {
+      "term": "throw statement",
+      "description": "Throws a user-defined exception.",
+      "code": "// Example of using throw"
+    }
+  ],
+  "JSON (JavaScript Object Notation)": [
+    {
+      "term": "JSON",
+      "description": "A syntax for storing and exchanging data.",
+      "code": "let json = '{\"name\": \"John\", \"age\": 30}';\nlet user = JSON.parse(json); // Converts JSON text into a JavaScript object"
+    }
+  ],
+  "Modules": [
+    {
+      "term": "import",
+      "description": "Allows you to bring modules or specific features into your current file.",
+      "code": "import { moduleFunction } from './module.js';"
+    },
+    {
+      "term": "export",
+      "description": "Allows you to make parts of your module available to be imported into other files.",
+      "code": "export function moduleFunction() { ... }"
+    }
+  ],
+  "DOM Manipulation": [
+    {
+      "term": "Selecting elements",
+      "description": "Accessing elements from the DOM.",
+      "code": "let element = document.getElementById('myElement');"
+    },
+    {
+      "term": "Modifying elements",
+      "description": "Changing the content or style of elements.",
+      "code": "element.textContent = 'New content';"
+    },
+    {
+      "term": "Creating elements",
+      "description": "Adding new elements to the DOM.",
+      "code": "let newElement = document.createElement('div');\ndocument.body.appendChild(newElement);"
+    }
+  ],
+  "Events": [
+    {
+      "term": "Event listeners",
+      "description": "Add a function that will be called whenever a specified event occurs.",
+      "code": "element.addEventListener('click', function() {\n  console.log('Element clicked!');\n});"
+    }
+  ],
+  "AJAX (Asynchronous JavaScript and XML)": [
+    {
+      "term": "AJAX",
+      "description": "A technique for creating fast and dynamic web pages.",
+      "code": "// Example of using AJAX"
+    }
+  ],
+  "Fetch API": [
+    {
+      "term": "Fetch API",
+      "description": "Provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.",
+      "code": "// Example of using Fetch API"
+    }
+  ],
+  "ES6+ Features": [
+    {
+      "term": "Template literals",
+      "description": "Allow embedded expressions and multi-line strings.",
+      "code": "let greeting = `Hello, ${name}!`;"
+    },
+    {
+      "term": "Destructuring assignment",
+      "description": "Allows unpacking values from arrays or properties from objects.",
+      "code": "let [first, second] = [1, 2];\nlet {firstName, lastName} = person;"
+    },
+    {
+      "term": "Spread/rest operator",
+      "description": "Allows an iterable to expand in places where 0+ arguments are expected.",
+      "code": "let parts = ['shoulders', 'knees'];\nlet lyrics = ['head', ...parts, 'and', 'toes'];"
+    },
+    {
+      "term": "Arrow functions",
+      "description": "Provide a concise syntax for writing function expressions.",
+      "code": "let add = (a, b) => a + b;"
+    },
+    {
+      "term": "Classes",
+      "description": "A template for creating objects.",
+      "code": "class Person {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    console.log(`Hello, ${this.name}!`);\n  }\n}"
+    }
+  ],
+  "Web APIs": [
+    {
+      "term": "Local Storage",
+      "description": "Allows web applications to store data persistently in the browser.",
+      "code": "localStorage.setItem('key', 'value');\nlet value = localStorage.getItem('key');"
+    },
+    {
+      "term": "Session Storage",
+      "description": "Similar to Local Storage but with a shorter lifecycle.",
+      "code": "sessionStorage.setItem('key', 'value');"
+    }
+  ],
+  "Libraries and Frameworks": [
+    {
+      "term": "React",
+      "description": "A library for building user interfaces."
+    },
+    {
+      "term": "Angular",
+      "description": "A platform and framework for building single-page client applications using HTML and TypeScript."
+    },
+    {
+      "term": "Vue.js",
+      "description": "A progressive framework for building user interfaces."
+    }
+  ],
+  "Debugging": [
+    {
+      "term": "Console.log()",
+      "description": "Logs information to the browser's console.",
+      "code": "console.log('Debug message');"
+    }
+  ],
+  "Others": [
+    {
+      "term": "Closures",
+      "description": "A feature where an inner function has access to the outer (enclosing) function’s variables."
+    },
+    {
+      "term": "Callbacks",
+      "description": "Functions passed as arguments to other functions to be executed at a later time."
+    },
+    {
+      "term": "Prototypes",
+      "description": "The mechanism by which JavaScript objects inherit features from one another."
+    },
+    {
+      "term": "this keyword",
+      "description": "Refers to the object it belongs to."
+    },
+    {
+      "term": "Hoisting",
+      "description": "The behavior of moving declarations to the top of their scope before code execution."
+    },
+    {
+      "term": "Strict mode",
+      "description": "A way to opt in to a restricted variant of JavaScript."
+    }
+  ]
+}

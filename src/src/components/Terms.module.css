@@ -1,0 +1,12 @@
+.codeSnippet {
+  background-color: black;
+  color: #00ff00;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+button.accordion-button {
+  font-weight: 600;
+  font-size: 25px;
+}

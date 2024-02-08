@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const { graphqlHTTP } = require("express-graphql");
-const schema = require("./schemas/typeDefs");
-const root = require("./schemas/resolvers"); // If you named the file resolvers.js
+const { ApolloServer } = require("apollo-server-express");
+const typeDefs = require("./schemas/typeDefs");
+const resolvers = require("./schemas/resolvers");
+const cors = require("cors");
 
 mongoose
   .connect("mongodb://127.0.0.1/jsConceptsDB", {
@@ -13,16 +14,22 @@ mongoose
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 
 const app = express();
+app.use(cors());
 
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true // Enables GraphiQL IDE
-  })
-);
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: true // Enable GraphQL Playground
+});
 
-app.listen(4000, () =>
-  console.log("Server running on http://localhost:4000/graphql")
-);
+async function startApolloServer() {
+  await server.start();
+  server.applyMiddleware({ app });
+}
+
+startApolloServer();
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server listening at http://localhost:${PORT}/graphql`);
+});

@@ -6,17 +6,19 @@ import { useQuery, gql } from "@apollo/client";
 
 // GraphQL query to fetch variables concepts
 const GET_VARIABLES_CONCEPTS = gql`
-  query GetVariablesConcepts {
+  query GetConceptsByCategory {
     getConceptsByCategory(category: "Variables") {
       term
       description
-      codeSnippet
+      code
     }
   }
 `;
 
 function VariablesPage() {
   const { loading, error, data } = useQuery(GET_VARIABLES_CONCEPTS);
+
+  console.log("data" + data); // Add this line for debugging
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -36,7 +38,7 @@ function VariablesPage() {
             <Accordion.Body>
               <p>{concept.description}</p>
               <pre className={styles.codeSnippet}>
-                <code>{concept.codeSnippet}</code>
+                <code>{concept.code}</code>
               </pre>
             </Accordion.Body>
           </Accordion.Item>

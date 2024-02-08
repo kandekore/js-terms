@@ -13,7 +13,7 @@ const conceptSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  codeSnippet: {
+  code: {
     type: String,
     required: false
   }

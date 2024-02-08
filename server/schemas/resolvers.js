@@ -12,7 +12,7 @@ const resolvers = {
       }
     },
 
-    getConceptByTerm: async ({ term }) => {
+    getConceptByTerm: async (_, { term }) => {
       try {
         const concept = await Concept.findOne({ term });
         return concept;
@@ -30,11 +30,15 @@ const resolvers = {
         return [];
       }
     },
-    searchConceptsByDescription: async ({ keyword }) => {
-      // Implementation logic here
-      // For example, using a regex search in MongoDB:
+    searchConceptsByDescription: async (_, { keyword }) => {
+      // Use the $or operator to search in term, code, or description fields
       return await Concept.find({
-        description: { $regex: keyword, $options: "i" }
+        $or: [
+          { term: { $regex: keyword, $options: "i" } },
+          { category: { $regex: keyword, $options: "i" } },
+          { code: { $regex: keyword, $options: "i" } },
+          { description: { $regex: keyword, $options: "i" } }
+        ]
       });
     }
   }

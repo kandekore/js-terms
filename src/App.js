@@ -11,6 +11,8 @@ import ScopePage from "./components/Scope";
 import ArraysPage from "./components/Arrays";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import SearchResults from "./components/SearchResults";
+import styles from "./components/Terms.module.css";
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -24,7 +26,7 @@ function App() {
       <Router>
         <Header />
 
-        <div>
+        <div className={styles.body}>
           <ApolloProvider client={client}>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -35,6 +37,7 @@ function App() {
               <Route path="/functions" element={<FunctionsPage />} />
               <Route path="/scope" element={<ScopePage />} />
               <Route path="/arrays" element={<ArraysPage />} />
+              <Route path="/search-results" element={<SearchResults />} />
             </Routes>
           </ApolloProvider>
         </div>

@@ -10,3 +10,10 @@ button.accordion-button {
   font-weight: 600;
   font-size: 25px;
 }
+.card {
+  margin-bottom: 10px;
+  box-shadow: 5px 5px #f0f0f0;
+}
+.body {
+  padding: 20px;
+}

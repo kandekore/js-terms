@@ -5,9 +5,19 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "./Header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 function NavScrollExample() {
+  const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
+  const navigate = useNavigate(); // Hook for navigation
+
+  // Handler for form submission
+  const handleSearchSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    navigate(`/search-results?query=${encodeURIComponent(searchQuery)}`); // Navigate to search results page
+    setSearchQuery(""); // Optional: Clear the search input after navigation
+  };
   return (
     <Navbar expand="lg" className="bg-body-tertiary header">
       <Container fluid className={styles.header}>
@@ -57,14 +67,18 @@ function NavScrollExample() {
               Link
             </Nav.Link>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={handleSearchSubmit}>
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              value={searchQuery} // Bind state to input
+              onChange={(e) => setSearchQuery(e.target.value)} // Update state on input change
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" type="submit">
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>

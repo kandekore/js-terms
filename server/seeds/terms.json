@@ -166,16 +166,100 @@
       "code": "function outer() {\n  var outerVar = \"I'm outside!\";\n  function inner() {\n    console.log(outerVar);\n  }\n  return inner;\n}\nvar getInner = outer();\ngetInner(); // Logs \"I'm outside!\""
     }
   ],
-  "Arrays": [
+  "Array Methods": [
     {
-      "term": "Array methods",
-      "description": "Includes `push()`, `pop()`, `shift()`, `unshift()`, `splice()`, `slice()`, `concat()`.",
-      "code": "let colors = ['Red', 'Green', 'Blue'];\n// Examples for each method here"
+      "term": "push()",
+      "description": "Adds one or more elements to the end of an array and returns the new length of the array.",
+      "code": "colors.push(\"Yellow\"); // Adds 'Yellow' to the end"
     },
     {
-      "term": "Array iteration",
-      "description": "Includes `forEach()`, `map()`, `filter()`, `reduce()`.",
-      "code": "let colors = ['Red', 'Green', 'Blue'];\n// Examples for each iteration method here"
+      "term": "pop()",
+      "description": "Removes the last element from an array and returns that element.",
+      "code": "colors.pop(); // Removes the last element"
+    },
+    {
+      "term": "shift()",
+      "description": "Removes the first element from an array and returns that removed element.",
+      "code": "colors.shift(); // Removes the first element"
+    },
+    {
+      "term": "unshift()",
+      "description": "Adds one or more elements to the beginning of an array and returns the new length of the array.",
+      "code": "colors.unshift(\"Purple\"); // Adds 'Purple' to the beginning"
+    },
+    {
+      "term": "splice()",
+      "description": "Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.",
+      "code": "colors.splice(2, 0, \"Orange\"); // Adds 'Orange' at index 2"
+    },
+    {
+      "term": "slice()",
+      "description": "Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included).",
+      "code": "let newColors = colors.slice(1, 3); // Copies elements at index 1 to 2"
+    },
+    {
+      "term": "concat()",
+      "description": "Is used to merge two or more arrays.",
+      "code": "let moreColors = [\"Pink\", \"Black\"]; let combinedColors = colors.concat(moreColors); // Merges two arrays"
+    }
+  ],
+  "Array Methods": [
+    {
+      "term": "push()",
+      "description": "Adds one or more elements to the end of an array and returns the new length of the array.",
+      "code": "colors.push(\"Yellow\"); // Adds 'Yellow' to the end"
+    },
+    {
+      "term": "pop()",
+      "description": "Removes the last element from an array and returns that element.",
+      "code": "colors.pop(); // Removes the last element"
+    },
+    {
+      "term": "shift()",
+      "description": "Removes the first element from an array and returns that removed element.",
+      "code": "colors.shift(); // Removes the first element"
+    },
+    {
+      "term": "unshift()",
+      "description": "Adds one or more elements to the beginning of an array and returns the new length of the array.",
+      "code": "colors.unshift(\"Purple\"); // Adds 'Purple' to the beginning"
+    },
+    {
+      "term": "splice()",
+      "description": "Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.",
+      "code": "colors.splice(2, 0, \"Orange\"); // Adds 'Orange' at index 2"
+    },
+    {
+      "term": "slice()",
+      "description": "Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included).",
+      "code": "let newColors = colors.slice(1, 3); // Copies elements at index 1 to 2"
+    },
+    {
+      "term": "concat()",
+      "description": "Is used to merge two or more arrays.",
+      "code": "let moreColors = [\"Pink\", \"Black\"]; let combinedColors = colors.concat(moreColors); // Merges two arrays"
+    }
+  ],
+  "Array Iteration": [
+    {
+      "term": "forEach()",
+      "description": "Executes a provided function once for each array element.",
+      "code": "colors.forEach((color) => console.log(color));"
+    },
+    {
+      "term": "map()",
+      "description": "Creates a new array populated with the results of calling a provided function on every element in the calling array.",
+      "code": "let lengths = colors.map((color) => color.length);"
+    },
+    {
+      "term": "filter()",
+      "description": "Creates a new array with all elements that pass the test implemented by the provided function.",
+      "code": "let longColors = colors.filter((color) => color.length > 4);"
+    },
+    {
+      "term": "reduce()",
+      "description": "Executes a reducer function on each element of the array, resulting in a single output value.",
+      "code": "let totalLength = colors.reduce((acc, color) => acc + color.length, 0);"
     }
   ],
   "Objects": [

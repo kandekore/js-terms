@@ -462,5 +462,60 @@
       "term": "Strict mode",
       "description": "A way to opt in to a restricted variant of JavaScript."
     }
+  ],
+  "Advanced JavaScript Concepts": [
+    {
+      "term": "Symbols",
+      "description": "A primitive data type unique and immutable, used mainly as the key of an Object property.",
+      "code": "let sym = Symbol('description');"
+    },
+    {
+      "term": "Generators",
+      "description": "Functions that can be exited and later re-entered, with their context saved across re-entrances.",
+      "code": "function* generator() {\n  yield 1;\n  yield 2;\n  yield 3;\n}"
+    },
+    {
+      "term": "Proxy",
+      "description": "An object that wraps another object and intercepts operations, like reading/writing properties and others, optionally providing custom behavior.",
+      "code": "let proxy = new Proxy(target, handler);"
+    }
+  ],
+  "Modern Development Practices": [
+    {
+      "term": "Service Workers",
+      "description": "Scripts that your browser runs in the background, separate from a web page, opening the door to features that don't need a web page or user interaction.",
+      "code": "if ('serviceWorker' in navigator) {\n  navigator.serviceWorker.register('/service-worker.js');\n}"
+    },
+    {
+      "term": "Web Components",
+      "description": "A set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps.",
+      "code": "class MyComponent extends HTMLElement {\n  constructor() {\n    super();\n  }\n}\ncustomElements.define('my-component', MyComponent);"
+    }
+  ],
+  "Testing and Performance": [
+    {
+      "term": "Unit Testing",
+      "description": "A type of software testing where individual units or components of a software are tested.",
+      "code": "describe('MyFunction', () => {\n  test('should correctly add two numbers', () => {\n    expect(add(1, 2)).toBe(3);\n  });\n});"
+    }
+  ],
+  "Security": [
+    {
+      "term": "Cross-Site Scripting (XSS)",
+      "description": "A security vulnerability typically found in web applications that allows attackers to inject client-side scripts into web pages viewed by other users.",
+      "code": "// Example omitted for security best practices"
+    }
+  ],
+  "ES6+ Features Extended": [
+    {
+      "term": "Optional Chaining",
+      "description": "A safe way to access nested object properties, even if an intermediate property doesn't exist.",
+      "code": "const streetName = user?.address?.street;"
+    },
+    {
+      "term": "Nullish Coalescing Operator",
+      "description": "A logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.",
+      "code": "const foo = null ?? 'default string';"
+    }
   ]
 }

@@ -78,3 +78,6 @@ a.navbar-brand {
 div#navbarScroll {
   padding-bottom: 5px;
 }
+.mern {
+  height: 40px !important;
+}

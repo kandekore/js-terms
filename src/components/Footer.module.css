@@ -3,6 +3,6 @@
   background-color: #343a40; /* Example background color */
   color: white; /* Text color */
 }
-img.mern {
-  height: 40px;
+.mern {
+  height: 40px !important;
 }

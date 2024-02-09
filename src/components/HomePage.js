@@ -116,9 +116,7 @@ function HomePage() {
                   <Link to="/concept?query=while%20loop">while loop</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=do%20while%20loop">
-                    do%20while loop
-                  </Link>
+                  <Link to="/concept?query=do-while%20loop">do-while loop</Link>
                 </li>
               </ul>
             </li>
@@ -167,10 +165,6 @@ function HomePage() {
                 </li>
               </ul>
             </li>
-          </ul>
-        </nav>
-        <nav style={{ width: "32%" }}>
-          <ul>
             {/* Arrays */}
             <li>
               <Link to="/Arrays">Arrays</Link>
@@ -211,7 +205,10 @@ function HomePage() {
                 </li>
               </ul>
             </li>
-
+          </ul>
+        </nav>
+        <nav style={{ width: "32%" }}>
+          <ul>
             {/* Objects */}
             <li>
               <Link to="/Objects">Objects</Link>
@@ -320,10 +317,6 @@ function HomePage() {
                 </li>
               </ul>
             </li>
-          </ul>
-        </nav>
-        <nav style={{ width: "32%" }}>
-          <ul>
             {/* DOM Manipulation */}
             <li>
               <Link to="/DOM-Manipulation">DOM Manipulation</Link>
@@ -422,7 +415,10 @@ function HomePage() {
                 </li>
               </ul>
             </li>
-
+          </ul>
+        </nav>
+        <nav style={{ width: "32%" }}>
+          <ul>
             {/* Web APIs */}
             <li>
               <Link to="/Web-APIs">Web APIs</Link>
@@ -498,6 +494,79 @@ function HomePage() {
                 </li>
                 <li>
                   <Link to="/concept?query=Strict%20mode">Strict mode</Link>
+                </li>
+              </ul>
+            </li>
+            {/* Advanced JavaScript Concepts */}
+            <li>
+              <Link to="/Advanced JavaScript Concepts">
+                Advanced JavaScript Concepts
+              </Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Symbols">Symbols</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Generators">Generators</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Proxy">Proxy</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Modern Development Practices */}
+            <li>
+              <Link to="/Modern Development Practices">
+                Modern Development Practices
+              </Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Service Workers">
+                    Service Workers
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Web Components">Web Components</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Testing and Performance */}
+            <li>
+              <Link to="/Testing and Performance">Testing and Performance</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Unit Testing">Unit Testing</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Security */}
+            <li>
+              <Link to="/Security">Security</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Cross-Site Scripting (XSS)">
+                    Cross-Site Scripting (XSS)
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* ES6+ Features Extended */}
+            <li>
+              <Link to="/ES6 Features Extended">ES6+ Features Extended</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Optional Chaining">
+                    Optional Chaining
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Nullish Coalescing Operator">
+                    Nullish Coalescing Operator
+                  </Link>
                 </li>
               </ul>
             </li>

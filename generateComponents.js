@@ -23,7 +23,11 @@ const categories = [
   "Web APIs",
   "Libraries and Frameworks",
   "Debugging",
-  "Security" // Add or remove categories as needed
+  "Security",
+  "Advanced JavaScript Concepts",
+  "Modern Development Practices",
+  "Testing and Performance",
+  "ES6+ Features Extended"
 ];
 
 const componentTemplate = (category) => `

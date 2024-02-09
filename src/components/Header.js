@@ -101,19 +101,45 @@ function NavScrollExample() {
               Arrays
             </NavLink>
 
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/variables">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
+            <NavDropdown title="More" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/objects">Objects</NavDropdown.Item>
+              <NavDropdown.Item href="/promises">Promises</NavDropdown.Item>
+              <NavDropdown.Item href="/asynchronous-javascript">
+                Asynchronous JavaScript
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
+              <NavDropdown.Item href="/error-handling">
+                Error Handling
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/json">JSON</NavDropdown.Item>
+              <NavDropdown.Item href="/modules">Modules</NavDropdown.Item>
+              <NavDropdown.Item href="/dom-manipulation">
+                DOM Manipulation
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/events">Events</NavDropdown.Item>
+              <NavDropdown.Item href="/ajax">AJAX</NavDropdown.Item>
+              <NavDropdown.Item href="/fetch-api">Fetch API</NavDropdown.Item>
+              <NavDropdown.Item href="/es6-features">
+                ES6+ Features
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/web-apis">Web APIs</NavDropdown.Item>
+              <NavDropdown.Item href="/libraries-and-frameworks">
+                Libraries and Frameworks
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/debugging">Debugging</NavDropdown.Item>
+              <NavDropdown.Item href="/security">Security</NavDropdown.Item>
+              <NavDropdown.Item href="/advanced-javascript-concepts">
+                Advanced JavaScript Concepts
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/modern-development-practices">
+                Modern Development Practices
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/testing-and-performance">
+                Testing and Performance
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/es6-features-extended">
+                ES6+ Features Extended
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
           </Nav>
           <Form className="d-flex" onSubmit={handleSearchSubmit}>
             <Form.Control

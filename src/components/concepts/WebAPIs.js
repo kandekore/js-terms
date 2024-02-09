@@ -5,9 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
 import { useQuery, gql } from "@apollo/client";
 
-const GET_VARIABLES_CONCEPTS = gql`
+const GET_WEB_APIS_CONCEPTS = gql`
   query GetConceptsByCategory {
-    getConceptsByCategory(category: "Variables") {
+    getConceptsByCategory(category: "Web APIs") {
       term
       description
       code
@@ -15,16 +15,16 @@ const GET_VARIABLES_CONCEPTS = gql`
   }
 `;
 
-function VariablesPage() {
-  const { loading, error, data } = useQuery(GET_VARIABLES_CONCEPTS);
+function WebAPIsPage() {
+  const { loading, error, data } = useQuery(GET_WEB_APIS_CONCEPTS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
     <div>
-      <h2>Variables</h2>
-      <p>Description about Variables.</p>
+      <h2>Web APIs</h2>
+      <p>Description about Web APIs.</p>
 
       <Accordion defaultActiveKey="0" className="mb-3">
         {data.getConceptsByCategory.map((concept, index) => (
@@ -45,4 +45,4 @@ function VariablesPage() {
   );
 }
 
-export default VariablesPage;
+export default WebAPIsPage;

@@ -1,4 +1,4 @@
-// OperatorsPage.js
+
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,10 +24,7 @@ function OperatorsPage() {
   return (
     <div>
       <h2>Operators</h2>
-      <p>
-        Operators in JavaScript are used to perform operations on variables and
-        values.
-      </p>
+      <p>Description about Operators.</p>
 
       <Accordion defaultActiveKey="0" className="mb-3">
         {data.getConceptsByCategory.map((concept, index) => (
@@ -35,9 +32,11 @@ function OperatorsPage() {
             <Accordion.Header>{concept.term}</Accordion.Header>
             <Accordion.Body>
               <p>{concept.description}</p>
-              <pre className={styles.codeSnippet}>
-                <code>{concept.code}</code>
-              </pre>
+              {concept.code && (
+                <pre className={styles.codeSnippet}>
+                  <code>{concept.code}</code>
+                </pre>
+              )}
             </Accordion.Body>
           </Accordion.Item>
         ))}

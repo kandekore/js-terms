@@ -10,10 +10,14 @@ button.accordion-button {
   font-weight: 600;
   font-size: 25px;
 }
-.card {
-  margin-bottom: 10px;
+.box {
+  margin-bottom: 20px !important;
   box-shadow: 5px 5px #f0f0f0;
 }
 .body {
   padding: 20px;
+}
+.search-results {
+  min-height: 0; /* Override if there's a fixed height */
+  /* Other styles */
 }

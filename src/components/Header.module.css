@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background-color: #95b8db;
+  background-color: #95b8db !important;
   border-bottom: 2px solid #fff;
   color: #fff;
   padding-top: 30px;
@@ -29,4 +29,10 @@
 
 .navItem:hover {
   text-decoration: underline;
+}
+.activeLink {
+  color: #f0f0f0 !important;
+  text-shadow: 1px 1px #000;
+  background-color: #95b8db;
+  border-radius: 5px;
 }

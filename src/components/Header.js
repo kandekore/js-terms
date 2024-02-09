@@ -5,7 +5,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "./Header.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 
 function NavScrollExample() {
@@ -19,9 +21,15 @@ function NavScrollExample() {
     setSearchQuery(""); // Optional: Clear the search input after navigation
   };
   return (
-    <Navbar expand="lg" className="bg-body-tertiary header">
-      <Container fluid className={styles.header}>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+    <Navbar
+      expand="lg"
+      sticky="top"
+      className={`${styles.header} bg-body-tertiary`}
+    >
+      <Container fluid>
+        <Navbar.Brand href="/" className={styles.brand}>
+          JavaScript Concepts
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -29,30 +37,71 @@ function NavScrollExample() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/">
-              <Link to="/">Home</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/variables">Variables</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/data-types">Data Types</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/operators">Operators</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/control-flow">Control Flow</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/functions">Functions</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/scope">Scope</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/arrays">Arrays</Link>
-            </Nav.Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${styles.activeLink} nav-link` : "nav-link"
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/variables"
+              className={({ isActive }) =>
+                isActive ? `${styles.activeLink} nav-link` : "nav-link"
+              }
+            >
+              Variables
+            </NavLink>
+            <NavLink
+              to="/data-types"
+              className={({ isActive }) =>
+                isActive ? `${styles.activeLink} nav-link` : "nav-link"
+              }
+            >
+              Data Types
+            </NavLink>
+            <NavLink
+              to="/operators"
+              className={({ isActive }) =>
+                isActive ? `${styles.activeLink} nav-link` : "nav-link"
+              }
+            >
+              Operators
+            </NavLink>
+            <NavLink
+              to="/control-flow"
+              className={({ isActive }) =>
+                isActive ? `${styles.activeLink} nav-link` : "nav-link"
+              }
+            >
+              Control Flow
+            </NavLink>
+            <NavLink
+              to="/functions"
+              className={({ isActive }) =>
+                isActive ? `${styles.activeLink} nav-link` : "nav-link"
+              }
+            >
+              Functions
+            </NavLink>
+            <NavLink
+              to="/scope"
+              className={({ isActive }) =>
+                isActive ? `${styles.activeLink} nav-link` : "nav-link"
+              }
+            >
+              Scope
+            </NavLink>
+            <NavLink
+              to="/arrays"
+              className={({ isActive }) =>
+                isActive ? `${styles.activeLink} nav-link` : "nav-link"
+              }
+            >
+              Arrays
+            </NavLink>
+
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/variables">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
@@ -73,11 +122,11 @@ function NavScrollExample() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-              value={searchQuery} // Bind state to input
-              onChange={(e) => setSearchQuery(e.target.value)} // Update state on input change
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <Button variant="outline-success" type="submit">
-              Search
+              <FontAwesomeIcon icon={faSearch} />
             </Button>
           </Form>
         </Navbar.Collapse>

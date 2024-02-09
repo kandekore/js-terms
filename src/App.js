@@ -13,6 +13,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import SearchResults from "./components/SearchResults";
 import styles from "./components/Terms.module.css";
+import Footer from "./components/Footer";
+import "./App.css";
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -25,22 +27,24 @@ function App() {
     <>
       <Router>
         <Header />
-
-        <div className={styles.body}>
-          <ApolloProvider client={client}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/variables" element={<Variables />} />
-              <Route path="/data-types" element={<DataTypes />} />
-              <Route path="/operators" element={<Operators />} />
-              <Route path="/control-flow" element={<ControlFlow />} />
-              <Route path="/functions" element={<FunctionsPage />} />
-              <Route path="/scope" element={<ScopePage />} />
-              <Route path="/arrays" element={<ArraysPage />} />
-              <Route path="/search-results" element={<SearchResults />} />
-            </Routes>
-          </ApolloProvider>
+        <div className="d-flex flex-column min-vh-100">
+          <main className={`flex-grow-1 ${styles.body}`}>
+            <ApolloProvider client={client}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/variables" element={<Variables />} />
+                <Route path="/data-types" element={<DataTypes />} />
+                <Route path="/operators" element={<Operators />} />
+                <Route path="/control-flow" element={<ControlFlow />} />
+                <Route path="/functions" element={<FunctionsPage />} />
+                <Route path="/scope" element={<ScopePage />} />
+                <Route path="/arrays" element={<ArraysPage />} />
+                <Route path="/search-results" element={<SearchResults />} />
+              </Routes>
+            </ApolloProvider>
+          </main>
         </div>
+        <Footer />
       </Router>
     </>
   );

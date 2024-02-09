@@ -35,7 +35,7 @@ const SearchResults = () => {
       {data.searchConceptsByDescription.length > 0 ? (
         <ul>
           {data.searchConceptsByDescription.map((concept) => (
-            <Card>
+            <Card className="box">
               <Card.Header>
                 <h3>{concept.term}</h3>{" "}
                 <Card.Text>

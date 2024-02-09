@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+html,
+body {
+  height: 100%; /* Make sure the html and body elements stretch to the full height of the viewport */
+}
+
+#root {
+  display: flex;
+  flex-direction: column; /* Orient children (your content and footer) in a column */
+  min-height: 100vh; /* Ensure the root element takes at least the viewport height */
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0; /* Remove default margin */
+}
+main.flex-grow-1 {
+  display: flex; /* If not already flex */
+  flex-direction: column; /* Encourage vertical expansion */
+  min-height: 0; /* Prevent flexbox bugs on certain browsers */
+}

@@ -44,7 +44,7 @@ body {
 #root {
   display: flex;
   flex-direction: column; /* Orient children (your content and footer) in a column */
-  min-height: 100vh; /* Ensure the root element takes at least the viewport height */
+  /*  min-height: 100vh; /* Ensure the root element takes at least the viewport height */
 }
 html,
 body,
@@ -59,4 +59,11 @@ main.flex-grow-1 {
   display: flex; /* If not already flex */
   flex-direction: column; /* Encourage vertical expansion */
   min-height: 0; /* Prevent flexbox bugs on certain browsers */
+}
+.box {
+  margin-bottom: 20px !important;
+  box-shadow: 5px 5px #f0f0f0;
+}
+.min-vh-100 {
+  min-height: auto !important;
 }

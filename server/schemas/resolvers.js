@@ -36,7 +36,7 @@ const resolvers = {
         $or: [
           { term: { $regex: keyword, $options: "i" } },
           { category: { $regex: keyword, $options: "i" } },
-          { code: { $regex: keyword, $options: "i" } },
+          //  { code: { $regex: keyword, $options: "i" } },
           { description: { $regex: keyword, $options: "i" } }
         ]
       });

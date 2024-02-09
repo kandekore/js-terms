@@ -38,13 +38,12 @@
 }
 html,
 body {
-  height: 100%; /* Make sure the html and body elements stretch to the full height of the viewport */
+  height: 100%;
 }
 
 #root {
   display: flex;
-  flex-direction: column; /* Orient children (your content and footer) in a column */
-  /*  min-height: 100vh; /* Ensure the root element takes at least the viewport height */
+  flex-direction: column;
 }
 html,
 body,
@@ -53,12 +52,12 @@ body,
 }
 
 body {
-  margin: 0; /* Remove default margin */
+  margin: 0;
 }
 main.flex-grow-1 {
-  display: flex; /* If not already flex */
-  flex-direction: column; /* Encourage vertical expansion */
-  min-height: 0; /* Prevent flexbox bugs on certain browsers */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .box {
   margin-bottom: 20px !important;
@@ -66,4 +65,16 @@ main.flex-grow-1 {
 }
 .min-vh-100 {
   min-height: auto !important;
+}
+button.accordion-button {
+  font-size: 25px;
+  font-weight: 600;
+}
+a.navbar-brand {
+  font-size: 34px;
+  padding-bottom: 15px;
+  text-shadow: 1px 1px #fff;
+}
+div#navbarScroll {
+  padding-bottom: 5px;
 }

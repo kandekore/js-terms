@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Card from "react-bootstrap/Card";
-import styles from "./Terms.module.css";
+import styles from "./concepts/Terms.module.css";
 
 // Define your GraphQL query here
 const SEARCH_CONCEPTS_BY_KEYWORD = gql`

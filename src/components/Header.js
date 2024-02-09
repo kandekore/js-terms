@@ -11,14 +11,13 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 
 function NavScrollExample() {
-  const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
-  const navigate = useNavigate(); // Hook for navigation
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
-  // Handler for form submission
   const handleSearchSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-    navigate(`/search-results?query=${encodeURIComponent(searchQuery)}`); // Navigate to search results page
-    setSearchQuery(""); // Optional: Clear the search input after navigation
+    e.preventDefault();
+    navigate(`/search-results?query=${encodeURIComponent(searchQuery)}`);
+    setSearchQuery("");
   };
   return (
     <Navbar

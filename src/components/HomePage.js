@@ -4,18 +4,506 @@ import { Link } from "react-router-dom";
 function HomePage() {
   return (
     <div>
-      <h1>JavaScript Basics</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/variables">Variables</Link>
-          </li>
-        </ul>
-      </nav>
-      <p>
-        Welcome to JavaScript Basics! This site is dedicated to teaching the
-        fundamentals of JavaScript.
-      </p>
+      <div style={{ marginBottom: "20px" }}>
+        <h1>JavaScript Basics</h1>
+        <p>
+          Welcome to JavaScript Basics! This site is dedicated to teaching the
+          fundamentals of JavaScript. Here you can learn about variables, data
+          types, control structures, functions, and much more.
+        </p>
+        <h2>A Brief History of JavaScript</h2>
+        <p>
+          JavaScript was created in 1995 by Brendan Eich while he was working
+          for Netscape Communications Corporation. Initially designed to make
+          web pages more interactive, it has grown into a powerful programming
+          language that powers the dynamic behavior on most websites today.
+        </p>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space%20between" }}>
+        {/* Divide the JavaScript tree into three flex columns */}
+        <nav style={{ width: "32%" }}>
+          <ul>
+            {/* Variables, Data Types, Operators */}
+            <li>
+              <Link to="/Variables">Variables</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=var">var</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=let">let</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=const">const</Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link to="/Data-Types">Data Types</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=String">String</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Number">Number</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Boolean">Boolean</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Object">Object</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Array">Array</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Null">Null</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Undefined">Undefined</Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link to="/Operators">Operators</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Arithmetic">Arithmetic</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Assignment">Assignment</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Comparison">Comparison</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Logical">Logical</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Unary">Unary</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Ternary">Ternary (Conditional)</Link>
+                </li>
+              </ul>
+            </li>
+            {/* Control Flow */}
+            <li>
+              <Link to="/Control-Flow">Control Flow</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=if%20statement">if statement</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=else%20statement">
+                    else statement
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=else%20if%20statement">
+                    else if statement
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=switch%20statement">
+                    switch statement
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=for%20loop">for loop</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=while%20loop">while loop</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=do%20while%20loop">
+                    do%20while loop
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            {/* Functions */}
+            <li>
+              <Link to="/Functions">Functions</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Function%20declaration">
+                    Function declaration
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Function%20expression">
+                    Function expression
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Arrow%20function">
+                    Arrow function
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=IIFE">
+                    IIFE (Immediately Invoked Function Expression)
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Scope */}
+            <li>
+              <Link to="/Scope">Scope</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Global%20scope">Global scope</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Local%20scope">Local scope</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Block%20scope">Block scope</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Lexical%20scope">Lexical scope</Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <nav style={{ width: "32%" }}>
+          <ul>
+            {/* Arrays */}
+            <li>
+              <Link to="/Arrays">Arrays</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=push">push()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=pop">pop()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=shift">shift()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=unshift">unshift()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=splice">splice()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=slice">slice()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=concat">concat()</Link>
+                </li>
+                {/* Array iteration */}
+                <li>
+                  <Link to="/concept?query=forEach">forEach()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=map">map()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=filter">filter()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=reduce">reduce()</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Objects */}
+            <li>
+              <Link to="/Objects">Objects</Link>
+              <ul>
+                {/* Object properties */}
+                <li>
+                  <Link to="/concept?query=Dot%20notation">Dot notation</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Bracket%20notation">
+                    Bracket notation
+                  </Link>
+                </li>
+                {/* Object methods */}
+                <li>
+                  <Link to="/concept?query=Object.keys">Object.keys()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Object.values">Object.values()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Object.entries">
+                    Object.entries()
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Object%20destructuring">
+                    Object destructuring
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            {/* Promises */}
+            <li>
+              <Link to="/Promises">Promises</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Pending">Pending</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Fulfilled">Fulfilled</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Rejected">Rejected</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=then">then()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=catch">catch()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=finally">finally()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Promise.all">Promise.all()</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Asynchronous JavaScript */}
+            <li>
+              <Link to="/Asynchronous-JavaScript">Asynchronous JavaScript</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Callbacks">Callbacks</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Promises">Promises</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Async%20Await">Async/Await</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Error Handling */}
+            <li>
+              <Link to="/Error-Handling">Error Handling</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=try%20catch">
+                    try...catch statement
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=throw">throw statement</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* JSON */}
+            <li>
+              <Link to="/JSON">JSON (JavaScript Object Notation)</Link>
+            </li>
+
+            {/* Modules */}
+            <li>
+              <Link to="/Modules">Modules</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=import">import</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=export">export</Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <nav style={{ width: "32%" }}>
+          <ul>
+            {/* DOM Manipulation */}
+            <li>
+              <Link to="/DOM-Manipulation">DOM Manipulation</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Selecting%20elements">
+                    Selecting elements
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Modifying%20elements">
+                    Modifying elements
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Creating%20elements">
+                    Creating elements
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Events */}
+            <li>
+              <Link to="/Events">Events</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Event%20listeners">
+                    Event listeners
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Event%20propagation">
+                    Event propagation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Event%20delegation">
+                    Event delegation
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            {/* AJAX */}
+            <li>
+              <Link to="/AJAX">AJAX (Asynchronous JavaScript and XML)</Link>
+            </li>
+
+            {/* Fetch API */}
+            <li>
+              <Link to="/Fetch-API">Fetch API</Link>
+            </li>
+
+            {/* ES6+ Features */}
+            <li>
+              <Link to="/ES6-Features">ES6+ Features</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Template%20literals">
+                    Template literals
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Destructuring%20assignment">
+                    Destructuring assignment
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Spread%20rest%20operator">
+                    Spread/rest operator
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Arrow%20functions">
+                    Arrow functions
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Classes">Classes</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=let%20and%20const">
+                    let and const
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Default%20parameters">
+                    Default parameters
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Modules%20ES6">Modules</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Promises%20ES6">Promises</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Web APIs */}
+            <li>
+              <Link to="/Web-APIs">Web APIs</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Local%20Storage">Local Storage</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Session%20Storage">
+                    Session Storage
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Web%20Storage%20API">
+                    Web Storage API
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Libraries and Frameworks */}
+            <li>
+              <Link to="/Libraries-and-Frameworks">
+                Libraries and Frameworks
+              </Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=React">React</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Angular">Angular</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Vue.js">Vue.js</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Debugging */}
+            <li>
+              <Link to="/Debugging">Debugging</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Console.log">Console.log()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Breakpoints">Breakpoints</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=DevTools">DevTools</Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Others */}
+            <li>
+              <Link to="/Others">Others</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Closures">Closures</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Callbacks%20Others">Callbacks</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Prototypes">Prototypes</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=this%20keyword">this keyword</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Hoisting">Hoisting</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Strict%20mode">Strict mode</Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }

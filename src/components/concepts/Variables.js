@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
 import { useQuery, gql } from "@apollo/client";
 
-// GraphQL query to fetch variables concepts
 const GET_VARIABLES_CONCEPTS = gql`
   query GetConceptsByCategory {
     getConceptsByCategory(category: "Variables") {
@@ -18,7 +17,7 @@ const GET_VARIABLES_CONCEPTS = gql`
 function VariablesPage() {
   const { loading, error, data } = useQuery(GET_VARIABLES_CONCEPTS);
 
-  console.log("data" + data); // Add this line for debugging
+  console.log("data" + data);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;

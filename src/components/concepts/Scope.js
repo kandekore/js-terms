@@ -6,28 +6,35 @@ import styles from "./Terms.module.css";
 import { useQuery, gql } from "@apollo/client";
 
 const GET_SCOPE_CONCEPTS = gql`
-  query GetConceptsByCategory {
-    getConceptsByCategory(category: "Scope") {
-      term
+  query GetConceptsByCategory($category: String!) {
+    getConceptsByCategory(category: $category) {
+      name
       description
-      code
+      concepts {
+        term
+        description
+        code
+      }
     }
   }
 `;
 
 function ScopePage() {
-  const { loading, error, data } = useQuery(GET_SCOPE_CONCEPTS);
+  const { loading, error, data } = useQuery(GET_SCOPE_CONCEPTS, {
+    variables: { category: "Scope" }
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
+  const categoryData = data.getConceptsByCategory;
 
   return (
     <div>
-      <h2>Scope</h2>
-      <p>Description about Scope.</p>
+      <h2>{categoryData.name}</h2>
+      <p>{categoryData.description}</p>
 
       <Accordion defaultActiveKey="0" className="mb-3">
-        {data.getConceptsByCategory.map((concept, index) => (
+        {categoryData.concepts.map((concept, index) => (
           <Accordion.Item eventKey={String(index)} key={index}>
             <Accordion.Header>{concept.term}</Accordion.Header>
             <Accordion.Body>

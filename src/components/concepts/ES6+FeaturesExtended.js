@@ -6,28 +6,35 @@ import styles from "./Terms.module.css";
 import { useQuery, gql } from "@apollo/client";
 
 const GET_ES6+_FEATURES_EXTENDED_CONCEPTS = gql`
-  query GetConceptsByCategory {
-    getConceptsByCategory(category: "ES6+ Features Extended") {
-      term
+  query GetConceptsByCategory($category: String!) {
+    getConceptsByCategory(category: $category) {
+      name
       description
-      code
+      concepts {
+        term
+        description
+        code
+      }
     }
   }
 `;
 
 function ES6+FeaturesExtendedPage() {
-  const { loading, error, data } = useQuery(GET_ES6+_FEATURES_EXTENDED_CONCEPTS);
+  const { loading, error, data } = useQuery(GET_ES6+_FEATURES_EXTENDED_CONCEPTS, {
+    variables: { category: "ES6+ Features Extended" }
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
+  const categoryData = data.getConceptsByCategory;
 
   return (
     <div>
-      <h2>ES6+ Features Extended</h2>
-      <p>Description about ES6+ Features Extended.</p>
+      <h2>{categoryData.name}</h2>
+      <p>{categoryData.description}</p>
 
       <Accordion defaultActiveKey="0" className="mb-3">
-        {data.getConceptsByCategory.map((concept, index) => (
+        {categoryData.concepts.map((concept, index) => (
           <Accordion.Item eventKey={String(index)} key={index}>
             <Accordion.Header>{concept.term}</Accordion.Header>
             <Accordion.Body>

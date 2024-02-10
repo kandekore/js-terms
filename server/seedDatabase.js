@@ -19,17 +19,24 @@ async function seedDatabase() {
       path.join(__dirname, "seeds", "terms.json"),
       "utf8"
     );
-    const categories = JSON.parse(data);
-
-    // Transform the categories object into a flat array of concept objects with category included
+    const json = JSON.parse(data);
+    const categories = json.categories;
+    
     const concepts = [];
-    Object.keys(categories).forEach((category) => {
-      categories[category].forEach((concept) => {
-        concepts.push({ ...concept, category }); // Add category to each concept object
-      });
+    categories.forEach(category => {
+      if (category.concepts && Array.isArray(category.concepts)) {
+        category.concepts.forEach(concept => {
+          concepts.push({ 
+            category: category.name, 
+            term: concept.term, 
+            description: concept.description, 
+            code: concept.code // This will safely remain undefined if not present
+          });
+        });
+      }
     });
-
-    await Concept.deleteMany({}); // Optional: Clear the collection before seeding
+    
+    await Concept.deleteMany({});
     await Concept.insertMany(concepts);
     console.log("Database seeded successfully!");
 

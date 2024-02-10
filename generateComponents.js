@@ -39,11 +39,15 @@ import styles from "./Terms.module.css";
 import { useQuery, gql } from "@apollo/client";
 
 const GET_${category.toUpperCase().replace(/\s+/g, "_")}_CONCEPTS = gql\`
-  query GetConceptsByCategory {
-    getConceptsByCategory(category: "${category}") {
-      term
+  query GetConceptsByCategory($category: String!) {
+    getConceptsByCategory(category: $category) {
+      name
       description
-      code
+      concepts {
+        term
+        description
+        code
+      }
     }
   }
 \`;
@@ -51,18 +55,21 @@ const GET_${category.toUpperCase().replace(/\s+/g, "_")}_CONCEPTS = gql\`
 function ${category.replace(/\s+/g, "")}Page() {
   const { loading, error, data } = useQuery(GET_${category
     .toUpperCase()
-    .replace(/\s+/g, "_")}_CONCEPTS);
+    .replace(/\s+/g, "_")}_CONCEPTS, {
+    variables: { category: "${category}" }
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
+  const categoryData = data.getConceptsByCategory;
 
   return (
     <div>
-      <h2>${category}</h2>
-      <p>Description about ${category}.</p>
+      <h2>{categoryData.name}</h2>
+      <p>{categoryData.description}</p>
 
       <Accordion defaultActiveKey="0" className="mb-3">
-        {data.getConceptsByCategory.map((concept, index) => (
+        {categoryData.concepts.map((concept, index) => (
           <Accordion.Item eventKey={String(index)} key={index}>
             <Accordion.Header>{concept.term}</Accordion.Header>
             <Accordion.Body>

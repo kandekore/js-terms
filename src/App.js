@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import styles from "./components/concepts/Terms.module.css";
-
+import Others from "./components/concepts/Others";
 import Variables from "./components/concepts/Variables";
 import DataTypes from "./components/concepts/DataTypes";
 import Operators from "./components/concepts/Operators";
@@ -15,6 +15,7 @@ import ControlFlow from "./components/concepts/ControlFlow";
 import Functions from "./components/concepts/Functions";
 import Scope from "./components/concepts/Scope";
 import Arrays from "./components/concepts/Arrays";
+import ArraysI from "./components/concepts/ArrayIteration";
 import SearchResults from "./components/SearchResults";
 import Concept from "./components/concepts/Concepts";
 import Objects from "./components/concepts/Objects";
@@ -32,6 +33,10 @@ import WebAPIs from "./components/concepts/WebAPIs";
 import LibrariesFrameworks from "./components/concepts/LibrariesandFrameworks";
 import Debugging from "./components/concepts/Debugging";
 import Security from "./components/concepts/Security";
+import Advanced from "./components/concepts/AdvancedJavaScriptConcepts"
+import Modern from "./components/concepts/ModernDevelopmentPractices"
+import Testing from "./components/concepts/TestingandPerformance"
+import E6 from "./components/concepts/ES6FeaturesExtended"
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -55,7 +60,8 @@ function App() {
                 <Route path="/control-flow" element={<ControlFlow />} />
                 <Route path="/functions" element={<Functions />} />
                 <Route path="/scope" element={<Scope />} />
-                <Route path="/arrays" element={<Arrays />} />
+                <Route path="/array-methods" element={<Arrays />} />
+                <Route path="/array-iteration" element={<ArraysI />} />
                 <Route path="/objects" element={<Objects />} />
                 <Route path="/promises" element={<Promises />} />
                 <Route
@@ -72,11 +78,16 @@ function App() {
                 <Route path="/es6-features" element={<ES6Features />} />
                 <Route path="/web-apis" element={<WebAPIs />} />
                 <Route
-                  path="/libraries-frameworks"
+                  path="/libraries-and-frameworks"
                   element={<LibrariesFrameworks />}
                 />
                 <Route path="/debugging" element={<Debugging />} />
                 <Route path="/security" element={<Security />} />
+                <Route path="/advanced-javascript-concepts" element={<Advanced />} />
+                <Route path="/modern-development-practices" element={<Modern />} />
+                <Route path="/testing-and-performance" element={<Testing />} />
+                <Route path="/es6-features-extended" element={<E6 />} />
+                <Route path="/others" element={<Others />} />
                 <Route path="/search-results" element={<SearchResults />} />
                 <Route path="/concept" element={<Concept />} />
               </Routes>

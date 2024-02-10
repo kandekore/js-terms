@@ -92,15 +92,11 @@ function NavScrollExample() {
             >
               Scope
             </NavLink>
-            <NavLink
-              to="/arrays"
-              className={({ isActive }) =>
-                isActive ? `${styles.activeLink} nav-link` : "nav-link"
-              }
-            >
-              Arrays
-            </NavLink>
-
+            
+            <NavDropdown title="Arrays" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/array-methods">Methods</NavDropdown.Item>
+              <NavDropdown.Item href="/Array-Iteration">Iterations</NavDropdown.Item>
+              </NavDropdown>
             <NavDropdown title="More" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/objects">Objects</NavDropdown.Item>
               <NavDropdown.Item href="/promises">Promises</NavDropdown.Item>

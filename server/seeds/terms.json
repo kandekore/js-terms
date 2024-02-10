@@ -203,43 +203,6 @@
       "code": "let moreColors = [\"Pink\", \"Black\"]; let combinedColors = colors.concat(moreColors); // Merges two arrays"
     }
   ],
-  "Array Methods": [
-    {
-      "term": "push()",
-      "description": "Adds one or more elements to the end of an array and returns the new length of the array.",
-      "code": "colors.push(\"Yellow\"); // Adds 'Yellow' to the end"
-    },
-    {
-      "term": "pop()",
-      "description": "Removes the last element from an array and returns that element.",
-      "code": "colors.pop(); // Removes the last element"
-    },
-    {
-      "term": "shift()",
-      "description": "Removes the first element from an array and returns that removed element.",
-      "code": "colors.shift(); // Removes the first element"
-    },
-    {
-      "term": "unshift()",
-      "description": "Adds one or more elements to the beginning of an array and returns the new length of the array.",
-      "code": "colors.unshift(\"Purple\"); // Adds 'Purple' to the beginning"
-    },
-    {
-      "term": "splice()",
-      "description": "Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.",
-      "code": "colors.splice(2, 0, \"Orange\"); // Adds 'Orange' at index 2"
-    },
-    {
-      "term": "slice()",
-      "description": "Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included).",
-      "code": "let newColors = colors.slice(1, 3); // Copies elements at index 1 to 2"
-    },
-    {
-      "term": "concat()",
-      "description": "Is used to merge two or more arrays.",
-      "code": "let moreColors = [\"Pink\", \"Black\"]; let combinedColors = colors.concat(moreColors); // Merges two arrays"
-    }
-  ],
   "Array Iteration": [
     {
       "term": "forEach()",
@@ -277,7 +240,32 @@
       "term": "Object destructuring",
       "description": "A JavaScript expression that allows unpacking values from arrays, or properties from objects, into distinct variables.",
       "code": "let {firstName, lastName} = person;"
+    }, {
+      "term": "Dot notation",
+      "description": "Accesses the property of an object. It's a straightforward syntax for getting or setting an object's property when you know the name of the property.",
+      "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(person.firstName); // 'John'"
+    },
+    {
+      "term": "Bracket notation",
+      "description": "Another way to access a property of an object. It's useful when the property name is dynamic or not a valid identifier.",
+      "code": "let person = {firstName: 'John', lastName: 'Doe'};\nlet property = 'firstName';\nconsole.log(person[property]); // 'John'"
+    },
+    {
+      "term": "Object.keys()",
+      "description": "Returns an array of a given object's own property names, in the same order as we get with a normal loop.",
+      "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.keys(person)); // ['firstName', 'lastName']"
+    },
+    {
+      "term": "Object.values()",
+      "description": "Returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop.",
+      "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.values(person)); // ['John', 'Doe']"
+    },
+    {
+      "term": "Object.entries()",
+      "description": "Returns an array of a given object's own enumerable string-keyed property [key, value] pairs.",
+      "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.entries(person)); // [['firstName', 'John'], ['lastName', 'Doe']]"
     }
+    
   ],
   "Promises": [
     {
@@ -289,6 +277,41 @@
       "term": "Promise methods",
       "description": "Includes `then()`, `catch()`, `finally()`, `Promise.all()`.",
       "code": "// Examples for using promise methods"
+    },
+    {
+      "term": "Pending",
+      "description": "The initial state of a Promise. The operation represented by the Promise has not completed yet.",
+      "code": "const promise = new Promise((resolve, reject) => {}); // Promise is in 'Pending' state"
+    },
+    {
+      "term": "Fulfilled",
+      "description": "The state of a Promise representing a successful operation.",
+      "code": "const promise = Promise.resolve('Success');\npromise.then(result => console.log(result)); // 'Success', Promise is 'Fulfilled'"
+    },
+    {
+      "term": "Rejected",
+      "description": "The state of a Promise representing a failed operation.",
+      "code": "const promise = Promise.reject('Failure');\npromise.catch(error => console.log(error)); // 'Failure', Promise is 'Rejected'"
+    },
+    {
+      "term": "then()",
+      "description": "Method to handle the fulfillment of the Promise. It gets called when the Promise is fulfilled.",
+      "code": "Promise.resolve('Success').then(result => console.log(result)); // Logs 'Success'"
+    },
+    {
+      "term": "catch()",
+      "description": "Method to handle the rejection of the Promise. It is executed when the Promise is rejected.",
+      "code": "Promise.reject('Failure').catch(error => console.log(error)); // Logs 'Failure'"
+    },
+    {
+      "term": "finally()",
+      "description": "Method that executes a callback function once the Promise is either fulfilled or rejected.",
+      "code": "new Promise((resolve, reject) => {\n  resolve('Success');\n})\n.finally(() => console.log('Completed'));\n// Logs 'Completed' regardless of the Promise's outcome"
+    },
+    {
+      "term": "Promise.all()",
+      "description": "Method that takes an iterable of promises as an input, and returns a single Promise that resolves when all of the promises in the iterable have resolved.",
+      "code": "Promise.all([Promise.resolve('Promise 1'), Promise.resolve('Promise 2')])\n.then(results => console.log(results)); // Logs ['Promise 1', 'Promise 2']"
     }
   ],
   "Asynchronous JavaScript": [
@@ -361,6 +384,16 @@
       "term": "Event listeners",
       "description": "Add a function that will be called whenever a specified event occurs.",
       "code": "element.addEventListener('click', function() {\n  console.log('Element clicked!');\n});"
+    },
+    {
+      "term": "Event propagation",
+      "description": "The process by which an event activated on an element (e.g., a click) is propagated through multiple layers of the DOM. Event propagation can be in two phases: capturing and bubbling.",
+      "code": "document.getElementById('parent').addEventListener('click', function() {\n  console.log('Parent clicked!');\n}, false);\ndocument.getElementById('child').addEventListener('click', function(event) {\n  console.log('Child clicked!');\n  event.stopPropagation(); // Stops the propagation\n}, false);"
+    },
+    {
+      "term": "Event delegation",
+      "description": "A technique of handling events by adding a single event listener to a parent element rather than multiple listeners to individual child elements. It leverages the event bubbling phase to capture events from child elements.",
+      "code": "document.getElementById('parent').addEventListener('click', function(event) {\n  if(event.target && event.target.matches('li.item')) {\n    console.log('Item clicked:', event.target.textContent);\n  }\n});"
     }
   ],
   "AJAX (Asynchronous JavaScript and XML)": [
@@ -402,6 +435,26 @@
       "term": "Classes",
       "description": "A template for creating objects.",
       "code": "class Person {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    console.log(`Hello, ${this.name}!`);\n  }\n}"
+    },
+    {
+      "term": "let and const",
+      "description": "Declare variables with block scope, with `let` allowing reassignment and `const` defining a constant reference.",
+      "code": "let age = 25;\nconst name = 'John Doe';"
+    },
+    {
+      "term": "Default parameters",
+      "description": "Allow named parameters to be initialized with default values if no value or undefined is passed.",
+      "code": "function greet(name = 'Guest') {\n  return `Hello, ${name}!`;\n}"
+    },
+    {
+      "term": "Modules",
+      "description": "Support for import and export of functions, objects, or primitives from one module to another.",
+      "code": "// In file math.js\nexport const add = (a, b) => a + b;\n// In another file\nimport { add } from './math.js';\nconsole.log(add(2, 3));"
+    },
+    {
+      "term": "Promises ES6",
+      "description": "An object representing the eventual completion or failure of an asynchronous operation.",
+      "code": "const fetchData = new Promise((resolve, reject) => {\n  // Asynchronous operation\n  if (/* operation successful */) {\n    resolve('Data fetched successfully');\n  } else {\n    reject('Error fetching data');\n  }\n});\nfetchData.then(data => console.log(data)).catch(error => console.log(error));"
     }
   ],
   "Web APIs": [
@@ -414,6 +467,11 @@
       "term": "Session Storage",
       "description": "Similar to Local Storage but with a shorter lifecycle.",
       "code": "sessionStorage.setItem('key', 'value');"
+    },
+    {
+      "term": "Web Storage API",
+      "description": "Provides mechanisms by which browsers can securely store key/value pairs, accessible within the user's session or persistently.",
+      "code": "// Storing data\nlocalStorage.setItem('username', 'JohnDoe');\n// Retrieving data\nlet username = localStorage.getItem('username');\n// Removing data\nlocalStorage.removeItem('username');\n// Clearing all data\nlocalStorage.clear();"
     }
   ],
   "Libraries and Frameworks": [
@@ -435,7 +493,18 @@
       "term": "Console.log()",
       "description": "Logs information to the browser's console.",
       "code": "console.log('Debug message');"
-    }
+    },
+  
+  {
+    "term": "Breakpoints",
+    "description": "A debugging tool that allows developers to pause the execution of code at a specific line, enabling the inspection of variables and the flow of execution at that moment.",
+"code": "// No direct code example for setting breakpoints through source code,\n// but most developer tools allow you to click on the line number in the source to set a breakpoint."
+  },
+      {
+    "term": "DevTools",
+    "description": "A set of web developer tools built into most web browsers that help in debugging web pages. They provide insights into the DOM, styles, JavaScript, network activity, performance, and more.",
+    "code": "// To open DevTools in most browsers:\n// - Right-click on a page element and select 'Inspect'.\n// - Use the keyboard shortcut 'Ctrl+Shift+I' (Windows/Linux) or 'Cmd+Opt+I' (Mac)."
+  }
   ],
   "Others": [
     {

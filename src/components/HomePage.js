@@ -83,7 +83,7 @@ function HomePage() {
                   <Link to="/concept?query=Unary">Unary</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=Ternary">Ternary (Conditional)</Link>
+                  <Link to="/concept?query=Ternary (Conditional)">Ternary (Conditional)</Link>
                 </li>
               </ul>
             </li>
@@ -140,7 +140,7 @@ function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=IIFE">
+                  <Link to="/concept?query=IIFE%20(Immediately%20Invoked%20Function%20Expression)">
                     IIFE (Immediately Invoked Function Expression)
                   </Link>
                 </li>
@@ -165,46 +165,48 @@ function HomePage() {
                 </li>
               </ul>
             </li>
-            {/* Arrays */}
+            {/* Arrays Methods*/}
             <li>
-              <Link to="/Arrays">Arrays</Link>
+              <Link to="/Array-Methods">Array Methods</Link>
               <ul>
                 <li>
-                  <Link to="/concept?query=push">push()</Link>
+                  <Link to="/concept?query=push()">push()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=pop">pop()</Link>
+                  <Link to="/concept?query=pop()">pop()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=shift">shift()</Link>
+                  <Link to="/concept?query=shift()">shift()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=unshift">unshift()</Link>
+                  <Link to="/concept?query=unshift()">unshift()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=splice">splice()</Link>
+                  <Link to="/concept?query=splice()">splice()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=slice">slice()</Link>
+                  <Link to="/concept?query=slice()">slice()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=concat">concat()</Link>
-                </li>
-                {/* Array iteration */}
-                <li>
-                  <Link to="/concept?query=forEach">forEach()</Link>
-                </li>
-                <li>
-                  <Link to="/concept?query=map">map()</Link>
-                </li>
-                <li>
-                  <Link to="/concept?query=filter">filter()</Link>
-                </li>
-                <li>
-                  <Link to="/concept?query=reduce">reduce()</Link>
+                  <Link to="/concept?query=concat()">concat()</Link>
                 </li>
               </ul>
             </li>
+            <Link to="/Array-Iteration">Array Iteration</Link>
+               {/* Array iteration */}
+               <ul>
+               <li>
+                  <Link to="/concept?query=forEach()">forEach()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=map()">map()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=filter()">filter()</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=reduce()">reduce()</Link>
+                </li></ul>
           </ul>
         </nav>
         <nav style={{ width: "32%" }}>
@@ -224,19 +226,29 @@ function HomePage() {
                 </li>
                 {/* Object methods */}
                 <li>
-                  <Link to="/concept?query=Object.keys">Object.keys()</Link>
+                  <Link to="/concept?query=Object.keys()">Object.keys()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=Object.values">Object.values()</Link>
+                  <Link to="/concept?query=Object.values()">Object.values()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=Object.entries">
+                  <Link to="/concept?query=Object.entries()">
                     Object.entries()
                   </Link>
                 </li>
                 <li>
                   <Link to="/concept?query=Object%20destructuring">
                     Object destructuring
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Object%20methods">
+                    Object methods
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Object%20properties">
+                    Object properties
                   </Link>
                 </li>
               </ul>
@@ -255,16 +267,16 @@ function HomePage() {
                   <Link to="/concept?query=Rejected">Rejected</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=then">then()</Link>
+                  <Link to="/concept?query=then()">then()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=catch">catch()</Link>
+                  <Link to="/concept?query=catch()">catch()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=finally">finally()</Link>
+                  <Link to="/concept?query=finally()">finally()</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=Promise.all">Promise.all()</Link>
+                  <Link to="/concept?query=Promise.all()">Promise.all()</Link>
                 </li>
               </ul>
             </li>
@@ -280,7 +292,7 @@ function HomePage() {
                   <Link to="/concept?query=Promises">Promises</Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=Async%20Await">Async/Await</Link>
+                  <Link to="/concept?query=Async/Await">Async/Await</Link>
                 </li>
               </ul>
             </li>
@@ -290,12 +302,12 @@ function HomePage() {
               <Link to="/Error-Handling">Error Handling</Link>
               <ul>
                 <li>
-                  <Link to="/concept?query=try%20catch">
+                  <Link to="/concept?query=try...catch statement">
                     try...catch statement
                   </Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=throw">throw statement</Link>
+                  <Link to="/concept?query=throw statement">throw statement</Link>
                 </li>
               </ul>
             </li>
@@ -408,7 +420,7 @@ function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=Modules%20ES6">Modules</Link>
+                  <Link to="/concept?query=Modules">Modules</Link>
                 </li>
                 <li>
                   <Link to="/concept?query=Promises%20ES6">Promises</Link>
@@ -462,7 +474,7 @@ function HomePage() {
               <Link to="/Debugging">Debugging</Link>
               <ul>
                 <li>
-                  <Link to="/concept?query=Console.log">Console.log()</Link>
+                  <Link to="/concept?query=Console.log()">Console.log()</Link>
                 </li>
                 <li>
                   <Link to="/concept?query=Breakpoints">Breakpoints</Link>
@@ -499,7 +511,7 @@ function HomePage() {
             </li>
             {/* Advanced JavaScript Concepts */}
             <li>
-              <Link to="/Advanced JavaScript Concepts">
+              <Link to="/Advanced-JavaScript-Concepts">
                 Advanced JavaScript Concepts
               </Link>
               <ul>
@@ -517,7 +529,7 @@ function HomePage() {
 
             {/* Modern Development Practices */}
             <li>
-              <Link to="/Modern Development Practices">
+              <Link to="/Modern-Development-Practices">
                 Modern Development Practices
               </Link>
               <ul>
@@ -534,7 +546,7 @@ function HomePage() {
 
             {/* Testing and Performance */}
             <li>
-              <Link to="/Testing and Performance">Testing and Performance</Link>
+              <Link to="/Testing-and-Performance">Testing and Performance</Link>
               <ul>
                 <li>
                   <Link to="/concept?query=Unit Testing">Unit Testing</Link>
@@ -556,7 +568,7 @@ function HomePage() {
 
             {/* ES6+ Features Extended */}
             <li>
-              <Link to="/ES6 Features Extended">ES6+ Features Extended</Link>
+              <Link to="/ES6-Features-Extended">ES6+ Features Extended</Link>
               <ul>
                 <li>
                   <Link to="/concept?query=Optional Chaining">

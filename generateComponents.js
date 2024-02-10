@@ -27,7 +27,8 @@ const categories = [
   "Advanced JavaScript Concepts",
   "Modern Development Practices",
   "Testing and Performance",
-  "ES6+ Features Extended"
+  "ES6+ Features Extended",
+  "Others"
 ];
 
 const componentTemplate = (category) => `

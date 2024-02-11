@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Card from "react-bootstrap/Card";
 import styles from "./Terms.module.css";
+import { Helmet } from "react-helmet";
 
 // GraphQL query
 const GET_CONCEPT_BY_TERM = gql`
@@ -31,6 +32,15 @@ const Concept = () => {
 
   return (
     <div>
+       <Helmet>
+        
+        <title>{`${data.getConceptByTerm.term} Concept for JavaScript`}</title>
+        <meta name="description" content={data.getConceptByTerm.description} />
+        
+        <meta property="og:title" content={`${data.getConceptByTerm.term} Concept for JavaScript`} />
+        <meta property="og:description" content={data.getConceptByTerm.description} />
+
+      </Helmet>
       {data && data.getConceptByTerm ? (
         <Card className="box">
           <Card.Header>

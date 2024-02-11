@@ -3,11 +3,11 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
-import { useQuery, gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
-const GET_LIBRARIES_AND_FRAMEWORKS_CONCEPTS = gql`
-  query GetConceptsByCategory($category: String!) {
-    getConceptsByCategory(category: $category) {
+const GET_CATEGORY_BY_NAME = gql`
+  query GetCategoryByName($name: String!) {
+    getCategoryByName(name: $name) {
       name
       description
       concepts {
@@ -19,14 +19,15 @@ const GET_LIBRARIES_AND_FRAMEWORKS_CONCEPTS = gql`
   }
 `;
 
-function LibrariesandFrameworksPage() {
-  const { loading, error, data } = useQuery(GET_LIBRARIES_AND_FRAMEWORKS_CONCEPTS, {
-    variables: { category: "Libraries and Frameworks" }
+function LibrariesAndFrameworksPage() {
+  const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
+    variables: { name: "Libraries and Frameworks" }
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  const categoryData = data.getConceptsByCategory;
+
+  const categoryData = data.getCategoryByName;
 
   return (
     <div>
@@ -52,4 +53,4 @@ function LibrariesandFrameworksPage() {
   );
 }
 
-export default LibrariesandFrameworksPage;
+export default LibrariesAndFrameworksPage;

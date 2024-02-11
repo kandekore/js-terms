@@ -14,8 +14,8 @@ import Operators from "./components/concepts/Operators";
 import ControlFlow from "./components/concepts/ControlFlow";
 import Functions from "./components/concepts/Functions";
 import Scope from "./components/concepts/Scope";
-import Arrays from "./components/concepts/Arrays";
-import ArraysI from "./components/concepts/ArrayIteration";
+import ArrayMethods from "./components/concepts/ArrayMethods";
+import ArrayIteration from "./components/concepts/Array-Iteration";
 import SearchResults from "./components/SearchResults";
 import Concept from "./components/concepts/Concepts";
 import Objects from "./components/concepts/Objects";
@@ -60,8 +60,8 @@ function App() {
                 <Route path="/control-flow" element={<ControlFlow />} />
                 <Route path="/functions" element={<Functions />} />
                 <Route path="/scope" element={<Scope />} />
-                <Route path="/array-methods" element={<Arrays />} />
-                <Route path="/array-iteration" element={<ArraysI />} />
+                <Route path="/array-methods" element={<ArrayMethods />} />
+                <Route path="/array-iteration" element={<ArrayIteration/>} />
                 <Route path="/objects" element={<Objects />} />
                 <Route path="/promises" element={<Promises />} />
                 <Route

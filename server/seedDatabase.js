@@ -1,49 +1,53 @@
 const mongoose = require("mongoose");
 const fs = require("fs").promises;
 const path = require("path");
-const Concept = require("./models/conceptModel"); // Ensure correct path
+const Concept = require("./models/conceptModel"); 
+const Category = require("./models/categoryModel");
 
 const mongoURI = "mongodb://127.0.0.1/jsConceptsDB";
-mongoose.set("strictQuery", true); // To keep strict query behavior
-//mongoose.set('strictQuery', false); // To use the non-strict behavior that will be the default in Mongoose 7
 
 async function seedDatabase() {
   try {
     await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
     });
     console.log("Connected to MongoDB...");
 
-    const data = await fs.readFile(
-      path.join(__dirname, "seeds", "terms.json"),
-      "utf8"
-    );
+    const data = await fs.readFile(path.join(__dirname, "seeds", "terms.json"), "utf8");
     const json = JSON.parse(data);
-    const categories = json.categories;
-    
-    const concepts = [];
-    categories.forEach(category => {
-      if (category.concepts && Array.isArray(category.concepts)) {
-        category.concepts.forEach(concept => {
-          concepts.push({ 
-            category: category.name, 
-            term: concept.term, 
-            description: concept.description, 
-            code: concept.code // This will safely remain undefined if not present
-          });
-        });
-      }
-    });
-    
-    await Concept.deleteMany({});
-    await Concept.insertMany(concepts);
-    console.log("Database seeded successfully!");
+    const categoriesData = json.categories;
 
-    mongoose.disconnect();
+    await Concept.deleteMany({});
+    await Category.deleteMany({});
+
+    for (const categoryData of categoriesData) {
+      // Create and save the category
+      const category = new Category({
+        name: categoryData.name,
+        description: categoryData.description,
+      });
+
+      // Create concepts linked to this category
+      const concepts = categoryData.concepts.map(concept => ({
+        ...concept,
+        category: category.name, // Link concept to category by name
+      }));
+
+      // Insert the concepts and update the category with concept IDs
+      const savedConcepts = await Concept.insertMany(concepts);
+      const conceptIds = savedConcepts.map(concept => concept._id);
+
+      // Update category with concept IDs
+      category.concepts = conceptIds;
+      await category.save();
+    }
+
+    console.log("Database seeded successfully!");
   } catch (error) {
     console.error("Failed to seed database:", error);
-    process.exit(1);
+  } finally {
+    mongoose.disconnect();
   }
 }
 

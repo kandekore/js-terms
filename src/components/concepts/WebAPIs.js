@@ -3,11 +3,11 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
-import { useQuery, gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
-const GET_WEB_APIS_CONCEPTS = gql`
-  query GetConceptsByCategory($category: String!) {
-    getConceptsByCategory(category: $category) {
+const GET_CATEGORY_BY_NAME = gql`
+  query GetCategoryByName($name: String!) {
+    getCategoryByName(name: $name) {
       name
       description
       concepts {
@@ -20,13 +20,14 @@ const GET_WEB_APIS_CONCEPTS = gql`
 `;
 
 function WebAPIsPage() {
-  const { loading, error, data } = useQuery(GET_WEB_APIS_CONCEPTS, {
-    variables: { category: "Web APIs" }
+  const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
+    variables: { name: "Web APIs" }
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  const categoryData = data.getConceptsByCategory;
+
+  const categoryData = data.getCategoryByName;
 
   return (
     <div>

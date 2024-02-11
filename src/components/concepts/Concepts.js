@@ -38,7 +38,8 @@ const Concept = () => {
             <Card.Text>
               (Category:{" "}
               <a
-                href={`/${data.getConceptByTerm.category.replace(/\s+/g, "-")}`}
+                href={`/${data.getConceptByTerm.category.replace(/\+/g, "").replace(/\s+/g, "-")}
+                `}
               >
                 {data.getConceptByTerm.category}
               </a>

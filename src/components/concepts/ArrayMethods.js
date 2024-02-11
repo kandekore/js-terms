@@ -3,11 +3,11 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
-import { useQuery, gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
-const GET_ES6+_FEATURES_CONCEPTS = gql`
-  query GetConceptsByCategory($category: String!) {
-    getConceptsByCategory(category: $category) {
+const GET_CATEGORY_BY_NAME = gql`
+  query GetCategoryByName($name: String!) {
+    getCategoryByName(name: $name) {
       name
       description
       concepts {
@@ -19,14 +19,15 @@ const GET_ES6+_FEATURES_CONCEPTS = gql`
   }
 `;
 
-function ES6+FeaturesPage() {
-  const { loading, error, data } = useQuery(GET_ES6+_FEATURES_CONCEPTS, {
-    variables: { category: "ES6+ Features" }
+function ArrayMethodsPage() {
+  const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
+    variables: { name: "Array Methods" }
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  const categoryData = data.getConceptsByCategory;
+
+  const categoryData = data.getCategoryByName;
 
   return (
     <div>
@@ -52,4 +53,4 @@ function ES6+FeaturesPage() {
   );
 }
 
-export default ES6+FeaturesPage;
+export default ArrayMethodsPage;

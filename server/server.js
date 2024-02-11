@@ -19,7 +19,7 @@ app.use(cors());
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: true // Enable GraphQL Playground
+  playground: true 
 });
 
 async function startApolloServer() {

@@ -160,68 +160,7 @@
         }
       ]
     },
-    {
-      "name": "Web APIs",
-      "description": "Web APIs provide interfaces allowing interaction between the web browser and the web page, enabling the creation of complex web applications.",
-      "concepts": [
-        {
-          "term": "Local Storage",
-          "description": "Allows web applications to store data persistently in the browser.",
-          "code": "localStorage.setItem('key', 'value');\nlet value = localStorage.getItem('key');"
-        },
-        {
-          "term": "Session Storage",
-          "description": "Similar to Local Storage but with a shorter lifecycle, limited to the window session.",
-          "code": "sessionStorage.setItem('key', 'value');"
-        },
-        {
-          "term": "Web Storage API",
-          "description": "Provides mechanisms by which browsers can store key/value pairs in a web page's client-side.",
-          "code": "// Storing data\nlocalStorage.setItem('username', 'JohnDoe');"
-        },
-        {
-          "term": "Fetch API",
-          "description": "Provides an interface for fetching resources (including across the network).",
-          "code": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data));"
-        }
-      ]
-    },
-    {
-      "name": "ES6+ Features",
-      "description": "ES6, also known as ECMAScript 2015, introduced several new JavaScript features for better coding practices and new functionalities.",
-      "concepts": [
-        {
-          "term": "let and const",
-          "description": "Introduce block-scoped variables and constants, enhancing code readability and predictability.",
-          "code": "let age = 25;\nconst name = 'John Doe';"
-        },
-        {
-          "term": "Arrow Functions",
-          "description": "Provide a concise syntax to write function expressions using '=>' syntax.",
-          "code": "const greet = name => `Hello, ${name}!`;"
-        },
-        {
-          "term": "Template Literals",
-          "description": "Allow for string interpolation and multi-line strings for better readability.",
-          "code": "const greeting = `Hello, ${name}!`; // Use backticks"
-        },
-        {
-          "term": "Default Parameters",
-          "description": "Functions can have default values for parameters, used when not explicitly provided.",
-          "code": "function greet(name = 'Guest') { return `Hello, ${name}!`; }"
-        },
-        {
-          "term": "Promises",
-          "description": "Enable asynchronous programming by representing a value that may be available now, in the future, or never.",
-          "code": "const fetchData = new Promise((resolve, reject) => { /* async operation */ });"
-        },
-        {
-          "term": "Modules",
-          "description": "Support code modularization through the use of import and export statements.",
-          "code": "import { functionName } from 'module';\nexport function functionName() { /* implementation */ }"
-        }
-      ]
-    },
+
     {
       "name": "Libraries and Frameworks",
       "description": "Frameworks and libraries are collections of pre-written code to help developers build applications faster by providing reusable components and abstracting complex operations.",
@@ -351,8 +290,8 @@
         ]
       },
        {
-        "name":"Array Methods",
-        "description": "Array iteration methods execute a function on each item of an array, enabling operations like finding, filtering, and transforming array elements.",
+        "name":"Array Iteration",
+        "description": "Array  methods execute a function on each item of an array, enabling operations like finding, filtering, and transforming array elements.",
         "concepts": [
           {
             "term": "forEach()",
@@ -406,7 +345,7 @@
           }
         ]
       },
-       { "name": "ES6+ Features",
+       { "name": "AJAX (Asynchronous JavaScript and XML)",
         "description": "ES6, officially known as ECMAScript 2015, and later versions introduced new syntax and features to make JavaScript more powerful and concise.",
         "concepts": [
           {
@@ -445,7 +384,353 @@
             "code": "import { moduleFunction } from './module.js'; export function myFunction() { /*...*/ }"
           }
         ]
+      },
+      {
+        "name": "Objects",
+        "description": "Objects in JavaScript are collections of key/value pairs. They store data and provide a mechanism for encapsulating data, functions, and structures.",
+        "concepts": [
+          {
+            "term": "Object properties",
+            "description": "Includes dot notation and bracket notation for accessing properties.",
+            "code": "let person = {firstName: \"John\", lastName: \"Doe\"};\n// Examples for dot and bracket notation"
+          },
+          {
+            "term": "Object methods",
+            "description": "Includes `Object.keys()`, `Object.values()`, `Object.entries()`.",
+            "code": "let person = {firstName: \"John\", lastName: \"Doe\"};\n// Examples for each object method"
+          },
+          {
+            "term": "Object destructuring",
+            "description": "A JavaScript expression that allows unpacking values from arrays, or properties from objects, into distinct variables.",
+            "code": "let {firstName, lastName} = person;"
+          }, {
+            "term": "Dot notation",
+            "description": "Accesses the property of an object. It's a straightforward syntax for getting or setting an object's property when you know the name of the property.",
+            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(person.firstName); // 'John'"
+          },
+          {
+            "term": "Bracket notation",
+            "description": "Another way to access a property of an object. It's useful when the property name is dynamic or not a valid identifier.",
+            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nlet property = 'firstName';\nconsole.log(person[property]); // 'John'"
+          },
+          {
+            "term": "Object.keys()",
+            "description": "Returns an array of a given object's own property names, in the same order as we get with a normal loop.",
+            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.keys(person)); // ['firstName', 'lastName']"
+          },
+          {
+            "term": "Object.values()",
+            "description": "Returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop.",
+            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.values(person)); // ['John', 'Doe']"
+          },
+          {
+            "term": "Object.entries()",
+            "description": "Returns an array of a given object's own enumerable string-keyed property [key, value] pairs.",
+            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.entries(person)); // [['firstName', 'John'], ['lastName', 'Doe']]"
+          }
+        ]
+      },
+      {
+        "name": "Promises",
+        "description": "Promises are used for asynchronous computations. A Promise represents an operation that hasn't completed yet, but is expected in the future.",
+        "concepts": [
+          {
+            "term": "Promise states",
+            "description": "Includes Pending, Fulfilled, Rejected.",
+            "code": "// Examples for each state here"
+          },
+          {
+            "term": "Promise methods",
+            "description": "Includes `then()`, `catch()`, `finally()`, `Promise.all()`.",
+            "code": "// Examples for using promise methods"
+          },
+          {
+            "term": "Pending",
+            "description": "The initial state of a Promise. The operation represented by the Promise has not completed yet.",
+            "code": "const promise = new Promise((resolve, reject) => {}); // Promise is in 'Pending' state"
+          },
+          {
+            "term": "Fulfilled",
+            "description": "The state of a Promise representing a successful operation.",
+            "code": "const promise = Promise.resolve('Success');\npromise.then(result => console.log(result)); // 'Success', Promise is 'Fulfilled'"
+          },
+          {
+            "term": "Rejected",
+            "description": "The state of a Promise representing a failed operation.",
+            "code": "const promise = Promise.reject('Failure');\npromise.catch(error => console.log(error)); // 'Failure', Promise is 'Rejected'"
+          },
+          {
+            "term": "then()",
+            "description": "Method to handle the fulfillment of the Promise. It gets called when the Promise is fulfilled.",
+            "code": "Promise.resolve('Success').then(result => console.log(result)); // Logs 'Success'"
+          },
+          {
+            "term": "catch()",
+            "description": "Method to handle the rejection of the Promise. It is executed when the Promise is rejected.",
+            "code": "Promise.reject('Failure').catch(error => console.log(error)); // Logs 'Failure'"
+          },
+          {
+            "term": "finally()",
+            "description": "Method that executes a callback function once the Promise is either fulfilled or rejected.",
+            "code": "new Promise((resolve, reject) => {\n  resolve('Success');\n})\n.finally(() => console.log('Completed'));\n// Logs 'Completed' regardless of the Promise's outcome"
+          },
+          {
+            "term": "Promise.all()",
+            "description": "Method that takes an iterable of promises as an input, and returns a single Promise that resolves when all of the promises in the iterable have resolved.",
+            "code": "Promise.all([Promise.resolve('Promise 1'), Promise.resolve('Promise 2')])\n.then(results => console.log(results)); // Logs ['Promise 1', 'Promise 2']"
+          }
+        ]
+      },
+      {
+        "name": "Asynchronous JavaScript",
+        "description": "Asynchronous JavaScript includes techniques such as callbacks, promises, and async/await to handle or perform operations asynchronously.",
+        "concepts": [
+          {
+            "term": "Callbacks",
+            "description": "A function passed into another function as an argument to be executed later.",
+            "code": "// Example of a callback function"
+          },
+          {
+            "term": "Promises",
+            "description": "An object representing the eventual completion or failure of an asynchronous operation.",
+            "code": "// Example of creating a promise"
+          },
+          {
+            "term": "Async/Await",
+            "description": "A syntactic sugar built on top of promises, making asynchronous code look and behave a little more like synchronous code.",
+            "code": "// Example of using async/await"
+          }
+        ]
+      },
+      {
+        "name": "Error Handling",
+        "description": "Error handling in JavaScript is implemented using try...catch statements, throw statements, and custom error handling logic to manage exceptions.",
+        "concepts": [
+          {
+            "term": "try...catch statement",
+            "description": "Marks a block of statements to try, and specifies a response, should an exception be thrown.",
+            "code": "// Example of using try...catch"
+          },
+          {
+            "term": "throw statement",
+            "description": "Throws a user-defined exception.",
+            "code": "// Example of using throw"
+          }
+        ],
+        "JSON (JavaScript Object Notation)": [
+          {
+            "term": "JSON",
+            "description": "A syntax for storing and exchanging data.",
+            "code": "let json = '{\"name\": \"John\", \"age\": 30}';\nlet user = JSON.parse(json); // Converts JSON text into a JavaScript object"
+          }
+        ]
+      },
+      {
+        "name": "JSON (JavaScript Object Notation)",
+        "description": "JSON is a lightweight format for storing and transporting data, often used when data is sent from a server to a web page.",
+        "concepts": [
+          {
+            "term": "JSON",
+            "description": "A syntax for storing and exchanging data.",
+            "code": "let json = '{\"name\": \"John\", \"age\": 30}';"
+          }
+        ]
+      },
+      {
+        "name": "Security",
+        "description": "Security in JavaScript involves techniques and practices for protecting web applications against vulnerabilities and threats, such as Cross-Site Scripting (XSS) and other web-based attacks.",
+        "concepts": [
+          {
+            "term": "Cross-Site Scripting (XSS)",
+            "description": "A security vulnerability typically found in web applications that allows attackers to inject client-side scripts into web pages viewed by other users.",
+            "code": ""
+          }
+        ]
+      },
+      {
+        "name": "ES6+ Features Extended",
+        "description": "Extended features of ES6 and later versions include syntax and functionality improvements like Optional Chaining and the Nullish Coalescing Operator.",
+        "concepts": [
+          {
+            "term": "Optional Chaining",
+            "description": "A safe way to access nested object properties, even if an intermediate property doesn't exist.",
+            "code": "const streetName = user?.address?.street;"
+          },
+          {
+            "term": "Nullish Coalescing Operator",
+            "description": "A logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.",
+            "code": "const foo = null ?? 'default string';"
+          }
+        ]
+      },
+      {
+        "name": "Modern Development Practices",
+        "description": "Modern Development Practices include methodologies and technologies such as Service Workers and Web Components, enhancing the capabilities and performance of web applications.",
+        "concepts": [
+          {
+            "term": "Service Workers",
+            "description": "Scripts that your browser runs in the background, separate from a web page, opening the door to features that don't need a web page or user interaction.",
+            "code": "if ('serviceWorker' in navigator) {\n  navigator.serviceWorker.register('/service-worker.js');\n}"
+          },
+          {
+            "term": "Web Components",
+            "description": "A set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps.",
+            "code": "class MyComponent extends HTMLElement {\n  constructor() {\n    super();\n  }\n}\ncustomElements.define('my-component', MyComponent);"
+          }
+        ]
+      },
+      {
+        "name": "Modules",
+        "description": "Modules in JavaScript provide a way to split the code of a web application into independent, reusable pieces.",
+        "concepts": [
+          {
+            "term": "import",
+            "description": "Allows you to bring modules or specific features into your current file.",
+            "code": "import { moduleFunction } from './module.js';"
+          },
+          {
+            "term": "export",
+            "description": "Allows you to make parts of your module available to be imported into other files.",
+            "code": "export function moduleFunction() { ... }"
+          }
+        ]
+      }, {
+        "name": "DOM Manipulation",
+        "description": "Techniques for dynamically changing the content, structure, and style of a document.",
+        "concepts": [
+          {
+            "term": "Selecting elements",
+            "description": "Accessing elements from the DOM.",
+            "code": "let element = document.getElementById('myElement');"
+          },
+          {
+            "term": "Modifying elements",
+            "description": "Changing the content or style of elements.",
+            "code": "element.textContent = 'New content';"
+          },
+          {
+            "term": "Creating elements",
+            "description": "Adding new elements to the DOM.",
+            "code": "let newElement = document.createElement('div');\ndocument.body.appendChild(newElement);"
+          }
+        ]
+      },
+      {
+        "name": "Events",
+        "description": "Interactions or occurrences that happen within the system you are programming for, which can be captured and handled using JavaScript.",
+        "concepts": [
+          {
+            "term": "Event listeners",
+            "description": "Add a function that will be called whenever a specified event occurs.",
+            "code": "element.addEventListener('click', function() {\n  console.log('Element clicked!');\n});"
+          },
+          {
+            "term": "Event propagation",
+            "description": "The process by which an event activated on an element (e.g., a click) is propagated through multiple layers of the DOM. Event propagation can be in two phases: capturing and bubbling.",
+            "code": "document.getElementById('parent').addEventListener('click', function() {\n  console.log('Parent clicked!');\n}, false);\ndocument.getElementById('child').addEventListener('click', function(event) {\n  console.log('Child clicked!');\n  event.stopPropagation(); // Stops the propagation\n}, false);"
+          },
+          {
+            "term": "Event delegation",
+            "description": "A technique of handling events by adding a single event listener to a parent element rather than multiple listeners to individual child elements. It leverages the event bubbling phase to capture events from child elements.",
+            "code": "document.getElementById('parent').addEventListener('click', function(event) {\n  if(event.target && event.target.matches('li.item')) {\n    console.log('Item clicked:', event.target.textContent);\n  }\n});"
+          }
+        ]
+      },
+      {
+        "name": "AJAX (Asynchronous JavaScript and XML)",
+        "description": "A technique for creating fast and dynamic web pages, allowing for asynchronous web page updates.",
+        "concepts": [
+          {
+            "term": "AJAX",
+            "description": "A technique for creating fast and dynamic web pages.",
+            "code": "// Example of using AJAX"
+          }
+        ]
+      },
+      {
+        "name": "Fetch API",
+        "description": "Provides a modern interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.",
+        "concepts": [
+          {
+            "term": "Fetch API",
+            "description": "Provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.",
+            "code": "// Example of using Fetch API"
+          }
+        ]
+      },
+      {
+        "name": "ES6+ Features",
+        "description": "Enhancements and new features introduced in ECMAScript 6 and later versions to improve JavaScript.",
+        "concepts": [
+          {
+            "term": "Template literals",
+            "description": "Allow embedded expressions and multi-line strings.",
+            "code": "let greeting = `Hello, ${name}!`;"
+          },
+          {
+            "term": "Destructuring assignment",
+            "description": "Allows unpacking values from arrays or properties from objects.",
+            "code": "let [first, second] = [1, 2];\nlet {firstName, lastName} = person;"
+          },
+          {
+            "term": "Spread/rest operator",
+            "description": "Allows an iterable to expand in places where 0+ arguments are expected.",
+            "code": "let parts = ['shoulders', 'knees'];\nlet lyrics = ['head', ...parts, 'and', 'toes'];"
+          },
+          {
+            "term": "Arrow functions",
+            "description": "Provide a concise syntax for writing function expressions.",
+            "code": "let add = (a, b) => a + b;"
+          },
+          {
+            "term": "Classes",
+            "description": "A template for creating objects.",
+            "code": "class Person {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    console.log(`Hello, ${this.name}!`);\n  }\n}"
+          },
+          {
+            "term": "let and const",
+            "description": "Declare variables with block scope, with `let` allowing reassignment and `const` defining a constant reference.",
+            "code": "let age = 25;\nconst name = 'John Doe';"
+          },
+          {
+            "term": "Default parameters",
+            "description": "Allow named parameters to be initialized with default values if no value or undefined is passed.",
+            "code": "function greet(name = 'Guest') {\n  return `Hello, ${name}!`;\n}"
+          },
+          {
+            "term": "Modules",
+            "description": "Support for import and export of functions, objects, or primitives from one module to another.",
+            "code": "// In file math.js\nexport const add = (a, b) => a + b;\n// In another file\nimport { add } from './math.js';\nconsole.log(add(2, 3));"
+          },
+          {
+            "term": "Promises ES6",
+            "description": "An object representing the eventual completion or failure of an asynchronous operation.",
+            "code": "const fetchData = new Promise((resolve, reject) => {\n  // Asynchronous operation\n  if (/* operation successful */) {\n    resolve('Data fetched successfully');\n  } else {\n    reject('Error fetching data');\n  }\n});\nfetchData.then(data => console.log(data)).catch(error => console.log(error));"
+          }
+        ]
+      },
+      {
+        "name": "Advanced JavaScript Concepts",
+        "description": "Covers advanced features of JavaScript that enable more complex and powerful code patterns.",
+        "concepts": [
+          {
+            "term": "Symbols",
+            "description": "A primitive data type unique and immutable, used mainly as the key of an Object property.",
+            "code": "let sym = Symbol('description');"
+          },
+          {
+            "term": "Generators",
+            "description": "Functions that can be exited and later re-entered, with their context saved across re-entrances.",
+            "code": "function* generator() {\n  yield 1;\n  yield 2;\n  yield 3;\n}"
+          },
+          {
+            "term": "Proxy",
+            "description": "An object that wraps another object and intercepts operations, like reading/writing properties and others, optionally providing custom behavior.",
+            "code": "let proxy = new Proxy(target, handler);"
+          }
+        ]
       }
+      
     
     
     

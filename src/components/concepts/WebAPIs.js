@@ -3,31 +3,39 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
-import { useQuery, gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
-const GET_WEB_APIS_CONCEPTS = gql`
-  query GetConceptsByCategory {
-    getConceptsByCategory(category: "Web APIs") {
-      term
+const GET_CATEGORY_BY_NAME = gql`
+  query GetCategoryByName($name: String!) {
+    getCategoryByName(name: $name) {
+      name
       description
-      code
+      concepts {
+        term
+        description
+        code
+      }
     }
   }
 `;
 
 function WebAPIsPage() {
-  const { loading, error, data } = useQuery(GET_WEB_APIS_CONCEPTS);
+  const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
+    variables: { name: "Web APIs" }
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
+  const categoryData = data.getCategoryByName;
+
   return (
     <div>
-      <h2>Web APIs</h2>
-      <p>Description about Web APIs.</p>
+      <h2>{categoryData.name}</h2>
+      <p>{categoryData.description}</p>
 
       <Accordion defaultActiveKey="0" className="mb-3">
-        {data.getConceptsByCategory.map((concept, index) => (
+        {categoryData.concepts.map((concept, index) => (
           <Accordion.Item eventKey={String(index)} key={index}>
             <Accordion.Header>{concept.term}</Accordion.Header>
             <Accordion.Body>

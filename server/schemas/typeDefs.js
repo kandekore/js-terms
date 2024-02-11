@@ -8,11 +8,19 @@ const schema = buildSchema(`
     code: String
   }
 
+  type Category {
+    name: String
+    description: String
+    concepts: [Concept]
+  }
+
   type Query {
     getConceptsByCategory(category: String!): [Concept]
     getConceptByTerm(term: String!): Concept
     getAllConcepts: [Concept]
-    searchConceptsByDescription(keyword: String!): [Concept] # Added query
+    searchConceptsByDescription(keyword: String!): [Concept]
+    getAllCategories: [Category]
+    getCategoryByName(name: String!): Category
   }
 `);
 

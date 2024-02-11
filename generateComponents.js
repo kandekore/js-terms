@@ -8,12 +8,13 @@ const categories = [
   "Control Flow",
   "Functions",
   "Scope",
-  "Arrays",
+  "Array Methods",
+  "Array-Iteration",
   "Objects",
   "Promises",
   "Asynchronous JavaScript",
   "Error Handling",
-  "JSON",
+  "JSON (JavaScript Object Notation)",
   "Modules",
   "DOM Manipulation",
   "Events",
@@ -28,41 +29,55 @@ const categories = [
   "Modern Development Practices",
   "Testing and Performance",
   "ES6+ Features Extended",
-  "Others"
+  "Others",
+  "ArrayIteration",
+  "Concepts",
+  "ES6Features",
+  "ES6FeaturesExtended"
+
 ];
 
-const componentTemplate = (category) => `
+const componentTemplate = (categoryName) => {
+  const camelCaseCategoryName = categoryName.replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+
+  return `
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
-import { useQuery, gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
-const GET_${category.toUpperCase().replace(/\s+/g, "_")}_CONCEPTS = gql\`
-  query GetConceptsByCategory {
-    getConceptsByCategory(category: "${category}") {
-      term
+const GET_CATEGORY_BY_NAME = gql\`
+  query GetCategoryByName($name: String!) {
+    getCategoryByName(name: $name) {
+      name
       description
-      code
+      concepts {
+        term
+        description
+        code
+      }
     }
   }
 \`;
 
-function ${category.replace(/\s+/g, "")}Page() {
-  const { loading, error, data } = useQuery(GET_${category
-    .toUpperCase()
-    .replace(/\s+/g, "_")}_CONCEPTS);
+function ${camelCaseCategoryName}Page() {
+  const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
+    variables: { name: "${categoryName}" }
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
+  const categoryData = data.getCategoryByName;
+
   return (
     <div>
-      <h2>${category}</h2>
-      <p>Description about ${category}.</p>
+      <h2>{categoryData.name}</h2>
+      <p>{categoryData.description}</p>
 
       <Accordion defaultActiveKey="0" className="mb-3">
-        {data.getConceptsByCategory.map((concept, index) => (
+        {categoryData.concepts.map((concept, index) => (
           <Accordion.Item eventKey={String(index)} key={index}>
             <Accordion.Header>{concept.term}</Accordion.Header>
             <Accordion.Body>
@@ -80,8 +95,9 @@ function ${category.replace(/\s+/g, "")}Page() {
   );
 }
 
-export default ${category.replace(/\s+/g, "")}Page;
+export default ${camelCaseCategoryName}Page;
 `;
+};
 
 categories.forEach((category) => {
   const fileName = `${category.replace(/\s+/g, "")}.js`;

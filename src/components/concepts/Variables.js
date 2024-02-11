@@ -4,6 +4,7 @@ import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
 import { gql, useQuery } from "@apollo/client";
+import { Helmet } from "react-helmet";
 
 const GET_CATEGORY_BY_NAME = gql`
   query GetCategoryByName($name: String!) {
@@ -31,6 +32,14 @@ function VariablesPage() {
 
   return (
     <div>
+       <Helmet>
+        {/* Dynamically set the title and meta tags */}
+        <title>{`${categoryData.name} - My Application`}</title>
+        <meta name="description" content={categoryData.description} />
+        {/* You can also add Open Graph meta tags dynamically here */}
+        <meta property="og:title" content={categoryData.name} />
+        <meta property="og:description" content={categoryData.description} />
+      </Helmet>
       <h2>{categoryData.name}</h2>
       <p>{categoryData.description}</p>
 

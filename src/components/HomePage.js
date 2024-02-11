@@ -7,23 +7,25 @@ function HomePage() {
       <div style={{ marginBottom: "20px" }}>
         
       <div>
-  <h1>Welcome to Your JavaScript Resource</h1>
+  <h1 className="heading">JavaScript Reference Resource</h1>
   <p>
-    This site is the ultimate JavaScript learning platform, tailored for both novices beginning their programming journey and seasoned developers seeking a concise reference or to refresh their knowledge on specific concepts. Our comprehensive guide navigates through the expansive world of JavaScript, covering fundamental basics to advanced topics.
+    Welcome to my JavaScript learning platform, tailored for both novices beginning their programming journey and seasoned developers seeking a concise reference or to refresh their knowledge on specific concepts. My comprehensive guide navigates through the expansive world of JavaScript, covering fundamental basics to advanced topics.
   </p>
   <p>
-    As the backbone of interactive web development, mastering JavaScript is essential for anyone aiming to excel in the tech industry. Our platform is meticulously organized into categories, each dedicated to a specific aspect of JavaScript. These range from foundational topics like "Variables" and "Data Types" to more complex subjects such as "Asynchronous JavaScript," "Promises," and "Web APIs."
+    As the backbone of interactive web development, mastering JavaScript is essential for anyone aiming to excel in the tech industry. My platform is meticulously organized into categories, each dedicated to a specific aspect of JavaScript. These range from foundational topics like "Variables" and "Data Types" to more complex subjects such as "Asynchronous JavaScript," "Promises," and "Web APIs."
   </p>
   <p>
     Each category on serves as a portal to in-depth exploration, breaking down into key concepts with straightforward explanations and illustrative code examples. This structured approach ensures a comprehensive learning experience, allowing you to build a robust foundation before venturing into more complex areas.
   </p>
  
   <p>
-    Our mission is to make JavaScript understandable and accessible to all, ensuring our content is continually updated to reflect the latest trends and best practices in the JavaScript ecosystem.
+    My mission is to make JavaScript understandable and accessible to all, ensuring my content is continually updated to reflect the latest trends and best practices in the JavaScript ecosystem.
   </p>
   <p>
-    Whether you are starting your programming journey, transitioning from another language, or an expert developer honing your skills, our platform supports your educational path. Embark on your exploration, delve into concepts, and commence coding today with the ultimate guide to mastering the web's language.
+    Whether you are starting your programming journey, transitioning from another language, or an expert developer honing your skills, my platform supports your educational path. Embark on your exploration, delve into concepts, and commence coding today with the ultimate guide to mastering the web's language.
   </p>
+
+  <h3 className="heading">Categories & Concepts</h3>
 </div>
 
       </div>
@@ -356,6 +358,21 @@ function HomePage() {
                     Creating elements
                   </Link>
                 </li>
+                <li>
+                  <Link to="/concept?query=Removing%20elements">
+                    Removing elements
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Event%20handling">
+                  Event handling
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Manipulating%20Classes%20and%20Styles">
+                    Manipulating Classes and Styles
+                  </Link>
+                </li>
               </ul>
             </li>
 
@@ -376,6 +393,21 @@ function HomePage() {
                 <li>
                   <Link to="/concept?query=Event%20delegation">
                     Event delegation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Preventing%20default%20behavior">
+                    Preventing Default Behavior
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Custom%20events">
+                    Custom Events
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Removing%20event%20listeners">
+                    Removing Event listeners
                   </Link>
                 </li>
               </ul>
@@ -452,10 +484,16 @@ function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/concept?query=Web%20Storage%20API">
-                    Web Storage API
+                  <Link to="/concept?query=DOM%20Manipulation">
+                  DOM manipulation
                   </Link>
                 </li>
+                <li>
+                  <Link to="/concept?query=Fetch%20API">
+                  Fetch API 
+                  </Link>
+                </li>
+             
               </ul>
             </li>
 
@@ -493,30 +531,7 @@ function HomePage() {
               </ul>
             </li>
 
-            {/* Others */}
-            <li>
-              <Link to="/Others">Others</Link>
-              <ul>
-                <li>
-                  <Link to="/concept?query=Closures">Closures</Link>
-                </li>
-                <li>
-                  <Link to="/concept?query=Callbacks%20Others">Callbacks</Link>
-                </li>
-                <li>
-                  <Link to="/concept?query=Prototypes">Prototypes</Link>
-                </li>
-                <li>
-                  <Link to="/concept?query=this%20keyword">this keyword</Link>
-                </li>
-                <li>
-                  <Link to="/concept?query=Hoisting">Hoisting</Link>
-                </li>
-                <li>
-                  <Link to="/concept?query=Strict%20mode">Strict mode</Link>
-                </li>
-              </ul>
-            </li>
+            
             {/* Advanced JavaScript Concepts */}
             <li>
               <Link to="/Advanced-JavaScript-Concepts">
@@ -587,6 +602,30 @@ function HomePage() {
                   <Link to="/concept?query=Nullish Coalescing Operator">
                     Nullish Coalescing Operator
                   </Link>
+                </li>
+              </ul>
+            </li>
+            {/* Others */}
+            <li>
+              <Link to="/Other-Essential-JavaScript-Concepts">Other Essential JavaScript Concepts</Link>
+              <ul>
+                <li>
+                  <Link to="/concept?query=Closures">Closures</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Callbacks">Callbacks</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Prototypes">Prototypes</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=this%20keyword">this keyword</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Hoisting">Hoisting</Link>
+                </li>
+                <li>
+                  <Link to="/concept?query=Strict%20mode">Strict mode</Link>
                 </li>
               </ul>
             </li>

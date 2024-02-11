@@ -21,7 +21,7 @@ const GET_CATEGORY_BY_NAME = gql`
 
 function OthersPage() {
   const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
-    variables: { name: "Others" }
+    variables: { name: "Other Essential JavaScript Concepts" }
   });
 
   if (loading) return <p>Loading...</p>;

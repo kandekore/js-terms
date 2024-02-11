@@ -1,7 +1,7 @@
-/* Footer.module.css */
+
 .footer {
-  background-color: #343a40; /* Example background color */
-  color: white; /* Text color */
+  background-color: #343a40; 
+  color: white; 
 }
 .mern {
   height: 40px !important;

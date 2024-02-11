@@ -24,10 +24,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "install:client": "cd src && npm install",
+    "install:server": "cd server && npm install",
+    "develop": "concurrently \"npm run start:server\" \"npm run start:src\"",
+    "start:server": "node server/server.js",
+    "start:src": "cd src && npm run start",
+    "build:src": "cd src && npm run build",
+    "install": "npm run install:server && npm run install:src",
+    "postinstall": "npm run build:src"
   },
+  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -45,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

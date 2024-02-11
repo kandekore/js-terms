@@ -21,7 +21,7 @@ const GET_CATEGORY_BY_NAME = gql`
 
 function JSONPage() {
   const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
-    variables: { name: "JSON" }
+    variables: { name: "JSON (JavaScript Object Notation)" }
   });
 
   if (loading) return <p>Loading...</p>;

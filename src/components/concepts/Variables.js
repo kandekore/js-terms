@@ -33,12 +33,13 @@ function VariablesPage() {
   return (
     <div>
        <Helmet>
-        {/* Dynamically set the title and meta tags */}
-        <title>{`${categoryData.name} - My Application`}</title>
-        <meta name="description" content={categoryData.description} />
-        {/* You can also add Open Graph meta tags dynamically here */}
-        <meta property="og:title" content={categoryData.name} />
-        <meta property="og:description" content={categoryData.description} />
+        
+        <title>{`${categoryData.name} Concepts for JavaScript`}</title>
+        <meta name="description" content={`Javascript ${categoryData.name} Concepts: ${categoryData.concepts.map(concept => concept.term).join(', ')} | ${categoryData.description}`} />
+        
+        <meta property="og:title" content={`${categoryData.name} Concepts for JavaScript`} />
+        <meta property="og:description" content={`Javascript ${categoryData.name} Concepts: ${categoryData.concepts.map(concept => concept.term).join(', ')} | ${categoryData.description}`} />
+
       </Helmet>
       <h2>{categoryData.name}</h2>
       <p>{categoryData.description}</p>

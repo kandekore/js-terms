@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "install:src": "npm install",
+    "install:src": "cd src && xnpm install",
     "install:server": "cd server && npm install",
     "develop": "concurrently \"npm run start:server\" \"npm run start:src\"",
     "start:server": "node server/server.js",

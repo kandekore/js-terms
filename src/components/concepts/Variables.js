@@ -27,8 +27,13 @@ function VariablesPage() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-
+  if (!data.getCategoryByName) return <p>Category not found.</p>; 
+  
   const categoryData = data.getCategoryByName;
+  
+  console.log("Error:", error);
+console.log("Data:", data);
+
 
   return (
     <div>

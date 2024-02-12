@@ -32,15 +32,7 @@ function VariablesPage() {
 
   return (
     <div>
-       <Helmet>
-        
-        <title>{`${categoryData.name} Concepts for JavaScript`}</title>
-        <meta name="description" content={`Javascript ${categoryData.name} Concepts: ${categoryData.concepts.map(concept => concept.term).join(', ')} | ${categoryData.description}`} />
-        
-        <meta property="og:title" content={`${categoryData.name} Concepts for JavaScript`} />
-        <meta property="og:description" content={`Javascript ${categoryData.name} Concepts: ${categoryData.concepts.map(concept => concept.term).join(', ')} | ${categoryData.description}`} />
-
-      </Helmet>
+   
       <h2>{categoryData.name}</h2>
       <p>{categoryData.description}</p>
 

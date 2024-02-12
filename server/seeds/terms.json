@@ -1,5 +1,4 @@
-{
-  "categories": [
+ [
     {
       "name": "Modern Development Practices",
       "description": "Modern development practices encompass the use of advanced techniques, methodologies, and technologies to build, optimize, and maintain web applications. These practices aim to improve performance, enhance user experience, and ensure scalability and maintainability of applications.",
@@ -806,4 +805,3 @@
     
     
   ]
-}

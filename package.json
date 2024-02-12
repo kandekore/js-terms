@@ -26,14 +26,12 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "start:server": "node server/server.js",
     "develop": "concurrently \"npm run start:server\" \"npm run start:client\"",
     "start:client": "cd client && npm start",
-    "build:client": "cd client && npm run build",
-    "postinstall": "npm run build:client",
-    "build": "cd client && npm install && npm run build", 
-    "postbuild": "npm run build"
-  },
+    "start:server": "node server/server.js",
+    "build:client": "cd client && npm install && npm run build",
+    "heroku-postbuild": "npm run build:client"
+  },  
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -34,7 +34,7 @@
   "scripts": {
 "scripts": {
   "start": "concurrently \"npm run server\" \"npm run client\"",
-  "develop": "concurrently \"npm start\" \"cd server && npm run watch\"",
+  "develop": "concurrently \"npm start\" \"cd server && npm run start\"",
   "server": "node server/server.js",
   "client": "react-scripts start",
   "build": "react-scripts build",

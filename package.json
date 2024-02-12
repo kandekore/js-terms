@@ -6,6 +6,7 @@
     "node": "18.16.1"
   },
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.0",
     "@apollo/client": "^3.9.4",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",

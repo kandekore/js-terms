@@ -5,6 +5,9 @@ const typeDefs = require("./schemas/typeDefs");
 const resolvers = require("./schemas/resolvers");
 const cors = require("cors");
 
+const app = express();
+app.use(cors());
+
 // mongoose
 //   .connect("mongodb://127.0.0.1/jsConceptsDB", {
 //     useNewUrlParser: true,
@@ -30,8 +33,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-const app = express();
-app.use(cors());
+
 
 const server = new ApolloServer({
   typeDefs,

@@ -26,15 +26,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "install:src": "cd src && npm install",
-    "install:server": "cd server && npm install",
-    "develop": "concurrently \"npm run start:server\" \"npm run start:src\"",
-    "start:server": "node server/server.js",
-    "start:src": "cd src && npm run start",
-    "build:src": "cd src && npm run build",
-    "install": "npm run install:server && npm run install:src",
-    "postinstall": "npm run build:src"
+    "start": "node server/server.js",
+    "build": "react-scripts build",
+    "postinstall": "npm run build"
   },
   
   "eslintConfig": {

@@ -114,9 +114,30 @@ div#navbarScroll {
   text-decoration: underline;
 }
 .activeLink {
-  color: #f0f0f0 !important;
+  color: #2cf708 !important;
   text-shadow: 1px 1px #000;
-  background-color: #95b8db;
+  background-color: #f0db4f;
   border-radius: 5px;
 }
-.bg-body-tertiary {background-color: #95b8db!important;}
+.bg-body-tertiary {background-color: #f0db4f!important;}
+.accordion-button:not(.collapsed) {
+  background-color: #f0db4f!important;
+}
+.accordion {
+ --bs-accordion-btn-focus-border-color: #000;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem #000;
+}
+.heading {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px #efdb50;
+}
+.h2, h2 {
+  text-shadow: 1px 1px #efdb50;
+  text-align: center;
+}
+.bg-dark {
+
+  background-color: #000!important;
+}

@@ -135,6 +135,9 @@ function NavScrollExample() {
               <NavDropdown.Item href="/es6-features-extended">
                 ES6+ Features Extended
               </NavDropdown.Item>
+              <NavDropdown.Item href="/Other-Essential-JavaScript-Concepts">
+                Other Concepts
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex" onSubmit={handleSearchSubmit}>

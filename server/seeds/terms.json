@@ -1,737 +1,808 @@
 {
   "categories": [
     {
-      "name": "Variables",
-      "description": "Variables are symbols that are used to store data values. In JavaScript, variables can be declared using 'var', 'let', or 'const'.",
+      "name": "Modern Development Practices",
+      "description": "Modern development practices encompass the use of advanced techniques, methodologies, and technologies to build, optimize, and maintain web applications. These practices aim to improve performance, enhance user experience, and ensure scalability and maintainability of applications.",
       "concepts": [
         {
-          "term": "var",
-          "description": "Declares a variable, optionally initializing it to a value.",
-          "code": "var name = 'John';"
+          "term": "Service Workers",
+          "description": "Are scripts that run in the background, independent of web pages, enabling features like push notifications and background sync without user interaction.",
+          "code": "if ('serviceWorker' in navigator) {\n  navigator.serviceWorker.register('/service-worker.js').then(function(registration) {\n    console.log('ServiceWorker registration successful with scope: ', registration.scope);\n  }).catch(function(err) {\n    console.log('ServiceWorker registration failed: ', err);\n  });\n}"
         },
         {
-          "term": "let",
-          "description": "Declares a block-scoped, local variable, optionally initializing it to a value.",
-          "code": "let age = 30;"
+          "term": "Web Components",
+          "description": "Allow developers to create reusable custom elements with their functionality encapsulated away from the rest of the code, enhancing code reusability and maintainability.",
+          "code": "class MyComponent extends HTMLElement {\n  constructor() {\n    super();\n    this.innerHTML = '<h1>Hello, Web Components!</h1>';\n  }\n}\ncustomElements.define('my-component', MyComponent);"
+        }
+      ]
+    },{
+      "name": "ES6+ Features Extended",
+      "description": "ES6 and later versions of ECMAScript introduce several new features that simplify complex tasks, improve syntax, and extend JavaScript's capabilities. These include but are not limited to, Optional Chaining, Nullish Coalescing Operator, and more.",
+      "concepts": [
+        {
+          "term": "Optional Chaining",
+          "description": "Allows you to safely access deeply nested properties of an object without having to check if each reference in the chain is null or undefined.",
+          "code": "const streetName = user?.address?.street;\nconsole.log(streetName); // undefined if 'user' or 'user.address' is undefined"
         },
         {
-          "term": "const",
-          "description": "Declares a block-scoped, read-only named constant.",
-          "code": "const birthday = '01/01/1990';"
+          "term": "Nullish Coalescing Operator",
+          "description": "A logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, otherwise returns its left-hand side operand.",
+          "code": "const foo = null ?? 'default string';\nconsole.log(foo); // 'default string'"
+        }
+      ]
+    },{
+      "name": "Security",
+      "description": "Security in JavaScript is crucial for protecting web applications against various types of attacks. It involves implementing practices and measures to safeguard applications from vulnerabilities like Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), and others.",
+      "concepts": [
+        {
+          "term": "Cross-Site Scripting (XSS)",
+          "description": "An attack that involves injecting malicious scripts into content from otherwise trusted websites. It's crucial to sanitize and validate user input to prevent XSS attacks.",
+          "code": "// No direct code example provided for security reasons. Always sanitize input and use textContent instead of innerHTML when inserting text."
+        }
+      ]
+    },{
+      "name": "JSON (JavaScript Object Notation)",
+      "description": "JSON is a lightweight data-interchange format that's easy for humans to read and write, and for machines to parse and generate. It is based on a subset of JavaScript but is language-independent, with parsers available for many languages.",
+      "concepts": [
+        {
+          "term": "JSON",
+          "description": "Used for storing and exchanging data. JSON represents objects as text strings, making it easy to send data between client and server.",
+          "code": "let json = '{\"name\": \"John\", \"age\": 30}';\nlet user = JSON.parse(json);\nconsole.log(user.name); // 'John'\nlet jsonString = JSON.stringify(user);\nconsole.log(jsonString); // '{\"name\":\"John\",\"age\":30}'"
         }
       ]
     },
     {
-      "name": "Data Types",
-      "description": "Data types in JavaScript specify the different types of values that can be stored and manipulated within a program.",
+      "name": "Error Handling",
+      "description": "Error handling in JavaScript involves strategies and syntax to manage exceptions and errors that occur during program execution. It ensures that even if an error occurs, the program can decide how to respond and continue running or gracefully report the issue.",
       "concepts": [
         {
-          "term": "String",
-          "description": "Represents textual data.",
-          "code": "let greeting = \"Hello, World!\";"
+          "term": "try...catch statement",
+          "description": "Used to mark a block of statements to try and to specify one or more responses should an exception be thrown. The `catch` block catches and handles the exception.",
+          "code": "try {\n  throw new Error('Something went wrong!');\n} catch (error) {\n  console.log(error.message);\n}"
         },
         {
-          "term": "Number",
-          "description": "Represents both integer and floating-point numbers.",
-          "code": "let score = 25;"
-        },
-        {
-          "term": "Boolean",
-          "description": "Represents a logical entity having two values: true and false.",
-          "code": "let isAdult = true;"
-        },
-        {
-          "term": "Object",
-          "description": "Used to store collections of data and more complex entities.",
-          "code": "let person = {firstName: \"John\", lastName: \"Doe\"};"
-        },
-        {
-          "term": "Array",
-          "description": "Used to store multiple values in a single variable.",
-          "code": "let colors = ['Red', 'Green', 'Blue'];"
-        },
-        {
-          "term": "Null",
-          "description": "Represents the intentional absence of any object value.",
-          "code": "let empty = null;"
-        },
-        {
-          "term": "Undefined",
-          "description": "Indicates that a variable has not been assigned a value.",
-          "code": "let und;"
+          "term": "throw statement",
+          "description": "Used to throw a user-defined exception. Control is transferred to the nearest exception handler (a `catch` block).",
+          "code": "function checkNumber(num) {\n  if (isNaN(num)) {\n    throw new Error('Input is not a number!');\n  }\n  console.log('Input is a number.');\n}\ntry {\n  checkNumber('a');\n} catch (error) {\n  console.log(error.message);\n}"
         }
       ]
     },
     {
-      "name": "Operators",
-      "description": "Operators are symbols that tell the compiler or interpreter to perform specific mathematical, relational or logical operations and produce final results.",
+      "name": "Asynchronous JavaScript",
+      "description": "Asynchronous JavaScript techniques, such as callbacks, promises, and async/await, allow JavaScript code to perform long network requests, file operations, or timeouts without blocking the main thread, improving the performance and user experience of web applications.",
       "concepts": [
         {
-          "term": "Arithmetic",
-          "description": "Perform mathematical calculations.",
-          "code": "let sum = 10 + 5; // 15"
+          "term": "Callbacks",
+          "description": "Functions that are passed as arguments to other functions and are executed after the completion of an operation. They are the foundational concept for handling asynchronous operations in JavaScript.",
+          "code": "function getData(callback) {\n  setTimeout(() => {\n    callback('Here is your data');\n  }, 1000);\n}\ngetData(data => console.log(data)); // 'Here is your data' after 1 second"
         },
         {
-          "term": "Assignment",
-          "description": "Assign values to JavaScript variables.",
-          "code": "let x = 10;"
+          "term": "Promises",
+          "description": "Provide a more powerful and flexible way to handle asynchronous operations compared to callbacks. Promises represent an operation that hasn't completed yet but is expected in the future.",
+          "code": "const fetchData = new Promise((resolve, reject) => {\n  setTimeout(() => resolve('Data received'), 1000);\n});\nfetchData.then(data => console.log(data));"
         },
         {
-          "term": "Comparison",
-          "description": "Compare two values and return true or false.",
-          "code": "let isEqual = (x == 10); // true"
-        },
-        {
-          "term": "Logical",
-          "description": "Used to determine the logic between variables or values.",
-          "code": "let isGreater = (x > 5) && (x < 15); // true"
-        },
-        {
-          "term": "Unary",
-          "description": "Operate on a single operand.",
-          "code": "x++;"
-        },
-        {
-          "term": "Ternary (Conditional)",
-          "description": "Assign a value to a variable based on some condition.",
-          "code": "let result = (x > 10) ? 'Greater than 10' : 'Less than or equal to 10';"
+          "term": "Async/Await",
+          "description": "Syntactic sugar over promises, making asynchronous code easier to write and read. `async` is used to declare an asynchronous function, and `await` is used to wait for a Promise.",
+          "code": "async function getData() {\n  const data = await new Promise(resolve => setTimeout(() => resolve('Data'), 1000));\n  console.log(data);\n}\ngetData();"
         }
       ]
-    },
-    {
-      "name": "Control Flow",
-      "description": "Control flow statements determine the order in which the code executes in a script.",
+    },{
+      "name": "Promises",
+      "description": "Promises are objects that represent the eventual completion (or failure) of an asynchronous operation, and its resulting value. They are used to handle asynchronous operations in JavaScript, providing a cleaner alternative to traditional callback-based approaches.",
       "concepts": [
         {
-          "term": "if statement",
-          "description": "Executes a block of code if a specified condition is true.",
-          "code": "if (x > 10) {\n  console.log('x is greater than 10');\n}"
+          "term": "Promise states",
+          "description": "A promise can be in one of three states: pending (initial state, neither fulfilled nor rejected), fulfilled (operation completed successfully), or rejected (operation failed).",
+          "code": "const promise = new Promise((resolve, reject) => {\n  // Asynchronous operation\n});\n// 'promise' is initially in 'pending' state"
         },
         {
-          "term": "else statement",
-          "description": "Executes a block of code if the same condition is false.",
-          "code": "else {\n  console.log('x is not greater than 10');\n}"
+          "term": "Promise methods",
+          "description": "`then()` for success, `catch()` for failure, and `finally()` for after completion. `Promise.all()` waits for all promises to resolve or any to reject.",
+          "code": "const fetchData = url => new Promise(resolve => resolve('Data'));\nfetchData('https://api.example.com').then(data => console.log(data)).catch(error => console.error(error)).finally(() => console.log('Completed'));"
         },
         {
-          "term": "else if statement",
-          "description": "Specifies a new condition to test if the first condition is false.",
-          "code": "else if (x == 10) {\n  console.log('x is equal to 10');\n}"
+          "term": "Pending",
+          "description": "The initial state of a Promise. The outcome is not yet known because the operation has not completed.",
+          "code": "const promise = new Promise((resolve, reject) => { /* operation */ });\n// At this point, the promise is in the 'pending' state."
         },
         {
-          "term": "switch statement",
-          "description": "Specifies many alternative blocks of code to be executed.",
-          "code": "switch (x) {\n  case 10:\n    console.log('x is 10');\n    break;\n  default:\n    console.log('x is not 10');\n}"
+          "term": "Fulfilled",
+          "description": "The state of a Promise after it has completed successfully.",
+          "code": "const promise = Promise.resolve('Success');\npromise.then(result => console.log(result)); // Logs: 'Success'"
         },
         {
-          "term": "for loop",
-          "description": "Loops through a block of code a number of times.",
-          "code": "for (let i = 0; i < 5; i++) {\n  console.log(i);\n}"
+          "term": "Rejected",
+          "description": "The state of a Promise after it has failed.",
+          "code": "const promise = Promise.reject('Error');\npromise.catch(error => console.log(error)); // Logs: 'Error'"
         },
         {
-          "term": "while loop",
-          "description": "Loops through a block of code as long as a specified condition is true.",
-          "code": "let i = 0;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}"
+          "term": "then()",
+          "description": "Adds fulfillment and rejection handlers to the promise, and returns a new promise resolving to the return value of the called handler.",
+          "code": "const promise = Promise.resolve(123);\npromise.then(value => console.log(value)); // Logs: 123"
         },
         {
-          "term": "do-while loop",
-          "description": "Also loops through a block of code as long as a specified condition is true.",
-          "code": "do {\n  console.log(i);\n  i++;\n} while (i < 5);"
+          "term": "catch()",
+          "description": "Adds a rejection handler callback to the promise and returns a new promise resolving to the return value of the callback if it is called, or to its original fulfillment value if the promise is instead fulfilled.",
+          "code": "const promise = Promise.reject('Error');\npromise.catch(error => console.log(error)); // Logs: 'Error'"
+        },
+        {
+          "term": "finally()",
+          "description": "Adds a handler to be called when the promise is settled, regardless of its outcome. It returns a promise whose finally handler is set to the specified function.",
+          "code": "const promise = Promise.resolve('Done');\npromise.finally(() => console.log('Completed')); // Logs: 'Completed', regardless of the promise's fate"
+        },
+        {
+          "term": "Promise.all()",
+          "description": "Takes an iterable of promises as an input, and returns a single Promise that resolves when all of the promises in the iterable have resolved, or rejects with the reason of the first passed promise that rejects.",
+          "code": "const promise1 = Promise.resolve(3);\nconst promise2 = 42;\nconst promise3 = new Promise((resolve, reject) => {\n  setTimeout(resolve, 100, 'foo');\n});\nPromise.all([promise1, promise2, promise3]).then(values => console.log(values)); // Logs: [3, 42, 'foo']"
         }
       ]
-    },
-    {
-      "name": "Debugging",
-      "description": "Debugging is the process of identifying and removing errors from software applications, and it's crucial for software development.",
+    },{
+      "name": "Objects",
+      "description": "In JavaScript, objects are key-value stores which allow for storing complex data structures. They are incredibly versatile, being used for data modeling, configuration options, and as building blocks of most JavaScript libraries and frameworks. Objects encapsulate data and functionality together, making them a fundamental concept in JavaScript programming.",
       "concepts": [
         {
-          "term": "Console.log()",
-          "description": "Logs information to the browser's console, which is useful for debugging purposes.",
-          "code": "console.log('Debug message');"
+          "term": "Object properties",
+          "description": "Object properties can be accessed using dot notation when the property name is known and static, or bracket notation when the property name is dynamic or stored in a variable.",
+          "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(person.firstName); // Dot notation\nlet property = 'lastName';\nconsole.log(person[property]); // Bracket notation"
         },
         {
-          "term": "Breakpoints",
-          "description": "A debugging tool that allows developers to pause the execution of code at a specific line.",
-          "code": "// Typically set within developer tools in a browser or IDE."
+          "term": "Object methods",
+          "description": "`Object.keys()`, `Object.values()`, and `Object.entries()` are methods used to retrieve an object's properties, values, or both as arrays, facilitating iteration and manipulation.",
+          "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.keys(person)); // ['firstName', 'lastName']\nconsole.log(Object.values(person)); // ['John', 'Doe']\nconsole.log(Object.entries(person)); // [['firstName', 'John'], ['lastName', 'Doe']]"
         },
         {
-          "term": "DevTools",
-          "description": "Web developer tools available in most browsers to help in debugging web applications.",
-          "code": "// Access via right-clicking the page and selecting 'Inspect' or with 'Ctrl+Shift+I'."
+          "term": "Object destructuring",
+          "description": "Allows for extracting properties from objects and binding them to variables, making the code cleaner and more readable.",
+          "code": "let person = {firstName: 'John', lastName: 'Doe'};\nlet {firstName, lastName} = person;\nconsole.log(firstName); // 'John'"
+        },   {
+          "term": "Dot notation",
+          "description": "Dot notation provides a straightforward syntax to access the properties of an object. It is used when the property name is known ahead of time and is a valid identifier.",
+          "code": "const person = { name: 'John', age: 30 };\nconsole.log(person.name); // Outputs: John"
+        },
+        {
+          "term": "Bracket notation",
+          "description": "Bracket notation allows access to properties using a string. It's useful when the property name is dynamic or not a valid identifier.",
+          "code": "const person = { name: 'John', age: 30 };\nlet property = 'name';\nconsole.log(person[property]); // Outputs: John"
+        },
+        {
+          "term": "Object.keys()",
+          "description": "Returns an array containing the names of all own enumerable property keys of the given object.",
+          "code": "const person = { name: 'John', age: 30 };\nconsole.log(Object.keys(person)); // Outputs: ['name', 'age']"
+        },
+        {
+          "term": "Object.values()",
+          "description": "Returns an array containing the values of all own enumerable properties of the given object.",
+          "code": "const person = { name: 'John', age: 30 };\nconsole.log(Object.values(person)); // Outputs: ['John', 30]"
+        },
+        {
+          "term": "Object.entries()",
+          "description": "Returns an array of key/value pairs for each own enumerable property of the given object.",
+          "code": "const person = { name: 'John', age: 30 };\nconsole.log(Object.entries(person)); // Outputs: [['name', 'John'], ['age', 30]]"
         }
       ]
-    },
-
-    {
-      "name": "Libraries and Frameworks",
-      "description": "Frameworks and libraries are collections of pre-written code to help developers build applications faster by providing reusable components and abstracting complex operations.",
+    },{
+      "name": "AJAX (Asynchronous JavaScript and XML)",
+      "description": "AJAX is a technique for creating fast and dynamic web pages. It allows web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scenes. This means it's possible to update parts of a web page, without reloading the whole page, making the web application faster and more interactive.",
       "concepts": [
         {
-          "term": "React",
-          "description": "A JavaScript library for building user interfaces, particularly single-page applications.",
-          "code": "import React from 'react';"
+          "term": "Arrow Functions",
+          "description": "Arrow functions provide a concise syntax for writing functions in JavaScript. They are particularly useful for callbacks or functions that are passed as arguments.",
+          "code": "const add = (a, b) => a + b;"
         },
         {
-          "term": "Angular",
-          "description": "A platform and framework for building client-side single-page applications using HTML and TypeScript.",
-          "code": "import { Component } from '@angular/core';"
+          "term": "Promises",
+          "description": "Promises represent the eventual completion or failure of an asynchronous operation. They provide a powerful way to handle asynchronous operations, allowing for cleaner, more readable code.",
+          "code": "const fetchData = new Promise((resolve, reject) => {\n  // async operation here\n});"
         },
         {
-          "term": "Vue.js",
-          "description": "A progressive framework for building user interfaces, focusing on the view layer.",
-          "code": "import Vue from 'vue';"
+          "term": "Template Literals",
+          "description": "Template literals provide an easy way to create multiline strings and to perform string interpolation, embedding expressions within a string.",
+          "code": "const name = 'World';\nconst greeting = `Hello, ${name}!`;\nconsole.log(greeting); // 'Hello, World!'"
+        },
+        {
+          "term": "Destructuring Assignment",
+          "description": "Destructuring assignment syntax makes it possible to unpack values from arrays, or properties from objects, into distinct variables. This simplifies working with arrays and objects.",
+          "code": "const { a, b } = { a: 1, b: 2 };\nconsole.log(a); // 1\nconsole.log(b); // 2"
+        },
+        {
+          "term": "Default Parameters",
+          "description": "Default parameters allow named parameters to be initialized with default values if no value or undefined is passed. This feature helps in function calls without specifying all arguments.",
+          "code": "function greet(name = 'Guest') {\n  return `Hello, ${name}!`;\n}"
+        },
+        {
+          "term": "let and const",
+          "description": "Introduced in ES6, `let` and `const` provide block-scope variable declarations, allowing for better control over variables' scope and reducing runtime errors.",
+          "code": "let a = 2;\nconst b = 'constant';\n// 'a' can be reassigned, but 'b' cannot."
+        },
+        {
+          "term": "Modules",
+          "description": "ECMAScript modules are a standardized format for organizing and packaging JavaScript code. This feature enables code reuse, better code organization, and dependency management.",
+          "code": "import { moduleFunction } from './module.js';\nexport function myFunction() {\n  // function body here\n}"
         }
       ]
-    },
-    {
+    },{
+      "name": "Web APIs",
+      "description": "Web APIs provide a bridge between web applications and browser functionalities, allowing developers to interact with the Document Object Model (DOM), perform HTTP requests, handle events, and store data locally. These interfaces are essential for creating dynamic, responsive, and interactive web experiences.",
+      "concepts": [
+        {
+          "term": "Fetch API",
+          "description": "The Fetch API allows making asynchronous HTTP requests to servers from web browsers, enabling the retrieval or submission of data without reloading the page.",
+          "code": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data));"
+        },
+        {
+          "term": "DOM Manipulation",
+          "description": "DOM manipulation enables dynamic changes to the content, structure, and style of a webpage, allowing for interactive and dynamic user experiences.",
+          "code": "document.getElementById('demo').textContent = 'Hello World!';"
+        },
+        {
+          "term": "Event Listeners",
+          "description": "Event listeners allow you to run specific code in response to user actions or other events, making your web applications interactive and responsive.",
+          "code": "document.getElementById('btn').addEventListener('click', () => alert('Button clicked!'));"
+        },
+        {
+          "term": "Local Storage",
+          "description": "Local Storage provides a way to store data locally within the user's browser, persisting even after the browser window is closed, ideal for saving state or preferences.",
+          "code": "localStorage.setItem('key', 'value');\nconsole.log(localStorage.getItem('key'));"
+        },
+        {
+          "term": "Session Storage",
+          "description": "Similar to Local Storage, Session Storage allows storing data for the duration of the page session. It is cleared when the tab or browser is closed, useful for data that should not persist between sessions.",
+          "code": "sessionStorage.setItem('sessionKey', 'sessionValue');\nconsole.log(sessionStorage.getItem('sessionKey'));"
+        }
+      ]
+    },{
+      "name": "Array Iteration",
+      "description": "JavaScript provides several methods for iterating over arrays, allowing you to execute a function on each item of an array. These methods facilitate operations like searching, filtering, transforming, and aggregating array elements without the need for explicit loops, promoting a more declarative programming approach.",
+      "concepts": [
+        {
+          "term": "forEach()",
+          "description": "The `forEach()` method executes a provided function once for each array element, allowing side effects like logging or updating an external variable.",
+          "code": "let numbers = [1, 2, 3, 4, 5];\nnumbers.forEach(number => console.log(number));"
+        },
+        {
+          "term": "map()",
+          "description": "The `map()` method creates a new array populated with the results of calling a provided function on every element in the calling array, useful for transforming data.",
+          "code": "let numbers = [1, 2, 3, 4, 5];\nlet squares = numbers.map(number => number * number);\nconsole.log(squares); // [1, 4, 9, 16, 25]"
+        },
+        {
+          "term": "filter()",
+          "description": "The `filter()` method creates a new array with all elements that pass the test implemented by the provided function, great for conditional filtering.",
+          "code": "let numbers = [1, 2, 3, 4, 5];\nlet evens = numbers.filter(number => number % 2 === 0);\nconsole.log(evens); // [2, 4]"
+        },
+        {
+          "term": "reduce()",
+          "description": "The `reduce()` method applies a reducer function on each element of the array, resulting in a single output value, commonly used for summing or constructing objects.",
+          "code": "let numbers = [1, 2, 3, 4, 5];\nlet sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);\nconsole.log(sum); // 15"
+        }
+      ]
+    },{
+      "name": "Array Methods",
+      "description": "Array methods in JavaScript provide powerful, built-in functions for performing operations on arrays. These methods can be used to manipulate arrays by adding, removing, searching, sorting, and transforming elements. Understanding these methods is crucial for effective array management and functional programming styles.",
+      "concepts": [
+        {
+          "term": "push()",
+          "description": "The `push()` method adds one or more elements to the end of an array and returns the new length of the array. It modifies the original array.",
+          "code": "let fruits = ['apple', 'banana'];\nfruits.push('orange');\nconsole.log(fruits); // ['apple', 'banana', 'orange']"
+        },
+        {
+          "term": "pop()",
+          "description": "The `pop()` method removes the last element from an array and returns that element. This method changes the length of the array.",
+          "code": "let fruits = ['apple', 'banana', 'orange'];\nlet last = fruits.pop();\nconsole.log(last); // 'orange'\nconsole.log(fruits); // ['apple', 'banana']"
+        },
+        {
+          "term": "shift()",
+          "description": "The `shift()` method removes the first element from an array and returns that removed element. This method alters the length of the array.",
+          "code": "let fruits = ['apple', 'banana', 'orange'];\nlet first = fruits.shift();\nconsole.log(first); // 'apple'\nconsole.log(fruits); // ['banana', 'orange']"
+        },
+        {
+          "term": "unshift()",
+          "description": "The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array. It modifies the original array.",
+          "code": "let fruits = ['banana', 'orange'];\nfruits.unshift('apple');\nconsole.log(fruits); // ['apple', 'banana', 'orange']"
+        },
+        {
+          "term": "splice()",
+          "description": "The `splice()` method changes the contents of an array by removing, replacing, or adding new elements at a specific position. This method can significantly alter the array.",
+          "code": "let colors = ['Red', 'Green', 'Blue'];\ncolors.splice(2, 0, 'Orange'); // Adds 'Orange' at index 2\nconsole.log(colors); // ['Red', 'Green', 'Orange', 'Blue']"
+        },
+        {
+          "term": "slice()",
+          "description": "The `slice()` method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) without modifying the original array.",
+          "code": "let colors = ['Red', 'Green', 'Blue', 'Orange'];\nlet newColors = colors.slice(1, 3);\nconsole.log(newColors); // ['Green', 'Blue']"
+        },
+        {
+          "term": "concat()",
+          "description": "The `concat()` method is used to merge two or more arrays. This method does not change the existing arrays but instead returns a new array.",
+          "code": "let colors = ['Red', 'Green'];\nlet moreColors = ['Blue', 'Orange'];\nlet combinedColors = colors.concat(moreColors);\nconsole.log(combinedColors); // ['Red', 'Green', 'Blue', 'Orange']"
+        }
+      ]
+    },{
+      "name": "Scope",
+      "description": "Scope in JavaScript refers to the current context of code, which determines the accessibility of variables to JavaScript. The two main types of scope are global and local (function) scope. ES6 introduced block scope with the `let` and `const` keywords. Understanding scope is fundamental to writing secure and efficient JavaScript code, as it affects variable accessibility and lifetime.",
+      "concepts": [
+        {
+          "term": "Global scope",
+          "description": "Variables declared outside any function or block are in the global scope and can be accessed from anywhere in the code.",
+          "code": "var globalVar = 'I am global';\nconsole.log(globalVar); // Accessible globally"
+        },
+        {
+          "term": "Local scope",
+          "description": "Variables declared within a function are in the local scope of that function and can only be accessed within that function.",
+          "code": "function myFunction() {\n  var localVar = 'I am local';\n  console.log(localVar); // Accessible only inside myFunction\n}"
+        },
+        {
+          "term": "Block scope",
+          "description": "`let` and `const` are scoped to the block in which they are defined, such as within an if statement or for loop, providing finer-grained control over variable lifetime and visibility.",
+          "code": "if (true) {\n  let blockScopedVar = 'I am block scoped';\n  console.log(blockScopedVar); // Accessible only inside this block\n}"
+        },
+        {
+          "term": "Lexical scope",
+          "description": "JavaScript functions are executed using the scope chain that was in effect when they were defined. This is known as lexical scoping. It means that functions have access to variables defined in their outer scope.",
+          "code": "function outerFunc() {\n  var outerVar = 'I am outside!';\n  function innerFunc() {\n    console.log(outerVar); // 'I am outside!'\n  }\n  innerFunc();\n}\nouterFunc();"
+        }
+      ]
+    },{
+      "name": "Functions",
+      "description": "In JavaScript, functions are one of the fundamental building blocks. A function is a JavaScript procedure—a set of statements that performs a task or calculates a value. Functions allow you to encapsulate a piece of code and execute it whenever you want, potentially with different arguments. Functions can be declared in several ways, and understanding the differences between function declarations, expressions, and arrow functions is crucial for effective JavaScript programming.",
+      "concepts": [
+        {
+          "term": "Function declaration",
+          "description": "A statement that defines a function with a specific name, parameter list, and a block of code. Function declarations are hoisted, meaning they can be called before they are defined in the code.",
+          "code": "function greet(name) {\n  return 'Hello, ' + name + '!';\n}"
+        },
+        {
+          "term": "Function expression",
+          "description": "A function can also be defined using an expression. Function expressions are not hoisted, and therefore cannot be called before they are defined.",
+          "code": "let greet = function(name) {\n  return 'Hello, ' + name + '!';\n};"
+        },
+        {
+          "term": "Arrow function",
+          "description": "ES6 introduced arrow functions, which allow for a shorter syntax compared to function expressions. Arrow functions are anonymous and change the way 'this' binds in functions.",
+          "code": "let greet = name => 'Hello, ' + name + '!';"
+        },
+        {
+          "term": "IIFE (Immediately Invoked Function Expression)",
+          "description": "An IIFE is a function that runs as soon as it is defined. It is a common pattern for encapsulating code and creating a private scope.",
+          "code": "(function() {\n  console.log('Immediately invoked');\n})();"
+        }
+      ]
+    },{
       "name": "Testing and Performance",
-      "description": "Testing and performance optimization are crucial for developing efficient, reliable, and scalable web applications.",
+      "description": "Ensuring that your JavaScript applications are both efficient and error-free is crucial. This is where testing and performance optimization come into play. Testing involves verifying that your code works as expected through various methods, including unit testing, which tests individual components for reliability. Performance tuning involves analyzing and optimizing your code and its execution environment to improve speed and efficiency, addressing issues such as slow execution times, memory leaks, and inefficient algorithms.",
       "concepts": [
         {
           "term": "Unit Testing",
-          "description": "A software testing method by which individual units of source code are tested to determine whether they are fit for use.",
-          "code": "describe('addition', () => { it('correctly adds two numbers', () => { expect(1 + 1).toBe(2); }); });"
+          "description": "Unit testing is a software testing method where individual units or components of a software are tested. The purpose is to validate that each unit of the software performs as designed. This is a fundamental practice in modern development methodologies like Test-Driven Development (TDD).",
+          "code": "describe('addition', () => {\n  it('correctly adds two numbers', () => {\n    expect(1 + 1).toBe(2);\n  });\n});"
         },
         {
           "term": "Performance Tuning",
-          "description": "The process of making a system perform better. This can involve optimizing code, reducing unnecessary computations, and using efficient algorithms.",
-          "code": "// Example code specific to performance tuning is highly contextual"
+          "description": "Performance tuning in JavaScript involves optimizing code and leveraging best practices to improve execution speed and resource efficiency. This can include minimizing reflows and repaints, optimizing loops, and avoiding memory leaks. Tools like the Performance tab in Chrome's DevTools can help identify bottlenecks.",
+          "code": "// Example code specific to performance tuning is highly contextual. Common strategies include optimizing algorithms, lazy loading resources, and debouncing/throttling event handlers."
+        }
+      ]
+    },{
+      "name": "Libraries and Frameworks",
+      "description": "Libraries and frameworks are essential components of modern web development. They provide a structured foundation on which to build applications, offering reusable code and modules for common tasks such as DOM manipulation, data handling, and UI rendering. Libraries offer specific functionality to be integrated into your code, whereas frameworks dictate the structure of your application. Both are designed to simplify development, reduce errors, and increase productivity.",
+      "concepts": [
+        {
+          "term": "React",
+          "description": "React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to compose complex UIs from small and isolated pieces of code called 'components'.",
+          "code": "import React, { useState } from 'react';\nfunction ExampleComponent() {\n  const [count, setCount] = useState(0);\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click me\n      </button>\n    </div>\n  );\n}"
+        },
+        {
+          "term": "Angular",
+          "description": "Angular is a platform and framework for building single-page client applications using HTML and TypeScript. It provides developers with an environment that is efficient, expressive, and quick to develop. Angular achieves this by enabling the use of HTML as a template language and extending HTML's syntax to express application components clearly and succinctly.",
+          "code": "import { Component } from '@angular/core';\n@Component({\n  selector: 'app-root',\n  template: `<h1>Hello World</h1>`\n})\nexport class AppComponent { }"
+        },
+        {
+          "term": "Vue.js",
+          "description": "Vue.js is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library focuses on the view layer only, making it easy to pick up and integrate with other libraries or existing projects. Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.",
+          "code": "import Vue from 'vue';\nnew Vue({\n  el: '#app',\n  data: {\n    message: 'Hello Vue!'\n  }\n});"
+        }
+      ]
+    },{
+      "name": "Debugging",
+      "description": "Debugging in JavaScript involves identifying, tracing, and fixing errors or bugs in your code. It is a critical skill for any developer, as it allows you to understand why your code doesn't work as expected and how to correct it. Debugging can be done using various tools and techniques, such as logging messages to the console, setting breakpoints to pause execution, and utilizing browser's Developer Tools (DevTools) to inspect and modify the code or runtime environment.",
+      "concepts": [
+        {
+          "term": "Console.log()",
+          "description": "A fundamental debugging technique that outputs a message to the web browser's console. It is incredibly useful for debugging purposes, as it allows developers to display values of variables, or to show that a certain part of the code has been executed.",
+          "code": "console.log('Current value:', variable); // Helps trace the value of 'variable' during execution."
+        },
+        {
+          "term": "Breakpoints",
+          "description": "Breakpoints are a powerful feature in debugging tools that let you pause the execution of your code at a specific point. This allows you to inspect the current state, including variables, the call stack, and the control flow. Breakpoints can help in understanding how data changes over time or why certain branches of your code are executed.",
+          "code": "// Typically set within developer tools in a browser or IDE. For example, in Chrome DevTools, you can click on the line number where you want to pause execution."
+        },
+        {
+          "term": "DevTools",
+          "description": "The Developer Tools built into most modern browsers are a suite of debugging tools designed to help developers test and debug their web applications directly within the browser. DevTools provides features such as inspecting DOM elements, monitoring network requests, and viewing and setting breakpoints in JavaScript code.",
+          "code": "// Access DevTools in Chrome by right-clicking on a webpage and selecting 'Inspect', or by pressing 'Ctrl+Shift+I' (Windows/Linux) or 'Cmd+Opt+I' (Mac)."
+        }
+      ]
+    },{
+      "name": "Control Flow",
+      "description": "Control flow statements are used to specify the order in which the instructions in a program are executed. They form the core of decision making in JavaScript, allowing the code to react differently under varying conditions and to loop through blocks of code multiple times. These statements include conditional statements like 'if', 'else', and 'switch' for decision making, and loop statements like 'for', 'while', and 'do-while' for iterating over code blocks multiple times based on specified conditions.",
+      "concepts": [
+        {
+          "term": "if statement",
+          "description": "Executes a block of code if a specified condition is true. It is one of the most basic forms of control flow used for decision-making.",
+          "code": "let score = 75;\nif (score > 70) {\n  console.log('You passed!');\n}"
+        },
+        {
+          "term": "else statement",
+          "description": "Executes a block of code if the condition in the if statement is false. It is used together with an 'if' statement for two-way decision-making.",
+          "code": "let score = 65;\nif (score > 70) {\n  console.log('You passed!');\n} else {\n  console.log('Try again.');\n}"
+        },
+        {
+          "term": "else if statement",
+          "description": "Used to specify a new condition to test, if the first condition is false. It can be used for multiple conditions in the same if-else block.",
+          "code": "let score = 85;\nif (score >= 90) {\n  console.log('Grade A');\n} else if (score >= 80) {\n  console.log('Grade B');\n} else {\n  console.log('Grade C or below');\n}"
+        },
+        {
+          "term": "switch statement",
+          "description": "Used to perform different actions based on different conditions. It is an alternative to 'if-else-if' statements when dealing with multiple conditions.",
+          "code": "let fruit = 'apple';\nswitch (fruit) {\n  case 'banana':\n    console.log('Yellow fruit');\n    break;\n  case 'apple':\n    console.log('Round fruit');\n    break;\n  default:\n    console.log('Unknown fruit');\n}"
+        },
+        {
+          "term": "for loop",
+          "description": "Loops through a block of code a specified number of times. It is useful for iterating over arrays or executing a block of code multiple times with different values.",
+          "code": "for (let i = 0; i < 3; i++) {\n  console.log('Number ' + i);\n}"
+        },
+        {
+          "term": "while loop",
+          "description": "Executes a block of code as long as a specified condition is true. It is useful for looping when the number of iterations is not known before the loop starts.",
+          "code": "let i = 0;\nwhile (i < 3) {\n  console.log('Number ' + i);\n  i++;\n}"
+        },
+        {
+          "term": "do-while loop",
+          "description": "Similar to the while loop, but the block of code is executed at least once before the condition is tested. It ensures that the code block is executed at least once.",
+          "code": "let i = 0;\ndo {\n  console.log('Number ' + i);\n  i++;\n} while (i < 3);"
+        }
+      ]
+    },{
+      "name": "Operators",
+      "description": "Operators in JavaScript are symbols or keywords that are used to perform operations on operands (values or variables). These operations can be mathematical, logical, relational, or assignment in nature. Understanding the different types of operators and how they work is essential for manipulating data and creating logic within your programs. Operators are categorized based on the functionality they provide, such as performing arithmetic operations, comparing values, logical operations, or assigning values to variables.",
+      "concepts": [
+        {
+          "term": "Arithmetic",
+          "description": "Used to perform mathematical calculations on numbers. These include operations like addition (+), subtraction (-), multiplication (*), division (/), and modulus (%), among others.",
+          "code": "let sum = 10 + 5; // 15\nlet difference = 10 - 5; // 5\nlet product = 10 * 5; // 50\nlet quotient = 10 / 5; // 2\nlet remainder = 10 % 3; // 1"
+        },
+        {
+          "term": "Assignment",
+          "description": "Used to assign values to variables. The basic assignment operator is (=), but there are also compound operators like +=, -=, *=, and /= which combine assignment with arithmetic operations.",
+          "code": "let x = 10;\nx += 5; // Equivalent to x = x + 5\nx -= 3; // Equivalent to x = x - 3\nx *= 2; // Equivalent to x = x * 2\nx /= 4; // Equivalent to x = x / 4"
+        },
+        {
+          "term": "Comparison",
+          "description": "Compare two values and determine the relationship between them. These operators include == (equality), != (inequality), === (strict equality), !== (strict inequality), > (greater than), < (less than), >= (greater than or equal to), and <= (less than or equal to).",
+          "code": "let isEqual = (x == 10); // true if x is 10 regardless of type\nlet isStrictlyEqual = (x === 10); // true if x is 10 and is of the same type\nlet isNotEqual = (x != 10); // true if x is not 10\nlet isGreaterThan = (x > 5); // true if x is greater than 5"
+        },
+        {
+          "term": "Logical",
+          "description": "Used to determine the logic between variables or values. These include logical AND (&&), logical OR (||), and logical NOT (!), which are used to combine or invert boolean values.",
+          "code": "let isAdult = (age >= 18);\nlet hasConsent = true;\nlet canParticipate = isAdult && hasConsent; // true if both are true\nlet isMinor = !isAdult; // true if isAdult is false\nlet canEither = isAdult || hasConsent; // true if either is true"
+        },
+        {
+          "term": "Unary",
+          "description": "Operate on a single operand or value. These include increment (++), decrement (--), and typeof which returns the type of the operand.",
+          "code": "let count = 0;\ncount++; // Increment count by 1\ncount--; // Decrement count by 1\nlet type = typeof count; // Returns 'number'"
+        },
+        {
+          "term": "Ternary (Conditional)",
+          "description": "The only JavaScript operator that takes three operands. It is a shortcut for an 'if-else' statement and is used to assign a value to a variable based on some condition.",
+          "code": "let age = 20;\nlet eligibility = (age >= 18) ? 'Adult' : 'Minor';\nconsole.log(eligibility); // 'Adult'"
+        }
+      ]
+    },{
+      "name": "Data Types",
+      "description": "JavaScript is a dynamically typed language, meaning variables do not have a fixed data type, and the same variable can hold values of different types at different times. JavaScript supports several built-in data types, including primitives like String, Number, Boolean, Null, and Undefined, as well as composite types like Object and Array. Understanding data types is crucial for effective programming in JavaScript, as it affects how values can be manipulated and interacted with in code.",
+      "concepts": [
+        {
+          "term": "String",
+          "description": "A sequence of characters used to represent text. Strings in JavaScript can be enclosed in single quotes (''), double quotes (\"\"), or backticks (``), which allow for string interpolation.",
+          "code": "let greeting = `Hello, World!`;\nconsole.log(greeting); // 'Hello, World!'\nlet name = 'John';\nlet welcomeMessage = `Hello, ${name}!`;\nconsole.log(welcomeMessage); // 'Hello, John!'"
+        },
+        {
+          "term": "Number",
+          "description": "Represents both integer and floating-point numbers. JavaScript has a single number type, and handles decimals, exponentials, and even hexadecimals.",
+          "code": "let wholeNumber = 42;\nlet decimalNumber = 3.14;\nlet hexadecimalNumber = 0xFF;\nconsole.log(wholeNumber, decimalNumber, hexadecimalNumber); // 42 3.14 255"
+        },
+        {
+          "term": "Boolean",
+          "description": "A logical data type that can have only the values true or false. Booleans are often used in conditional testing.",
+          "code": "let isJavaScriptFun = true;\nif (isJavaScriptFun) {\n  console.log('Yes, JavaScript is fun!');\n} else {\n  console.log('No, JavaScript is not fun.');\n}"
+        },
+        {
+          "term": "Object",
+          "description": "Used to store keyed collections of various data and more complex entities. Objects in JavaScript are a collection of properties, with each property being a key-value pair.",
+          "code": "let person = {\n  firstName: 'John',\n  lastName: 'Doe',\n  age: 30,\n  greet: function() { console.log('Hello, ' + this.firstName); }\n};\nperson.greet(); // 'Hello, John'"
+        },
+        {
+          "term": "Array",
+          "description": "An ordered list of values. Each value can be of any type. Arrays in JavaScript are used to store multiple values in a single variable.",
+          "code": "let fruits = ['Apple', 'Banana', 'Cherry'];\nconsole.log(fruits[1]); // 'Banana'\nfruits.push('Durian');\nconsole.log(fruits); // ['Apple', 'Banana', 'Cherry', 'Durian']"
+        },
+        {
+          "term": "Null",
+          "description": "Represents the intentional absence of any object value. It is typically used to indicate a variable that is meant to be 'empty' or 'unknown' at a certain point in code.",
+          "code": "let result = null;\nif (result === null) {\n  console.log('result has no value');\n}"
+        },
+        {
+          "term": "Undefined",
+          "description": "Indicates that a variable has been declared but has not yet been assigned a value. It is the default value of variables that have not been initialized.",
+          "code": "let box;\nconsole.log(box); // 'undefined'\nbox = 'toys';\nconsole.log(box); // 'toys'"
+        }
+      ]
+    },{
+      "name": "Variables",
+      "description": "In JavaScript, variables are fundamental constructs used to store, retrieve, and manipulate data. They are named identifiers that can hold values of any data type, such as numbers, strings, or objects. JavaScript supports three keywords for declaring variables: 'var', 'let', and 'const'. The 'var' keyword declares a variable with function scope or global scope when declared outside a function. The 'let' keyword introduces a variable with block scope, which is limited to the block, statement, or expression in which it is used. The 'const' keyword is similar to 'let' but establishes a constant reference to a value; this means that while the reference itself cannot be changed, the value it holds (if it's an object) can be mutated.",
+      "concepts": [
+        {
+          "term": "var",
+          "description": "Declares a variable, optionally initializing it to a value. Variables declared with 'var' are hoisted to the top of their scope and can be updated and re-declared within its scope.",
+          "code": "var greeting = 'Hello world';\nconsole.log(greeting); // 'Hello world'\ngreeting = 'Hello again';\nconsole.log(greeting); // 'Hello again'"
+        },
+        {
+          "term": "let",
+          "description": "Declares a block-scoped, local variable, optionally initializing it to a value. Unlike 'var', 'let' declarations are not hoisted, have a block scope, and can be updated but not re-declared in the same scope.",
+          "code": "let age = 25;\nif (true) {\n  let age = 30;\n  console.log(age); // 30\n}\nconsole.log(age); // 25"
+        },
+        {
+          "term": "const",
+          "description": "Declares a block-scoped, read-only named constant. The value of a constant cannot change through re-assignment, and it can't be redeclared. However, if the constant is an object or array its properties or items can be updated.",
+          "code": "const birthday = '01/01/1990';\n// birthday = '02/02/1990'; // TypeError: Assignment to constant variable.\nconst person = {name: 'John'};\nperson.name = 'Jane'; // This is allowed\nconsole.log(person); // {name: 'Jane'}"
+        }
+      ]
+    },{
+      "name": "DOM Manipulation",
+      "description": "DOM Manipulation refers to the process of dynamically altering the content, structure, and style of a webpage via JavaScript. It involves using the Document Object Model (DOM), which represents the page so that programs can change document structure, style, and content. DOM manipulation is a cornerstone of web development, enabling interactive and dynamic web experiences by allowing scripts to update the DOM in the browser.",
+      "concepts": [
+        {
+          "term": "Selecting elements",
+          "description": "Selecting elements is fundamental to DOM manipulation, allowing developers to target specific parts of the webpage for dynamic updates. Methods like `getElementById`, `querySelector`, and `querySelectorAll` provide precise ways to access elements within the document.",
+          "code": "let elementById = document.getElementById('myElement');\nlet elementByQuery = document.querySelector('.myClass');\nlet elementsByQueryAll = document.querySelectorAll('p');"
+        },
+        {
+          "term": "Modifying elements",
+          "description": "Once elements are selected, their content, attributes, or styles can be modified to update the webpage dynamically. This includes changing text content, setting attributes like 'src' for images, or altering CSS properties for styling.",
+          "code": "elementById.textContent = 'Updated content';\nelementById.setAttribute('href', 'https://example.com');\nelementById.style.color = 'blue';"
+        },
+        {
+          "term": "Creating elements",
+          "description": "JavaScript allows for the creation of new elements that can be inserted into the current DOM, enabling the addition of new content, structures, and interactivity to a webpage on-the-fly.",
+          "code": "let newElement = document.createElement('button');\nnewElement.textContent = 'Click Me';\ndocument.body.appendChild(newElement);\nnewElement.addEventListener('click', function() { alert('Button clicked!'); });"
+        },
+        {
+          "term": "Removing elements",
+          "description": "Removing elements from the DOM is as crucial as adding them, allowing for dynamic changes to the webpage's content and structure by removing unnecessary or temporary elements.",
+          "code": "let elementToRemove = document.getElementById('removeMe');\nelementToRemove.parentNode.removeChild(elementToRemove);"
+        },
+        {
+          "term": "Event Handling",
+          "description": "Event handling involves setting up listeners for various user actions like clicks, keypresses, or mouse movements, enabling interactive and responsive webpages.",
+          "code": "document.getElementById('myButton').addEventListener('click', function() {\n  alert('Button clicked!');\n});"
+        },
+        {
+          "term": "Manipulating Classes and Styles",
+          "description": "Classes and styles of elements can be dynamically changed or toggled to affect the appearance and layout of elements on the page, facilitating responsive and interactive designs.",
+          "code": "elementById.classList.add('new-class');\nelementById.classList.remove('old-class');\nelementById.classList.toggle('toggle-class');"
+        }
+      ]
+    },{
+      "name": "Modules",
+      "description": "Modules in JavaScript are an essential feature for maintaining a clean and manageable codebase. They allow developers to divide their code into separate files, making it modular and reusable. This approach not only improves organization but also facilitates easier debugging and testing. With ES6 (ECMAScript 2015), JavaScript introduced a native module system that supports exporting and importing functionalities across different files.",
+      "concepts": [
+        {
+          "term": "import",
+          "description": "The `import` statement is used to read one or more exports from a module (which could be files or directories) into the current script. This allows for the inclusion of functions, objects, or primitives defined in separate files.",
+          "code": "import { moduleFunction, anotherFunction } from './module.js';\nimport * as Module from './module.js';"
+        },
+        {
+          "term": "export",
+          "description": "The `export` statement is used to expose functions, objects, or primitives from a module so they can be used by other modules with the `import` statement. There are two types of exports: named and default.",
+          "code": "export function moduleFunction() { console.log('This is a module function.'); }\nexport default function() { console.log('This is a default export.'); }"
+        },
+        {
+          "term": "Default export",
+          "description": "A module can have one default export, which can be imported without curly braces. This is useful for modules that export a single value, like a function or class.",
+          "code": "export default class MyClass { constructor() { console.log('Class instantiated'); } }\n// Importing default export\nimport MyClass from './MyClass.js';"
+        },
+        {
+          "term": "Dynamic import",
+          "description": "Dynamic imports use the `import()` function to load modules asynchronously. This is particularly useful for loading code on demand or conditionally, improving performance by splitting the codebase into chunks that are loaded as needed.",
+          "code": "if (condition) {\n  import('./module.js').then((Module) => {\n    Module.moduleFunction();\n  });\n}"
+        },
+        {
+          "term": "Named export",
+          "description": "Modules can export multiple features with their own names. Named exports are useful for exporting several values. When importing, you need to use the exact names or use `as` to rename them.",
+          "code": "export const myVariable = 10;\nexport function myFunction() {}\n// Importing named exports\nimport { myVariable, myFunction as functionAlias } from './module.js';"
+        },
+        {
+          "term": "Re-exporting",
+          "description": "Modules can re-export features they import from other modules. This allows a module to aggregate and export features from several modules, simplifying imports for users of the module.",
+          "code": "export { default as MyClass, function1, variable1 } from './otherModule.js';"
+        }
+      ]
+    },{
+      "name": "Events",
+      "description": "Events are fundamental to interactive web applications in JavaScript. They represent interactions or occurrences that can be detected and responded to, such as user inputs, system-generated events, or changes in the application state. JavaScript provides robust support for event handling, allowing developers to execute code in response to specific actions.",
+      "concepts": [
+        {
+          "term": "Event listeners",
+          "description": "Event listeners are functions attached to elements that are called when the event occurs. They enable dynamic application behavior by responding to user actions or system events.",
+          "code": "document.querySelector('button').addEventListener('click', () => {\n  console.log('Button was clicked!');\n});"
+        },
+        {
+          "term": "Event propagation",
+          "description": "Event propagation describes the process of an event moving through the DOM. It occurs in two phases: capturing (event travels from the document root down to the target element) and bubbling (event travels back up to the document root).",
+          "code": "document.querySelector('#parent').addEventListener('click', e => {\n  console.log('Clicked on parent during capturing phase.');\n}, true); // Capturing phase\ndocument.querySelector('#child').addEventListener('click', e => {\n  console.log('Clicked on child during bubbling phase.');\n}, false); // Bubbling phase"
+        },
+        {
+          "term": "Event delegation",
+          "description": "Event delegation is a technique where a single event listener is attached to a parent element instead of multiple child elements. It utilizes event bubbling to handle events at a higher level, improving performance and memory usage.",
+          "code": "document.querySelector('#list').addEventListener('click', function(e) {\n  if (e.target && e.target.nodeName === 'LI') {\n    console.log('List item', e.target.id, 'was clicked!');\n  }\n});"
+        },
+        {
+          "term": "Preventing default behavior",
+          "description": "Certain browser events have default actions. JavaScript allows preventing those actions to implement custom behavior instead.",
+          "code": "document.querySelector('form').addEventListener('submit', function(e) {\n  e.preventDefault(); // Prevents form submission\n  console.log('Form submission prevented.');\n});"
+        },
+        {
+          "term": "Custom events",
+          "description": "JavaScript allows the creation of custom events that can be dispatched to elements, enabling custom interaction patterns or signaling within an application.",
+          "code": "let event = new CustomEvent('my-event', { detail: { message: 'Custom event triggered' } });\ndocument.dispatchEvent(event);\ndocument.addEventListener('my-event', function(e) {\n  console.log(e.detail.message);\n});"
+        },
+        {
+          "term": "Removing event listeners",
+          "description": "To prevent memory leaks and unnecessary processing, it's important to remove event listeners from elements when they are no longer needed or when the element is removed from the DOM.",
+          "code": "const clickHandler = () => {\n  console.log('Element clicked!');\n};\ndocument.querySelector('#myElement').addEventListener('click', clickHandler);\n// Later\ndocument.querySelector('#myElement').removeEventListener('click', clickHandler);"
+        }
+      ]
+    },{
+      "name": "Fetch API",
+      "description": "The Fetch API offers a powerful and flexible interface for making asynchronous HTTP requests to servers from web pages, replacing older techniques like XMLHttpRequest. It returns Promises, making it simpler to write asynchronous code and manage responses from the server. The Fetch API supports both simple requests (GET) and complex requests (POST, PUT, DELETE, etc.), along with requests to other domains (CORS requests).",
+      "concepts": [
+        {
+          "term": "Basic Fetch Request",
+          "description": "A simple example of using Fetch API to make a GET request and log the response text.",
+          "code": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));"
+        },
+        {
+          "term": "Sending Headers",
+          "description": "Demonstrates how to send HTTP headers with a request. Headers can include authentication tokens, specify content types, and more.",
+          "code": "fetch('https://api.example.com/data', {\n  headers: {\n    'Content-Type': 'application/json',\n    'Authorization': 'Bearer your_token_here'\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data));"
+        },
+        {
+          "term": "POST Request",
+          "description": "An example of making a POST request with JSON data. This method is commonly used for submitting form data or uploading files.",
+          "code": "fetch('https://api.example.com/submit', {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    name: 'John Doe',\n    job: 'Web Developer'\n  })\n})\n.then(response => response.json())\n.then(data => console.log('Success:', data))\n.catch(error => console.error('Error:', error));"
+        },
+        {
+          "term": "Error Handling",
+          "description": "Shows how to handle errors in fetch requests, including network errors and HTTP error statuses.",
+          "code": "fetch('https://api.example.com/data')\n  .then(response => {\n    if (!response.ok) {\n      throw new Error('Network response was not ok');\n    }\n    return response.json();\n  })\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));"
+        },
+        {
+          "term": "Abort a Fetch",
+          "description": "Illustrates how to abort a fetch request using the AbortController, useful for canceling requests in response to user actions (e.g., navigating away from a page).",
+          "code": "const controller = new AbortController();\nconst signal = controller.signal;\nfetch('https://api.example.com/data', { signal })\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => {\n    if (error.name === 'AbortError') {\n      console.log('Fetch aborted');\n    } else {\n      console.error('Fetch error:', error);\n    }\n  });\n// Abort fetch\ncontroller.abort();"
+        },
+        {
+          "term": "Using async/await",
+          "description": "A modern syntax for working with asynchronous code. This example shows how to use async/await with the Fetch API for cleaner, more readable code.",
+          "code": "async function fetchData(url) {\n  try {\n    const response = await fetch(url);\n    if (!response.ok) {\n      throw new Error('Network response was not ok');\n    }\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\nfetchData('https://api.example.com/data');"
+        }
+      ]
+    },{
+      "name": "ES6+ Features",
+      "description": "ECMAScript 6, also known as ES6 and ECMAScript 2015, introduced significant improvements and new features to the JavaScript language, aimed at making the code more readable, efficient, and easier to write. Following versions have continued this trend, further enhancing JavaScript's capabilities.",
+      "concepts": [
+        {
+          "term": "Template literals",
+          "description": "Template literals provide an easy syntax for creating strings with embedded expressions, allowing for multi-line strings without the need for concatenation.",
+          "code": "const name = 'World';\nlet greeting = `Hello, ${name}!`;\nconsole.log(greeting);"
+        },
+        {
+          "term": "Destructuring assignment",
+          "description": "Destructuring allows unpacking values from arrays or properties from objects into distinct variables, simplifying the code.",
+          "code": "const person = {firstName: 'John', lastName: 'Doe'};\nlet {firstName, lastName} = person;\nconsole.log(firstName, lastName);"
+        },
+        {
+          "term": "Spread/rest operator",
+          "description": "The spread operator (...) allows an iterable such as an array to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected.",
+          "code": "const parts = ['arms', 'legs'];\nconst body = ['head', ...parts, 'feet'];\nconsole.log(body);"
+        },
+        {
+          "term": "Arrow functions",
+          "description": "Arrow functions offer a concise syntax for writing functions. They share the same lexical `this` as their surrounding code.",
+          "code": "const add = (a, b) => a + b;\nconsole.log(add(2, 3));"
+        },
+        {
+          "term": "Classes",
+          "description": "ES6 introduced classes as syntactical sugar over JavaScript's existing prototype-based inheritance, providing a clearer and more concise way to create objects and handle inheritance.",
+          "code": "class Person {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    console.log(`Hello, ${this.name}!`);\n  }\n}\nconst person = new Person('John');\nperson.greet();"
+        },
+        {
+          "term": "let and const",
+          "description": "Introduced block-scoped variables (`let`) and constants (`const`), providing better scope control than `var`.",
+          "code": "let age = 25;\nconst name = 'Jane Doe';\nage = 26; // OK\n// name = 'John Doe'; // TypeError"
+        },
+        {
+          "term": "Default parameters",
+          "description": "Functions can have default parameter values, which are used when no value or `undefined` is passed.",
+          "code": "function greet(name = 'Guest') {\n  console.log(`Hello, ${name}!`);\n}\ngreet();\ngreet('John');"
+        },
+        {
+          "term": "Modules",
+          "description": "ES6 modules include `export` and `import` statements that allow functionalities to be split into separate files, facilitating code organization and reuse.",
+          "code": "// In math.js\nexport const add = (a, b) => a + b;\n// In another file\nimport { add } from './math.js';\nconsole.log(add(2, 3));"
+        },
+        {
+          "term": "Promises ES6",
+          "description": "Promises are used to handle asynchronous operations, allowing for cleaner code than traditional callback functions.",
+          "code": "const fetchData = () => new Promise((resolve, reject) => {\n  setTimeout(() => resolve('Data fetched'), 1000);\n});\nfetchData().then(data => console.log(data));"
+        }
+      ]
+    },{
+      "name": "Advanced JavaScript Concepts",
+      "description": "As JavaScript has evolved, several advanced concepts and features have been introduced to address complex programming challenges, enhance functionality, and improve performance in web applications.",
+      "concepts": [
+        {
+          "term": "Symbols",
+          "description": "Symbols are new primitive types introduced in ES6. They are completely unique identifiers, ideal for object property keys to avoid name clashes.",
+          "code": "const mySymbol = Symbol('mySymbol');\nconst obj = {\n  [mySymbol]: 'value'\n};\nconsole.log(obj[mySymbol]);"
+        },
+        {
+          "term": "Generators",
+          "description": "Generators are functions that can be exited and later re-entered, maintaining their context (variable bindings) across re-entrances.",
+          "code": "function* generatorFunction() {\n  yield 1;\n  yield 2;\n  yield 3;\n}\nconst generator = generatorFunction();\nconsole.log(generator.next().value);"
+        },
+        {
+          "term": "Proxy",
+          "description": "The Proxy object is used to define custom behavior for fundamental operations (e.g., property lookup, assignment, enumeration, function invocation, etc.).",
+          "code": "const target = {};\nconst handler = {\n  get: (obj, prop) => prop in obj ? obj[prop] : 37\n};\nconst p = new Proxy(target, handler);\nconsole.log(p.a);"
         }
       ]
     },
     {
-      "name": "Functions",
-        "description": "Functions are blocks of code designed to perform a particular task, and they are executed when something invokes or calls them.",
-        "concepts": [
-          {
-            "term": "Function declaration",
-            "description": "Declares a function with the specified parameters.",
-            "code": "function greet(name) { return 'Hello, ' + name + '!'; }"
-          },
-          {
-            "term": "Function expression",
-            "description": "A function can also be defined using an expression.",
-            "code": "let greet = function(name) { return 'Hello, ' + name + '!'; };"
-          },
-          {
-            "term": "Arrow function",
-            "description": "Allows a short syntax for writing function expressions.",
-            "code": "let greet = name => 'Hello, ' + name + '!';"
-          },
-          {
-            "term": "IIFE (Immediately Invoked Function Expression)",
-            "description": "A function that runs as soon as it is defined.",
-            "code": "(function () { console.log('Immediately invoked'); })();"
-          }
-        ]
-      },
-      {  "name": "Scope",
-        "description": "Scope determines the accessibility of variables and functions in JavaScript. Variables can exist in local or global scopes.",
-        "concepts": [
-          {
-            "term": "Global scope",
-            "description": "Variables defined outside any function have global scope.",
-            "code": "var globalVar = 'I am global';"
-          },
-          {
-            "term": "Local scope",
-            "description": "Variables declared within a function are local to that function.",
-            "code": "function myFunction() { var localVar = 'I am local'; }"
-          },
-          {
-            "term": "Block scope",
-            "description": "`let` and `const` are scoped to the block in which they are defined.",
-            "code": "if (true) { let blockScopedVar = 'I am block scoped'; }"
-          },
-          {
-            "term": "Lexical scope",
-            "description": "Describes how a parser resolves variable names when functions are nested.",
-            "code": "function outerFunc() { var outerVar = 'I am outside!'; function innerFunc() { console.log(outerVar); } innerFunc(); } outerFunc();"
-          }
-        ]
-      },
-      { "name":  "Array Methods",
-        "description": "Array methods are built-in functions that allow manipulation of array items, including searching, sorting, iterating, and transforming array elements.",
-        "concepts": [
-          {
-            "term": "push()",
-            "description": "Adds one or more elements to the end of an array   and returns the new length of the array.",
-            "code": "let fruits = ['apple', 'banana']; fruits.push('orange');"
-          },
-          {
-            "term": "pop()",
-            "description": "Removes the last element from an array and returns that element.",
-            "code": "let fruits = ['apple', 'banana', 'orange']; let last = fruits.pop();"
-          },
-          {
-            "term": "shift()",
-            "description": "Removes the first element from an array and returns that removed element.",
-            "code": "let fruits = ['apple', 'banana', 'orange']; let first = fruits.shift();"
-          },
-          {
-            "term": "unshift()",
-            "description": "Adds one or more elements to the beginning of an array and returns the new length.",
-            "code": "let fruits = ['banana', 'orange']; fruits.unshift('apple');"
-          },
-          {
-            "term": "splice()",
-            "description": "Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.",
-            "code": "colors.splice(2, 0, \"Orange\"); // Adds 'Orange' at index 2"
-          },
-          {
-            "term": "slice()",
-            "description": "Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included).",
-            "code": "let newColors = colors.slice(1, 3); // Copies elements at index 1 to 2"
-          },
-          {
-            "term": "concat()",
-            "description": "Is used to merge two or more arrays.",
-            "code": "let moreColors = [\"Pink\", \"Black\"]; let combinedColors = colors.concat(moreColors); // Merges two arrays"
-          }
-        ]
-      },
-       {
-        "name":"Array Iteration",
-        "description": "Array  methods execute a function on each item of an array, enabling operations like finding, filtering, and transforming array elements.",
-        "concepts": [
-          {
-            "term": "forEach()",
-            "description": "Executes a provided function once for each array element.",
-            "code": "let numbers = [1, 2, 3, 4, 5]; numbers.forEach(number => console.log(number));"
-          },
-          {
-            "term": "map()",
-            "description": "Creates a new array populated with the results of calling a provided function on every element in the calling array.",
-            "code": "let numbers = [1, 2, 3, 4, 5]; let squares = numbers.map(number => number * number);"
-          },
-          {
-            "term": "filter()",
-            "description": "Creates a new array with all elements that pass the test implemented by the provided function.",
-            "code": "let numbers = [1, 2, 3, 4, 5]; let evens = numbers.filter(number => number % 2 === 0);"
-          },
-          {
-            "term": "reduce()",
-            "description": "Executes a reducer function on each element of the array, resulting in a single output value.",
-            "code": "let numbers = [1, 2, 3, 4, 5]; let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);"
-          }
-        ]
-      },
-       { "name": "Web APIs",
-        "description": "Web APIs enable interaction between the web browser and the web page, providing functionalities like manipulating the Document Object Model (DOM), making HTTP requests, and storing data on the client side.",
-        "concepts": [
-          {
-            "term": "Fetch API",
-            "description": "Provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.",
-            "code": "fetch('https://api.example.com/data').then(response => response.json()).then(data => console.log(data));"
-          },
-          {
-            "term": "DOM Manipulation",
-            "description": "Allows dynamic changes to the content, structure, and style of a website.",
-            "code": "document.getElementById('demo').textContent = 'Hello World!';"
-          },
-          {
-            "term": "Event Listeners",
-            "description": "Asynchronous callbacks that listen for events on web page elements.",
-            "code": "document.getElementById('btn').addEventListener('click', () => alert('Button clicked!'));"
-          },
-          {
-            "term": "Local Storage",
-            "description": "Provides a way to store data locally within the user's browser.",
-            "code": "localStorage.setItem('key', 'value'); console.log(localStorage.getItem('key'));"
-          },
-          {
-            "term": "Session Storage",
-            "description": "Similar to Local Storage, but it's cleared when the page session ends.",
-            "code": "sessionStorage.setItem('sessionKey', 'sessionValue'); console.log(sessionStorage.getItem('sessionKey'));"
-          }
-        ]
-      },
-       { "name": "AJAX (Asynchronous JavaScript and XML)",
-        "description": "ES6, officially known as ECMAScript 2015, and later versions introduced new syntax and features to make JavaScript more powerful and concise.",
-        "concepts": [
-          {
-            "term": "Arrow Functions",
-            "description": "Provides a concise syntax for writing functions in JavaScript.",
-            "code": "const add = (a, b) => a + b;"
-          },
-          {
-            "term": "Promises",
-            "description": "An object representing the eventual completion or failure of an asynchronous operation.",
-            "code": "const fetchData = new Promise((resolve, reject) => { /* async operation */ });"
-          },
-          {
-            "term": "Template Literals",
-            "description": "Allow embedded expressions within string literals.",
-            "code": "const greeting = `Hello, ${name}!`;"
-          },
-          {
-            "term": "Destructuring Assignment",
-            "description": "Makes it possible to unpack values from arrays, or properties from objects, into distinct variables.",
-            "code": "const {a, b} = {a: 1, b: 2};"
-          },
-          {
-            "term": "Default Parameters",
-            "description": "Allow named parameters to be initialized with default values if no value or undefined is passed.",
-            "code": "function greet(name = 'Guest') { return `Hello, ${name}!`; }"
-          },
-          {
-            "term": "let and const",
-            "description": "Introduce block-scope variable declarations for JavaScript.",
-            "code": "let a = 2; const b = 'constant';"
-          },
-          {
-            "term": "Modules",
-            "description": "ECMAScript modules are the official standard format to package JavaScript code for reuse.",
-            "code": "import { moduleFunction } from './module.js'; export function myFunction() { /*...*/ }"
-          }
-        ]
-      },
-      {
-        "name": "Objects",
-        "description": "Objects in JavaScript are collections of key/value pairs. They store data and provide a mechanism for encapsulating data, functions, and structures.",
-        "concepts": [
-          {
-            "term": "Object properties",
-            "description": "Includes dot notation and bracket notation for accessing properties.",
-            "code": "let person = {firstName: \"John\", lastName: \"Doe\"};\n// Examples for dot and bracket notation"
-          },
-          {
-            "term": "Object methods",
-            "description": "Includes `Object.keys()`, `Object.values()`, `Object.entries()`.",
-            "code": "let person = {firstName: \"John\", lastName: \"Doe\"};\n// Examples for each object method"
-          },
-          {
-            "term": "Object destructuring",
-            "description": "A JavaScript expression that allows unpacking values from arrays, or properties from objects, into distinct variables.",
-            "code": "let {firstName, lastName} = person;"
-          }, {
-            "term": "Dot notation",
-            "description": "Accesses the property of an object. It's a straightforward syntax for getting or setting an object's property when you know the name of the property.",
-            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(person.firstName); // 'John'"
-          },
-          {
-            "term": "Bracket notation",
-            "description": "Another way to access a property of an object. It's useful when the property name is dynamic or not a valid identifier.",
-            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nlet property = 'firstName';\nconsole.log(person[property]); // 'John'"
-          },
-          {
-            "term": "Object.keys()",
-            "description": "Returns an array of a given object's own property names, in the same order as we get with a normal loop.",
-            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.keys(person)); // ['firstName', 'lastName']"
-          },
-          {
-            "term": "Object.values()",
-            "description": "Returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop.",
-            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.values(person)); // ['John', 'Doe']"
-          },
-          {
-            "term": "Object.entries()",
-            "description": "Returns an array of a given object's own enumerable string-keyed property [key, value] pairs.",
-            "code": "let person = {firstName: 'John', lastName: 'Doe'};\nconsole.log(Object.entries(person)); // [['firstName', 'John'], ['lastName', 'Doe']]"
-          }
-        ]
-      },
-      {
-        "name": "Promises",
-        "description": "Promises are used for asynchronous computations. A Promise represents an operation that hasn't completed yet, but is expected in the future.",
-        "concepts": [
-          {
-            "term": "Promise states",
-            "description": "Includes Pending, Fulfilled, Rejected.",
-            "code": "// Examples for each state here"
-          },
-          {
-            "term": "Promise methods",
-            "description": "Includes `then()`, `catch()`, `finally()`, `Promise.all()`.",
-            "code": "// Examples for using promise methods"
-          },
-          {
-            "term": "Pending",
-            "description": "The initial state of a Promise. The operation represented by the Promise has not completed yet.",
-            "code": "const promise = new Promise((resolve, reject) => {}); // Promise is in 'Pending' state"
-          },
-          {
-            "term": "Fulfilled",
-            "description": "The state of a Promise representing a successful operation.",
-            "code": "const promise = Promise.resolve('Success');\npromise.then(result => console.log(result)); // 'Success', Promise is 'Fulfilled'"
-          },
-          {
-            "term": "Rejected",
-            "description": "The state of a Promise representing a failed operation.",
-            "code": "const promise = Promise.reject('Failure');\npromise.catch(error => console.log(error)); // 'Failure', Promise is 'Rejected'"
-          },
-          {
-            "term": "then()",
-            "description": "Method to handle the fulfillment of the Promise. It gets called when the Promise is fulfilled.",
-            "code": "Promise.resolve('Success').then(result => console.log(result)); // Logs 'Success'"
-          },
-          {
-            "term": "catch()",
-            "description": "Method to handle the rejection of the Promise. It is executed when the Promise is rejected.",
-            "code": "Promise.reject('Failure').catch(error => console.log(error)); // Logs 'Failure'"
-          },
-          {
-            "term": "finally()",
-            "description": "Method that executes a callback function once the Promise is either fulfilled or rejected.",
-            "code": "new Promise((resolve, reject) => {\n  resolve('Success');\n})\n.finally(() => console.log('Completed'));\n// Logs 'Completed' regardless of the Promise's outcome"
-          },
-          {
-            "term": "Promise.all()",
-            "description": "Method that takes an iterable of promises as an input, and returns a single Promise that resolves when all of the promises in the iterable have resolved.",
-            "code": "Promise.all([Promise.resolve('Promise 1'), Promise.resolve('Promise 2')])\n.then(results => console.log(results)); // Logs ['Promise 1', 'Promise 2']"
-          }
-        ]
-      },
-      {
-        "name": "Asynchronous JavaScript",
-        "description": "Asynchronous JavaScript includes techniques such as callbacks, promises, and async/await to handle or perform operations asynchronously.",
-        "concepts": [
-          {
-            "term": "Callbacks",
-            "description": "A function passed into another function as an argument to be executed later.",
-            "code": "// Example of a callback function"
-          },
-          {
-            "term": "Promises",
-            "description": "An object representing the eventual completion or failure of an asynchronous operation.",
-            "code": "// Example of creating a promise"
-          },
-          {
-            "term": "Async/Await",
-            "description": "A syntactic sugar built on top of promises, making asynchronous code look and behave a little more like synchronous code.",
-            "code": "// Example of using async/await"
-          }
-        ]
-      },
-      {
-        "name": "Error Handling",
-        "description": "Error handling in JavaScript is implemented using try...catch statements, throw statements, and custom error handling logic to manage exceptions.",
-        "concepts": [
-          {
-            "term": "try...catch statement",
-            "description": "Marks a block of statements to try, and specifies a response, should an exception be thrown.",
-            "code": "// Example of using try...catch"
-          },
-          {
-            "term": "throw statement",
-            "description": "Throws a user-defined exception.",
-            "code": "// Example of using throw"
-          }
-        ],
-        "JSON (JavaScript Object Notation)": [
-          {
-            "term": "JSON",
-            "description": "A syntax for storing and exchanging data.",
-            "code": "let json = '{\"name\": \"John\", \"age\": 30}';\nlet user = JSON.parse(json); // Converts JSON text into a JavaScript object"
-          }
-        ]
-      },
-      {
-        "name": "JSON (JavaScript Object Notation)",
-        "description": "JSON is a lightweight format for storing and transporting data, often used when data is sent from a server to a web page.",
-        "concepts": [
-          {
-            "term": "JSON",
-            "description": "A syntax for storing and exchanging data.",
-            "code": "let json = '{\"name\": \"John\", \"age\": 30}';"
-          }
-        ]
-      },
-      {
-        "name": "Security",
-        "description": "Security in JavaScript involves techniques and practices for protecting web applications against vulnerabilities and threats, such as Cross-Site Scripting (XSS) and other web-based attacks.",
-        "concepts": [
-          {
-            "term": "Cross-Site Scripting (XSS)",
-            "description": "A security vulnerability typically found in web applications that allows attackers to inject client-side scripts into web pages viewed by other users.",
-            "code": ""
-          }
-        ]
-      },
-      {
-        "name": "ES6+ Features Extended",
-        "description": "Extended features of ES6 and later versions include syntax and functionality improvements like Optional Chaining and the Nullish Coalescing Operator.",
-        "concepts": [
-          {
-            "term": "Optional Chaining",
-            "description": "A safe way to access nested object properties, even if an intermediate property doesn't exist.",
-            "code": "const streetName = user?.address?.street;"
-          },
-          {
-            "term": "Nullish Coalescing Operator",
-            "description": "A logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.",
-            "code": "const foo = null ?? 'default string';"
-          }
-        ]
-      },
-      {
-        "name": "Modern Development Practices",
-        "description": "Modern Development Practices include methodologies and technologies such as Service Workers and Web Components, enhancing the capabilities and performance of web applications.",
-        "concepts": [
-          {
-            "term": "Service Workers",
-            "description": "Scripts that your browser runs in the background, separate from a web page, opening the door to features that don't need a web page or user interaction.",
-            "code": "if ('serviceWorker' in navigator) {\n  navigator.serviceWorker.register('/service-worker.js');\n}"
-          },
-          {
-            "term": "Web Components",
-            "description": "A set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps.",
-            "code": "class MyComponent extends HTMLElement {\n  constructor() {\n    super();\n  }\n}\ncustomElements.define('my-component', MyComponent);"
-          }
-        ]
-      },
-      {
-        "name": "Modules",
-        "description": "Modules in JavaScript provide a way to split the code of a web application into independent, reusable pieces.",
-        "concepts": [
-          {
-            "term": "import",
-            "description": "Allows you to bring modules or specific features into your current file.",
-            "code": "import { moduleFunction } from './module.js';"
-          },
-          {
-            "term": "export",
-            "description": "Allows you to make parts of your module available to be imported into other files.",
-            "code": "export function moduleFunction() { ... }"
-          }
-        ]
-      }, {
-        "name": "DOM Manipulation",
-        "description": "Techniques for dynamically changing the content, structure, and style of a document.",
-        "concepts": [
-          {
-            "term": "Selecting elements",
-            "description": "Accessing elements from the DOM.",
-            "code": "let element = document.getElementById('myElement');"
-          },
-          {
-            "term": "Modifying elements",
-            "description": "Changing the content or style of elements.",
-            "code": "element.textContent = 'New content';"
-          },
-          {
-            "term": "Creating elements",
-            "description": "Adding new elements to the DOM.",
-            "code": "let newElement = document.createElement('div');\ndocument.body.appendChild(newElement);"
-          }
-        ]
-      },
-      {
-        "name": "Events",
-        "description": "Interactions or occurrences that happen within the system you are programming for, which can be captured and handled using JavaScript.",
-        "concepts": [
-          {
-            "term": "Event listeners",
-            "description": "Add a function that will be called whenever a specified event occurs.",
-            "code": "element.addEventListener('click', function() {\n  console.log('Element clicked!');\n});"
-          },
-          {
-            "term": "Event propagation",
-            "description": "The process by which an event activated on an element (e.g., a click) is propagated through multiple layers of the DOM. Event propagation can be in two phases: capturing and bubbling.",
-            "code": "document.getElementById('parent').addEventListener('click', function() {\n  console.log('Parent clicked!');\n}, false);\ndocument.getElementById('child').addEventListener('click', function(event) {\n  console.log('Child clicked!');\n  event.stopPropagation(); // Stops the propagation\n}, false);"
-          },
-          {
-            "term": "Event delegation",
-            "description": "A technique of handling events by adding a single event listener to a parent element rather than multiple listeners to individual child elements. It leverages the event bubbling phase to capture events from child elements.",
-            "code": "document.getElementById('parent').addEventListener('click', function(event) {\n  if(event.target && event.target.matches('li.item')) {\n    console.log('Item clicked:', event.target.textContent);\n  }\n});"
-          }
-        ]
-      },
-      {
-        "name": "AJAX (Asynchronous JavaScript and XML)",
-        "description": "A technique for creating fast and dynamic web pages, allowing for asynchronous web page updates.",
-        "concepts": [
-          {
-            "term": "AJAX",
-            "description": "A technique for creating fast and dynamic web pages.",
-            "code": "// Example of using AJAX"
-          }
-        ]
-      },
-      {
-        "name": "Fetch API",
-        "description": "Provides a modern interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.",
-        "concepts": [
-          {
-            "term": "Fetch API",
-            "description": "Provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.",
-            "code": "// Example of using Fetch API"
-          }
-        ]
-      },
-      {
-        "name": "ES6+ Features",
-        "description": "Enhancements and new features introduced in ECMAScript 6 and later versions to improve JavaScript.",
-        "concepts": [
-          {
-            "term": "Template literals",
-            "description": "Allow embedded expressions and multi-line strings.",
-            "code": "let greeting = `Hello, ${name}!`;"
-          },
-          {
-            "term": "Destructuring assignment",
-            "description": "Allows unpacking values from arrays or properties from objects.",
-            "code": "let [first, second] = [1, 2];\nlet {firstName, lastName} = person;"
-          },
-          {
-            "term": "Spread/rest operator",
-            "description": "Allows an iterable to expand in places where 0+ arguments are expected.",
-            "code": "let parts = ['shoulders', 'knees'];\nlet lyrics = ['head', ...parts, 'and', 'toes'];"
-          },
-          {
-            "term": "Arrow functions",
-            "description": "Provide a concise syntax for writing function expressions.",
-            "code": "let add = (a, b) => a + b;"
-          },
-          {
-            "term": "Classes",
-            "description": "A template for creating objects.",
-            "code": "class Person {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    console.log(`Hello, ${this.name}!`);\n  }\n}"
-          },
-          {
-            "term": "let and const",
-            "description": "Declare variables with block scope, with `let` allowing reassignment and `const` defining a constant reference.",
-            "code": "let age = 25;\nconst name = 'John Doe';"
-          },
-          {
-            "term": "Default parameters",
-            "description": "Allow named parameters to be initialized with default values if no value or undefined is passed.",
-            "code": "function greet(name = 'Guest') {\n  return `Hello, ${name}!`;\n}"
-          },
-          {
-            "term": "Modules",
-            "description": "Support for import and export of functions, objects, or primitives from one module to another.",
-            "code": "// In file math.js\nexport const add = (a, b) => a + b;\n// In another file\nimport { add } from './math.js';\nconsole.log(add(2, 3));"
-          },
-          {
-            "term": "Promises ES6",
-            "description": "An object representing the eventual completion or failure of an asynchronous operation.",
-            "code": "const fetchData = new Promise((resolve, reject) => {\n  // Asynchronous operation\n  if (/* operation successful */) {\n    resolve('Data fetched successfully');\n  } else {\n    reject('Error fetching data');\n  }\n});\nfetchData.then(data => console.log(data)).catch(error => console.log(error));"
-          }
-        ]
-      },
-      {
-        "name": "Advanced JavaScript Concepts",
-        "description": "Covers advanced features of JavaScript that enable more complex and powerful code patterns.",
-        "concepts": [
-          {
-            "term": "Symbols",
-            "description": "A primitive data type unique and immutable, used mainly as the key of an Object property.",
-            "code": "let sym = Symbol('description');"
-          },
-          {
-            "term": "Generators",
-            "description": "Functions that can be exited and later re-entered, with their context saved across re-entrances.",
-            "code": "function* generator() {\n  yield 1;\n  yield 2;\n  yield 3;\n}"
-          },
-          {
-            "term": "Proxy",
-            "description": "An object that wraps another object and intercepts operations, like reading/writing properties and others, optionally providing custom behavior.",
-            "code": "let proxy = new Proxy(target, handler);"
-          }
-        ]
-      }
-      
-    
+      "name": "Other Essential JavaScript Concepts",
+      "description": "This category encompasses fundamental JavaScript concepts that are pivotal for understanding the language's behavior and structure. These concepts form the foundation upon which JavaScript operates, influencing scope, context, and the object-oriented nature of the language.",
+      "concepts": [
+        {
+          "term": "Closures",
+          "description": "A closure is a function that remembers the variables from the place where it is defined, regardless of where it is executed later. They allow for the creation of private variables and functions.",
+          "code": "function makeCounter() {\n  let count = 0;\n  return function() {\n    return count++;\n  };\n}\nconst counter = makeCounter();\nconsole.log(counter()); // 0\nconsole.log(counter()); // 1"
+        },
+        {
+          "term": "Callbacks",
+          "description": "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.",
+          "code": "function greeting(name) {\n  alert('Hello ' + name);\n}\nfunction processUserInput(callback) {\n  var name = prompt('Please enter your name.');\n  callback(name);\n}\nprocessUserInput(greeting);"
+        },
+        {
+          "term": "Prototypes",
+          "description": "Prototypes are the mechanism by which JavaScript objects inherit features from one another. In JavaScript, every object has a prototype property, which is part of the object's chain.",
+          "code": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\nPerson.prototype.fullName = function() {\n  return this.firstName + ' ' + this.lastName;\n};\nconst person = new Person('John', 'Doe');\nconsole.log(person.fullName()); // John Doe"
+        },
+        {
+          "term": "this keyword",
+          "description": "The `this` keyword refers to the object that the function is a property of. The value of `this` is determined by the invocation context of the function.",
+          "code": "const person = {\n  firstName: 'John',\n  lastName: 'Doe',\n  fullName: function() {\n    return this.firstName + ' ' + this.lastName;\n  }\n};\nconsole.log(person.fullName()); // John Doe"
+        },
+        {
+          "term": "Hoisting",
+          "description": "Hoisting is JavaScript's default behavior of moving declarations to the top of their scope before code execution. This means that variables and function declarations are processed before any code is executed.",
+          "code": "console.log(x);\nvar x = 5;\n// Equivalent to: var x; console.log(x); x = 5;"
+        },
+        {
+          "term": "Strict mode",
+          "description": "'Strict mode' is a way to opt in to a restricted variant of JavaScript. It intentionally has different semantics from normal code. Among other differences, variables cannot be used before they are declared.",
+          "code": "'use strict';\nx = 3.14; // This will cause an error because x is not declared"
+        }
+      ]
+    }
     
     
   ]

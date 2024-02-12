@@ -4,7 +4,7 @@ import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Terms.module.css";
 import { gql, useQuery } from "@apollo/client";
-
+import { Helmet } from "react-helmet";
 const GET_CATEGORY_BY_NAME = gql`
   query GetCategoryByName($name: String!) {
     getCategoryByName(name: $name) {
@@ -27,10 +27,19 @@ function ModernDevelopmentPracticesPage() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  const categoryData = data.getCategoryByName;
+const categoryData = data.getCategoryByName;
 
   return (
     <div>
+       <Helmet>
+        
+        <title>{`${categoryData.name} Concepts for JavaScript`}</title>
+        <meta name="description" content={`Javascript ${categoryData.name} Concepts: ${categoryData.concepts.map(concept => concept.term).join(', ')} | ${categoryData.description}`} />
+        
+        <meta property="og:title" content={`${categoryData.name} Concepts for JavaScript`} />
+        <meta property="og:description" content={`Javascript ${categoryData.name} Concepts: ${categoryData.concepts.map(concept => concept.term).join(', ')} | ${categoryData.description}`} />
+
+      </Helmet>
       <h2>{categoryData.name}</h2>
       <p>{categoryData.description}</p>
 

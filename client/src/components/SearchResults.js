@@ -47,7 +47,7 @@ const SearchResults = () => {
             {concept.category}
           </Link>
         ) : (
-          {category}
+          "Uncategorized"
         )}
         )
       </Card.Text>

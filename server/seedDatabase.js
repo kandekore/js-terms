@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 const mongoose = require("mongoose");
 const fs = require("fs").promises;
 const path = require("path");
 const Concept = require("./models/conceptModel"); 
 const Category = require("./models/categoryModel");
-
-const mongoURI = "mongodb://127.0.0.1/jsConceptsDB";
+const mongoURI = process.env.MONGODB_URI;
+//const mongoURI = "mongodb://127.0.0.1/jsConceptsDB";
 
 async function seedDatabase() {
   try {

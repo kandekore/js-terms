@@ -37,28 +37,33 @@ const SearchResults = () => {
       {data.searchConceptsByDescription.length > 0 ? (
         <ul>
           {data.searchConceptsByDescription.map((concept) => (
-            <Card className="box">
-              <Card.Header>
-                <h3>{concept.term}</h3>{" "}
-                <Card.Text>
-                  (Category:{" "}
-                  <Link to={`/${concept.category.replace(/\s+/g, "-")}`}>
-                    {concept.category}
-                  </Link>
-                  )
-                </Card.Text>
-              </Card.Header>
+  <Card className="box" key={concept.term}>
+    <Card.Header>
+      <h3>{concept.term}</h3>{" "}
+      <Card.Text>
+        (Category:{" "}
+        {concept.category ? (
+          <Link to={`/${concept.category.replace(/\s+/g, "-")}`}>
+            {concept.category}
+          </Link>
+        ) : (
+          "Uncategorized"
+        )}
+        )
+      </Card.Text>
+    </Card.Header>
 
-              <Card.Body>
-                <Card.Text>{concept.description} </Card.Text>
-                {concept.code && (
-                  <pre className={styles.codeSnippet}>
-                    <code>{concept.code}</code>
-                  </pre>
-                )}
-              </Card.Body>
-            </Card>
-          ))}
+    <Card.Body>
+      <Card.Text>{concept.description} </Card.Text>
+      {concept.code && (
+        <pre className={styles.codeSnippet}>
+          <code>{concept.code}</code>
+        </pre>
+      )}
+    </Card.Body>
+  </Card>
+))}
+
         </ul>
       ) : (
         <p>No results found.</p>

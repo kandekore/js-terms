@@ -9,10 +9,10 @@ function HomePage() {
       <div>
   <h1 className="heading">JavaScript Reference Resource</h1>
   <p>
-    Welcome to my JavaScript learning platform, tailored for both novices beginning their programming journey and seasoned developers seeking a concise reference or to refresh their knowledge on specific concepts. My comprehensive guide navigates through the expansive world of JavaScript, covering fundamental basics to advanced topics.
+    Welcome to the JavaScript Reference Resource, tailored for both novices beginning their programming journey and seasoned developers seeking a concise reference or to refresh their knowledge on specific concepts. My comprehensive guide navigates through the expansive world of JavaScript, covering fundamental basics to advanced topics.
   </p>
   <p>
-    As the backbone of interactive web development, mastering JavaScript is essential for anyone aiming to excel in the tech industry. My platform is meticulously organized into categories, each dedicated to a specific aspect of JavaScript. These range from foundational topics like "Variables" and "Data Types" to more complex subjects such as "Asynchronous JavaScript," "Promises," and "Web APIs."
+   This platform is meticulously organised into categories, each dedicated to a specific aspect of JavaScript. These range from foundational topics like "Variables" and "Data Types" to more complex subjects such as "Asynchronous JavaScript," "Promises," and "Web APIs."
   </p>
   <p>
     Each category on serves as a portal to in-depth exploration, breaking down into key concepts with straightforward explanations and illustrative code examples. This structured approach ensures a comprehensive learning experience, allowing you to build a robust foundation before venturing into more complex areas.

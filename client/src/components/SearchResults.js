@@ -11,7 +11,7 @@ const SEARCH_CONCEPTS_BY_KEYWORD = gql`
       term
       description
       code
-      
+      category
     }
   }
 `;
@@ -47,7 +47,7 @@ const SearchResults = () => {
             {concept.category}
           </Link>
         ) : (
-          "Uncategorized"
+          {category}
         )}
         )
       </Card.Text>

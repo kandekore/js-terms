@@ -36,33 +36,33 @@ const SearchResults = () => {
       <h2>Search Results for "{query}"</h2>
       {data.searchConceptsByDescription.length > 0 ? (
         <ul>
-     {data.searchConceptsByDescription.map((item) => (
-  <Card className="box" key={item.term || item.name}>
+          {data.searchConceptsByDescription.map((concept) => (
+  <Card className="box" key={concept.term}>
     <Card.Header>
-      <h3>{item.term || item.name}</h3>{" "}
+      <h3>{concept.term}</h3>{" "}
       <Card.Text>
-        {item.__typename === 'Concept' ? (
-          <span>
-            (Category:{" "}
-            <Link to={`/${item.category.replace(/\s+/g, "-")}`}>
-              {item.category}
-            </Link>)
-          </span>
-        ) : 'Category'}
+        (Category:{" "}
+        {concept.category ? (
+          <Link to={`/${concept.category.replace(/\s+/g, "-")}`}>
+            {concept.category}
+          </Link>
+        ) : (
+          "Uncategorized"
+        )}
+        )
       </Card.Text>
     </Card.Header>
 
     <Card.Body>
-      <Card.Text>{item.description}</Card.Text>
-      {item.code && (
+      <Card.Text>{concept.description} </Card.Text>
+      {concept.code && (
         <pre className={styles.codeSnippet}>
-          <code>{item.code}</code>
+          <code>{concept.code}</code>
         </pre>
       )}
     </Card.Body>
   </Card>
 ))}
-
 
         </ul>
       ) : (

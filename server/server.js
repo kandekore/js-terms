@@ -12,10 +12,9 @@ app.use(cors());
 
 // Connect to MongoDB
 console.log("MONGODB_URI:", process.env.MONGODB_URI);
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log("Connected to MongoDB..."))
-  .catch((err) => console.error("Could not connect to MongoDB...", err));
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected...'))
+  .catch(err => console.error('Could not connect to MongoDB...', err));
 
 
 const server = new ApolloServer({

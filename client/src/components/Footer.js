@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className={`${styles.footer} mt-auto py-3 bg-dark text-white`}>
       <Container>
         <Row>
-          <Col xs={12} md={4} className="text-center text-lg-start" id="darrenk">© 2024 <a
+          <Col xs={12} md={4} className="text-center text-lg-start" id="darrenk">© 2024<a
               href="https://darrenk.uk/blog"
               target="_blank"
               className="text-white ms-2"

@@ -24,7 +24,7 @@ function VariablesPage() {
   const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
     variables: { name: "Variables" }
   });
-
+  console.log(data);  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 

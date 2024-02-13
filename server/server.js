@@ -5,15 +5,18 @@ const typeDefs = require("./schemas/typeDefs");
 const resolvers = require("./schemas/resolvers");
 const cors = require("cors");
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
 
 // Connect to MongoDB
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB...", err));
+
 
 const server = new ApolloServer({
   typeDefs,

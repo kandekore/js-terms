@@ -29,7 +29,7 @@ function HomePage() {
 </div>
 
       </div>
-      <div style={{ display: "flex", justifyContent: "space%20between" }}>
+      <div className="flex-container" style={{ display: "flex", justifyContent: "space%20between" }}>
         {/* Divide the JavaScript tree into three flex columns */}
         <nav style={{ width: "32%" }}>
           <ul>

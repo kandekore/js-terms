@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Base styles */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-container nav {
+  width: 32%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .flex-container nav {
+    width: 100%; /* Each nav takes full width */
+  }
+}

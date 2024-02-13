@@ -41,15 +41,15 @@ const SearchResults = () => {
     <Card.Header>
       <h3>{concept.term}</h3>{" "}
       <Card.Text>
-        (Category:{" "}
+        
         {concept.category ? (
           <Link to={`/${concept.category.replace(/\s+/g, "-")}`}>
-            {concept.category}
+            (Category:{" "} {concept.category})
           </Link>
         ) : (
-          "Uncategorized"
+          " "
         )}
-        )
+        
       </Card.Text>
     </Card.Header>
 

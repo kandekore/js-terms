@@ -11,7 +11,7 @@ const SEARCH_CONCEPTS_BY_KEYWORD = gql`
       term
       description
       code
-      category
+      
     }
   }
 `;

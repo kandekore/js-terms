@@ -27,8 +27,22 @@ code {
   .flex-container {
     flex-direction: column;
   }
-
+ 
   .flex-container nav {
     width: 100%; /* Each nav takes full width */
   }
+}
+@media (max-width: 480px) {
+#darrenk {
+  margin-top: 10px !important;
+}
+.mern {
+  margin-top: 20px !important;
+}}
+
+p {
+  text-align: justify;
+}
+.center {
+  text-align: center;
 }

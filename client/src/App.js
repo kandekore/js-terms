@@ -41,7 +41,7 @@ import { Helmet } from "react-helmet";
 
 // Initialize Apollo Client
 const client = new ApolloClient({
-  uri: "https://jsconcepts-619c289c467a.herokuapp.com/graphql",
+  uri: process.env.REACT_APP_GRAPHQL_URI || "http://localhost/graphql",
   cache: new InMemoryCache()
 });
 

@@ -22,7 +22,7 @@ const GET_CATEGORY_BY_NAME = gql`
 
 function VariablesPage() {
   const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
-    variables: { name: "Variables" }
+    categories: { name: "Variables" }
   });
   console.log(data);  
   if (loading) return <p>Loading...</p>;

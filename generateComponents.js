@@ -61,7 +61,7 @@ const GET_CATEGORY_BY_NAME = gql\`
   }
 \`;
 
-function ${camelCaseCategoryName}Page() {
+function ${camelCaseCategoryName}() {
   const { loading, error, data } = useQuery(GET_CATEGORY_BY_NAME, {
     variables: { name: "${categoryName}" }
   });
@@ -104,7 +104,7 @@ const categoryData = data.getCategoryByName;
   );
 }
 
-export default ${camelCaseCategoryName}Page;
+export default ${camelCaseCategoryName};
 `;
 };
 

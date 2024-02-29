@@ -79,7 +79,7 @@ This command has been configured to use `concurrently` to run both the server an
 
 ## Screenshot
 
-![Screenshot](https://darrenk.uk/wp-content/uploads/2024/02/x2024-02-13_18-27-03.jpg)
+![Screenshot](https://darrenk.uk/wp-content/uploads/2024/02/2024-02-13_18-27-03.jpg)
 
 ## Contributing
 

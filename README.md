@@ -34,7 +34,7 @@ This project is built using the MERN stack (MongoDB, Express.js, React, Node.js)
 
 ```bash
 git clone https://github.com/kandekore/js-terms.git
-cd javascript-concepts
+cd js-terms
 ```
 
 2. Install dependencies for the server:

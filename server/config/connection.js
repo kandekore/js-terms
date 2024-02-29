@@ -1,6 +1,10 @@
+require('dotenv').config(); // Load environment variables
 const { connect, connection } = require("mongoose");
 
-connect("mongodb://127.0.0.1/jsConceptsDB", {
+// Use the environment variable or provide a default for development
+const mongoDBUri = process.env.MONGODB_URI || "mongodb://127.0.0.1/jsConceptsDB";
+
+connect(mongoDBUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

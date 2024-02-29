@@ -17,7 +17,7 @@ const conceptSchema = new mongoose.Schema({
     type: String,
     required: false
   }
-});
+}, { collection: 'jsconcepts' });
 
 const Concept = mongoose.model("Concept", conceptSchema);
 

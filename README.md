@@ -20,6 +20,9 @@ This project is built using the MERN stack (MongoDB, Express.js, React, Node.js)
 - **Bootstrap & React-Bootstrap**: Front-end frameworks for developing responsive and mobile-first websites.
 - **Helmet**: A React component that manages all of your changes to the document head.
 
+## Deployed Application
+
+This application is deployed on Heroku, you can view the live application here [https://jsconcepts-619c289c467a.herokuapp.com/](https://jsconcepts-619c289c467a.herokuapp.com/)
 ## Installation
 
 ### Prerequisites

@@ -18,32 +18,20 @@ import ArrayMethods from "./components/concepts/ArrayMethods";
 import ArrayIteration from "./components/concepts/Array-Iteration";
 import SearchResults from "./components/SearchResults";
 import Concept from "./components/concepts/Concepts";
-import Objects from "./components/concepts/Objects";
-import Promises from "./components/concepts/Promises";
-import AsynchronousJavaScript from "./components/concepts/AsynchronousJavaScript";
-import ErrorHandling from "./components/concepts/ErrorHandling";
-import JSON from "./components/concepts/JSON";
-import Modules from "./components/concepts/Modules";
-import DOMManipulation from "./components/concepts/DOMManipulation";
-import Events from "./components/concepts/Events";
-import AJAX from "./components/concepts/AJAX";
-import FetchAPI from "./components/concepts/FetchAPI";
-import ES6Features from "./components/concepts/ES6Features";
-import WebAPIs from "./components/concepts/WebAPIs";
-import LibrariesFrameworks from "./components/concepts/LibrariesandFrameworks";
-import Debugging from "./components/concepts/Debugging";
-import Security from "./components/concepts/Security";
-import Advanced from "./components/concepts/AdvancedJavaScriptConcepts"
-import Modern from "./components/concepts/ModernDevelopmentPractices"
-import Testing from "./components/concepts/TestingandPerformance"
-import E6 from "./components/concepts/ES6FeaturesExtended"
 import { Helmet } from "react-helmet";
 
-// Initialize Apollo Client
+// Dynamically fetch the GraphQL URI from environment variables
 const client = new ApolloClient({
-  uri: "https://jsconcepts-619c289c467a.herokuapp.com/graphql",
-  cache: new InMemoryCache()
+ 
+    // uri: process.env.REACT_APP_GRAPHQL_URI || "/graphql",
+    uri: "http://localhost:4000/graphql",
+
+  cache: new InMemoryCache(),
 });
+
+console.log("GraphQL Endpoint:", process.env.REACT_APP_GRAPHQL_URI);
+
+
 
 function App() {
   return (
@@ -52,8 +40,10 @@ function App() {
         <Header />
         <Helmet>
           <title>JavaScript Concepts and Code Examples | By D.Kandekore</title>
-          <meta name="description" content="This site is the ultimate JavaScript learning platform, tailored for both novices beginning their programming journey and seasoned developers seeking a concise reference or to refresh their knowledge on specific concepts. Our comprehensive guide navigates through the expansive world of JavaScript, covering fundamental basics to advanced topics." />
-          
+          <meta
+            name="description"
+            content="This site is the ultimate JavaScript learning platform, tailored for both novices beginning their programming journey and seasoned developers seeking a concise reference or to refresh their knowledge on specific concepts."
+          />
         </Helmet>
         <div className="d-flex flex-column min-vh-100">
           <main className={`flex-grow-1 ${styles.body}`}>
@@ -67,35 +57,10 @@ function App() {
                 <Route path="/functions" element={<Functions />} />
                 <Route path="/scope" element={<Scope />} />
                 <Route path="/array-methods" element={<ArrayMethods />} />
-                <Route path="/array-iteration" element={<ArrayIteration/>} />
-                <Route path="/objects" element={<Objects />} />
-                <Route path="/promises" element={<Promises />} />
-                <Route
-                  path="/asynchronous-javascript"
-                  element={<AsynchronousJavaScript />}
-                />
-                <Route path="/error-handling" element={<ErrorHandling />} />
-                <Route path="/json" element={<JSON />} />
-                <Route path="/modules" element={<Modules />} />
-                <Route path="/dom-manipulation" element={<DOMManipulation />} />
-                <Route path="/events" element={<Events />} />
-                <Route path="/ajax" element={<AJAX />} />
-                <Route path="/fetch-api" element={<FetchAPI />} />
-                <Route path="/es6-features" element={<ES6Features />} />
-                <Route path="/web-apis" element={<WebAPIs />} />
-                <Route
-                  path="/libraries-and-frameworks"
-                  element={<LibrariesFrameworks />}
-                />
-                <Route path="/debugging" element={<Debugging />} />
-                <Route path="/security" element={<Security />} />
-                <Route path="/advanced-javascript-concepts" element={<Advanced />} />
-                <Route path="/modern-development-practices" element={<Modern />} />
-                <Route path="/testing-and-performance" element={<Testing />} />
-                <Route path="/es6-features-extended" element={<E6 />} />
-                <Route path="/Other-Essential-JavaScript-Concepts" element={<Others />} />
-                <Route path="/search-results" element={<SearchResults />} />
+                <Route path="/array-iteration" element={<ArrayIteration />} />
+                <Route path="/others" element={<Others />} />
                 <Route path="/concept" element={<Concept />} />
+                <Route path="/search-results" element={<SearchResults />} />
               </Routes>
             </ApolloProvider>
           </main>
@@ -105,5 +70,6 @@ function App() {
     </>
   );
 }
+/******  d6495d42-5d6e-48a6-9117-f8d7c3d35074  *******/
 
 export default App;
